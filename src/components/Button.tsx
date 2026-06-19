@@ -13,13 +13,13 @@ export const Button: React.FC<ButtonProps> = ({
   className = '',
   ...props
 }) => {
-  const baseStyle = 'inline-flex items-center justify-center font-display rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-brand-coral/50 active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none';
+  const baseStyle = 'inline-flex items-center justify-center font-display rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-brand-purple/50 active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none';
   
   const variants = {
-    primary: 'bg-brand-purple text-white hover:bg-[#5939e6] shadow-sm hover:shadow-md hover:shadow-brand-purple/15 hover:-translate-y-0.5',
-    secondary: 'bg-brand-lavender/30 text-brand-purple hover:bg-brand-lavender/50 hover:-translate-y-0.5 font-bold',
-    outline: 'border-2 border-brand-purple/20 text-brand-purple hover:bg-brand-purple/5 hover:border-brand-purple',
-    ghost: 'text-brand-text/80 hover:text-brand-purple hover:bg-brand-lavender/20',
+    primary: 'bg-gradient-to-r from-brand-purple to-brand-blue text-white shadow-sm hover:shadow-md hover:shadow-brand-purple/15 hover:opacity-95 hover:-translate-y-0.5',
+    secondary: 'bg-brand-purple/10 text-brand-purple hover:bg-brand-purple/15 hover:-translate-y-0.5 font-bold',
+    outline: 'border-2 border-brand-purple/25 text-brand-purple hover:bg-brand-purple/5 hover:border-brand-purple',
+    ghost: 'text-brand-text/80 hover:text-brand-purple hover:bg-brand-purple/10',
     'coral-ghost': 'text-brand-purple hover:bg-brand-purple/10',
   };
 

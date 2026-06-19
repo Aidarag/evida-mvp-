@@ -1,19 +1,12 @@
 import React, { useState } from 'react';
 import { useApp } from '../context/AppContext';
-import type { Opportunity } from '../types';
-import { Search, Briefcase, Heart, Check, X, Calendar, DollarSign, Award, FileSpreadsheet, Send, Sparkle } from 'lucide-react';
+import { Search, Briefcase, Heart, Calendar, DollarSign, Award, FileSpreadsheet, Sparkle } from 'lucide-react';
 import Button from '../components/Button';
 
 export const Opportunities: React.FC = () => {
-  const { opportunities, profile, saveOpportunity } = useApp();
+  const { opportunities, profile, saveOpportunity, setCurrentPage, setSelectedOpportunityId } = useApp();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedType, setSelectedType] = useState<string>('All');
-  
-  // Application modal states
-  const [selectedOpp, setSelectedOpp] = useState<Opportunity | null>(null);
-  const [applicantNote, setApplicantNote] = useState('');
-  const [isAppliedSuccessfully, setIsAppliedSuccessfully] = useState(false);
-
   const types = ['All', 'Internship', 'Scholarship', 'Job', 'Research', 'Competition'];
 
   // Filter opportunities
@@ -30,20 +23,9 @@ export const Opportunities: React.FC = () => {
     return matchesSearch && matchesType;
   });
 
-  const handleApplyClick = (opp: Opportunity) => {
-    setSelectedOpp(opp);
-    setApplicantNote('');
-    setIsAppliedSuccessfully(false);
-  };
-
-  const handleSendApplication = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsAppliedSuccessfully(true);
-    setTimeout(() => {
-      // Auto close after 2 seconds
-      setSelectedOpp(null);
-      setIsAppliedSuccessfully(false);
-    }, 2200);
+  const handleViewOpportunity = (oppId: string) => {
+    setSelectedOpportunityId(oppId);
+    setCurrentPage('opportunity-details');
   };
 
   // Get matching icon based on opportunity type
@@ -138,7 +120,10 @@ export const Opportunities: React.FC = () => {
                     </div>
                     
                     <div className="space-y-1 min-w-0 text-left">
-                      <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
+                      <div 
+                        className="flex flex-wrap items-center gap-x-2 gap-y-1 cursor-pointer"
+                        onClick={() => handleViewOpportunity(opp.id)}
+                      >
                         <h3 className="text-base font-bold text-brand-text font-display group-hover:text-brand-purple transition-colors truncate">
                           {opp.title}
                         </h3>
@@ -188,7 +173,7 @@ export const Opportunities: React.FC = () => {
                     <Button
                       variant="primary"
                       size="sm"
-                      onClick={() => handleApplyClick(opp)}
+                      onClick={() => handleViewOpportunity(opp.id)}
                       className="px-6 font-bold"
                     >
                       Apply Now
@@ -208,101 +193,6 @@ export const Opportunities: React.FC = () => {
           </div>
         )}
       </div>
-
-      {/* Slide-Up Overlay Modal for Simulated Applications */}
-      {selectedOpp && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center px-4 bg-brand-text/30 backdrop-blur-sm transition-all duration-300">
-          <div className="bg-brand-bg rounded-[2rem] p-6 sm:p-8 max-w-lg w-full border border-brand-lavender shadow-2xl relative space-y-6 animate-fadeIn">
-            {/* Close */}
-            <button 
-              onClick={() => setSelectedOpp(null)}
-              className="absolute top-4 right-4 p-1.5 rounded-full text-brand-text/40 hover:text-brand-text hover:bg-brand-lavender/30 transition-colors"
-            >
-              <X className="w-5 h-5" />
-            </button>
-
-            {/* Success state */}
-            {isAppliedSuccessfully ? (
-              <div className="text-center py-10 space-y-4">
-                <div className="w-16 h-16 bg-emerald-50 text-emerald-500 rounded-full mx-auto flex items-center justify-center border border-emerald-100 shadow-inner">
-                  <Check className="w-8 h-8 stroke-[3.5px]" />
-                </div>
-                <h3 className="text-2xl font-bold font-display text-brand-text">Application Sent!</h3>
-                <p className="text-sm text-brand-text-sec leading-relaxed max-w-xs mx-auto">
-                  Your profile and application materials have been routed to <strong>{selectedOpp.organizer}</strong>. You'll receive updates at maya.lin@college.edu!
-                </p>
-              </div>
-            ) : (
-              // Form state
-              <form onSubmit={handleSendApplication} className="space-y-4">
-                <div className="space-y-1">
-                  <span className="bg-brand-purple/10 text-brand-purple text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider font-display select-none">
-                    Apply for {selectedOpp.type}
-                  </span>
-                  <h3 className="text-xl font-bold text-brand-text font-display pt-1 leading-snug">
-                    {selectedOpp.title}
-                  </h3>
-                  <p className="text-xs text-brand-text-sec/75">
-                    Offered by: <strong>{selectedOpp.organizer}</strong>
-                  </p>
-                </div>
-
-                <hr className="border-brand-lavender/25" />
-
-                {/* Pre-filled info row */}
-                <div className="grid grid-cols-2 gap-4 bg-white p-3.5 rounded-2xl border border-brand-lavender/15 text-left text-xs font-semibold text-brand-text-sec leading-none select-none">
-                  <div>
-                    <p className="text-[9px] uppercase tracking-wider text-brand-text-sec/40 mb-1">Student</p>
-                    <p className="text-brand-text">Maya Lin</p>
-                  </div>
-                  <div>
-                    <p className="text-[9px] uppercase tracking-wider text-brand-text-sec/40 mb-1">Major</p>
-                    <p className="text-brand-text truncate">Communication & CS</p>
-                  </div>
-                </div>
-
-                {/* Cover note message */}
-                <div className="space-y-1.5 text-left">
-                  <label className="text-[10px] font-bold text-brand-text-sec uppercase tracking-wider font-display">Introduce Yourself (Cover Note)</label>
-                  <textarea
-                    value={applicantNote}
-                    onChange={(e) => setApplicantNote(e.target.value)}
-                    rows={4}
-                    placeholder={`Tell ${selectedOpp.organizer} why you're interested in this opportunity and highlight your experience...`}
-                    className="w-full px-4 py-3 bg-white border border-brand-lavender/70 rounded-xl text-sm font-sans focus:outline-none focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple transition-all text-brand-text"
-                    required
-                  />
-                </div>
-
-                {/* Action Buttons */}
-                <div className="flex gap-3 pt-3 border-t border-brand-lavender/25">
-                  <Button
-                    type="button"
-                    variant="outline"
-                    size="md"
-                    onClick={() => setSelectedOpp(null)}
-                    className="w-full border-brand-purple/15 hover:border-brand-purple"
-                  >
-                    Cancel
-                  </Button>
-                  
-                  <Button
-                    type="submit"
-                    variant="primary"
-                    size="md"
-                    className="w-full flex items-center justify-center space-x-2"
-                  >
-                    <Send className="w-4 h-4" />
-                    <span>Submit Application</span>
-                  </Button>
-                </div>
-              </form>
-            )}
-
-          </div>
-        </div>
-      )}
-
     </div>
   );
 };

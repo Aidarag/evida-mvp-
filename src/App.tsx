@@ -9,6 +9,7 @@ import Communities from './pages/Communities';
 import CommunityProfile from './pages/CommunityProfile';
 import CreateEvent from './pages/CreateEvent';
 import Opportunities from './pages/Opportunities';
+import OpportunityDetails from './pages/OpportunityDetails';
 import Saved from './pages/Saved';
 import Profile from './pages/Profile';
 
@@ -31,6 +32,8 @@ const AppContent: React.FC = () => {
         return <CreateEvent />;
       case 'opportunities':
         return <Opportunities />;
+      case 'opportunity-details':
+        return <OpportunityDetails />;
       case 'saved':
         return <Saved />;
       case 'profile':

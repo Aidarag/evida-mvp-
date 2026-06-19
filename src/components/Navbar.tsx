@@ -1,7 +1,8 @@
 import React from 'react';
 import { useApp } from '../context/AppContext';
 import type { PageName } from '../context/AppContext';
-import { Compass, Users, PlusCircle, User, Home, Heart, Briefcase, Sparkles, Sprout } from 'lucide-react';
+import { Compass, Users, PlusCircle, User, Home, Heart, Briefcase, Sparkles } from 'lucide-react';
+import { EvidaLogo, EvidaLogoText } from './EvidaLogo';
 import Button from './Button';
 
 export const Navbar: React.FC = () => {
@@ -39,10 +40,8 @@ export const Navbar: React.FC = () => {
               onClick={() => handleNavClick('home')}
               className="flex items-center space-x-2.5 cursor-pointer group select-none text-brand-purple"
             >
-              <Sprout className="w-6 h-6 transform transition-transform duration-300 group-hover:rotate-12" />
-              <span className="text-xl font-display font-bold tracking-tight bg-gradient-to-r from-brand-text to-brand-purple bg-clip-text text-transparent">
-                Evida
-              </span>
+              <EvidaLogo size={28} className="transform transition-transform duration-300 group-hover:rotate-6 group-hover:scale-105" />
+              <EvidaLogoText size={20} className="text-brand-text group-hover:text-brand-purple transition-colors" />
               <span className="inline-flex items-center px-2 py-0.5 text-[9px] font-bold bg-brand-purple/10 text-brand-purple rounded-full uppercase tracking-wider font-display">
                 CAMPUS
               </span>
@@ -53,7 +52,8 @@ export const Navbar: React.FC = () => {
               {desktopNavItems.map((item) => {
                 const isActive = currentPage === item.page || 
                   (item.page === 'explore' && currentPage === 'event-details') ||
-                  (item.page === 'communities' && currentPage === 'community-profile');
+                  (item.page === 'communities' && currentPage === 'community-profile') ||
+                  (item.page === 'opportunities' && currentPage === 'opportunity-details');
                 return (
                   <button
                     key={item.page}

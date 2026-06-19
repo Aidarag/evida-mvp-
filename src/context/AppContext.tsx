@@ -3,7 +3,7 @@ import type { ReactNode } from 'react';
 import type { Event, Community, UserProfile, Opportunity, Discussion } from '../types';
 import { mockEvents, mockCommunities, mockOpportunities, initialProfile } from '../data/mockData';
 
-export type PageName = 'home' | 'explore' | 'event-details' | 'communities' | 'create-event' | 'profile' | 'opportunities' | 'saved' | 'community-profile';
+export type PageName = 'home' | 'explore' | 'event-details' | 'communities' | 'create-event' | 'profile' | 'opportunities' | 'saved' | 'community-profile' | 'opportunity-details';
 
 interface AppContextType {
   events: Event[];
@@ -13,9 +13,11 @@ interface AppContextType {
   currentPage: PageName;
   selectedEventId: string | null;
   selectedCommunityId: string | null;
+  selectedOpportunityId: string | null;
   setCurrentPage: (page: PageName) => void;
   setSelectedEventId: (id: string | null) => void;
   setSelectedCommunityId: (id: string | null) => void;
+  setSelectedOpportunityId: (id: string | null) => void;
   rsvpEvent: (eventId: string) => void;
   saveEvent: (eventId: string) => void;
   toggleFollowCommunity: (communityId: string) => void;
@@ -35,6 +37,7 @@ export const AppContextProvider: React.FC<{ children: ReactNode }> = ({ children
   const [currentPage, setCurrentPageState] = useState<PageName>('home');
   const [selectedEventId, setSelectedEventId] = useState<string | null>(null);
   const [selectedCommunityId, setSelectedCommunityId] = useState<string | null>(null);
+  const [selectedOpportunityId, setSelectedOpportunityId] = useState<string | null>(null);
 
   const setCurrentPage = (page: PageName) => {
     setCurrentPageState(page);
@@ -169,9 +172,11 @@ export const AppContextProvider: React.FC<{ children: ReactNode }> = ({ children
         currentPage,
         selectedEventId,
         selectedCommunityId,
+        selectedOpportunityId,
         setCurrentPage,
         setSelectedEventId,
         setSelectedCommunityId,
+        setSelectedOpportunityId,
         rsvpEvent,
         saveEvent,
         toggleFollowCommunity,

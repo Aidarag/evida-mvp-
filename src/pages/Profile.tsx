@@ -12,9 +12,14 @@ const getAchievementIcon = (name: string) => {
 };
 
 export const Profile: React.FC = () => {
-  const { profile, events, communities, opportunities, updateProfile, setCurrentPage, saveOpportunity } = useApp();
+  const { profile, events, communities, opportunities, updateProfile, setCurrentPage, saveOpportunity, setSelectedOpportunityId } = useApp();
   const [activeTab, setActiveTab] = useState<'attending' | 'saved' | 'communities' | 'opportunities'>('attending');
   const [isEditing, setIsEditing] = useState(false);
+
+  const handleViewOpportunity = (oppId: string) => {
+    setSelectedOpportunityId(oppId);
+    setCurrentPage('opportunity-details');
+  };
   
   // Profile edit states
   const [editName, setEditName] = useState(profile.name);
@@ -138,7 +143,7 @@ export const Profile: React.FC = () => {
                   {profile.achievements.map((badge, idx) => (
                     <span 
                       key={idx}
-                      className="px-3 py-1 bg-brand-peach/25 text-[#bd5133] text-[11px] font-bold rounded-full border border-brand-peach/40 font-display flex items-center select-none"
+                      className="px-3 py-1 bg-brand-blue/5 text-brand-blue text-[11px] font-bold rounded-full border border-brand-blue/15 font-display flex items-center select-none"
                     >
                       {getAchievementIcon(badge)}
                       <span>{badge}</span>
@@ -344,7 +349,12 @@ export const Profile: React.FC = () => {
                       <span className="bg-brand-purple/10 text-brand-purple text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider font-display select-none">
                         {opp.type}
                       </span>
-                      <h4 className="text-sm font-bold text-brand-text font-display pt-1">{opp.title}</h4>
+                      <h4 
+                        onClick={() => handleViewOpportunity(opp.id)}
+                        className="text-sm font-bold text-brand-text font-display pt-1 cursor-pointer hover:text-brand-purple transition-colors"
+                      >
+                        {opp.title}
+                      </h4>
                       <p className="text-xs text-brand-text-sec font-semibold">{opp.organizer}</p>
                       <p className="text-xs text-brand-purple font-bold flex items-center">
                         <DollarSign className="w-3.5 h-3.5 mr-0.5 text-brand-purple flex-shrink-0" />
@@ -358,7 +368,7 @@ export const Profile: React.FC = () => {
                       >
                         Remove
                       </button>
-                      <Button variant="primary" size="sm" onClick={() => setCurrentPage('opportunities')} className="py-1 px-4 text-xs font-bold">
+                      <Button variant="primary" size="sm" onClick={() => handleViewOpportunity(opp.id)} className="py-1 px-4 text-xs font-bold">
                         Apply
                       </Button>
                     </div>

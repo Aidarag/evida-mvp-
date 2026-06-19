@@ -62,7 +62,7 @@ export const Explore: React.FC = () => {
           <div className="flex items-center space-x-2 border-b border-brand-lavender/25 pb-3">
             <TrendingUp className="w-5 h-5 text-brand-purple" />
             <h2 className="text-xl sm:text-2xl font-bold font-display text-brand-text">Trending Gatherings</h2>
-            <span className="bg-brand-peach/40 text-[#c95738] text-[10px] font-bold px-2 py-0.5 rounded-full uppercase font-display tracking-wider">Hot</span>
+            <span className="bg-brand-green/10 text-brand-green text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase font-display tracking-wider border border-brand-green/15">Hot</span>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {trendingEvents.map((event) => (

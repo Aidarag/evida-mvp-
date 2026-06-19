@@ -1,7 +1,8 @@
 import React from 'react';
 import { useApp } from '../context/AppContext';
 import type { PageName } from '../context/AppContext';
-import { Heart, Sprout } from 'lucide-react';
+import { Heart } from 'lucide-react';
+import { EvidaLogo, EvidaLogoText } from './EvidaLogo';
 
 export const Footer: React.FC = () => {
   const { setCurrentPage } = useApp();
@@ -20,11 +21,9 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center text-center md:text-left">
           {/* Brand Info */}
           <div>
-            <div className="flex items-center justify-center md:justify-start space-x-2 mb-3 text-brand-purple">
-              <Sprout className="w-5 h-5" />
-              <span className="text-xl font-display font-extrabold tracking-tight bg-gradient-to-r from-white to-brand-lavender bg-clip-text text-transparent">
-                Evida
-              </span>
+            <div className="flex items-center justify-center md:justify-start space-x-2.5 mb-3">
+              <EvidaLogo size={24} />
+              <EvidaLogoText size={18} className="text-white" />
             </div>
             <p className="text-brand-lavender/65 text-sm max-w-sm mx-auto md:mx-0">
               One life, one campus, one platform. Discover events, join student communities, and make college life feel warm, active, and connected.
@@ -33,7 +32,7 @@ export const Footer: React.FC = () => {
 
           {/* Quick Links */}
           <div className="flex flex-col space-y-2 md:items-center">
-            <span className="font-display font-bold text-sm text-brand-peach tracking-wider uppercase mb-1">Explore</span>
+            <span className="font-display font-bold text-sm text-brand-green tracking-wider uppercase mb-1">Explore</span>
             <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 md:flex-col md:items-center md:gap-y-2">
               {quickLinks.map((link) => (
                 <button
@@ -49,7 +48,7 @@ export const Footer: React.FC = () => {
 
           {/* Quote & Hearts */}
           <div className="text-center md:text-right flex flex-col justify-center md:items-end">
-            <p className="text-brand-peach font-display font-bold italic text-base mb-2">
+            <p className="text-brand-green font-display font-bold italic text-base mb-2">
               “Find your people. Build your story.”
             </p>
             <div className="flex items-center justify-center md:justify-end space-x-1.5 text-xs text-brand-lavender/50">

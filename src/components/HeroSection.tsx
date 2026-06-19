@@ -14,7 +14,7 @@ const liveNotifications = [
 ];
 
 export const HeroSection: React.FC = () => {
-  const { setCurrentPage } = useApp();
+  const { setCurrentPage, setSelectedOpportunityId } = useApp();
   const prefersReducedMotion = useReducedMotion();
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -192,11 +192,12 @@ export const HeroSection: React.FC = () => {
             variants={itemVariants}
             className="text-5xl sm:text-7xl font-bold tracking-tight text-brand-text font-display leading-[1.05]"
           >
-            Find your <br />
-            <span className="bg-gradient-to-r from-brand-purple via-[#8566ff] to-brand-peach bg-clip-text text-transparent">
-              people
-            </span>
-            .
+            Your next <br />
+            <span className="bg-gradient-to-r from-brand-purple via-brand-blue to-brand-green bg-clip-text text-transparent">
+              opportunity
+            </span>{" "}
+            <br />
+            is waiting.
           </motion.h1>
 
           {/* Description */}
@@ -336,7 +337,7 @@ export const HeroSection: React.FC = () => {
                 <Clock className="w-3 h-3 mr-1" />
                 Close in 3 days
               </span>
-              <span className="text-brand-purple cursor-pointer hover:underline" onClick={() => setCurrentPage('opportunities')}>Apply Now →</span>
+              <span className="text-brand-purple cursor-pointer hover:underline" onClick={() => { setSelectedOpportunityId('opp-linear-intern'); setCurrentPage('opportunity-details'); }}>Apply Now →</span>
             </div>
           </motion.div>
 

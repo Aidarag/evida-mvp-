@@ -6,8 +6,13 @@ import Button from '../components/Button';
 import { Calendar, Users, Briefcase, X, DollarSign } from 'lucide-react';
 
 export const Saved: React.FC = () => {
-  const { profile, events, communities, opportunities, setCurrentPage, saveOpportunity } = useApp();
+  const { profile, events, communities, opportunities, setCurrentPage, saveOpportunity, setSelectedOpportunityId } = useApp();
   const [activeTab, setActiveTab] = useState<'events' | 'clubs' | 'opportunities'>('events');
+
+  const handleViewOpportunity = (oppId: string) => {
+    setSelectedOpportunityId(oppId);
+    setCurrentPage('opportunity-details');
+  };
 
   // Filter lists based on saved IDs in student profile
   const savedEvents = events.filter(evt => profile.savedEventIds.includes(evt.id));
@@ -133,7 +138,12 @@ export const Saved: React.FC = () => {
                     <span className="bg-brand-purple/10 text-brand-purple text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider font-display select-none">
                       {opp.type}
                     </span>
-                    <h4 className="text-base font-bold text-brand-text font-display pt-1">{opp.title}</h4>
+                    <h4 
+                      onClick={() => handleViewOpportunity(opp.id)}
+                      className="text-base font-bold text-brand-text font-display pt-1 cursor-pointer hover:text-brand-purple transition-colors"
+                    >
+                      {opp.title}
+                    </h4>
                     <p className="text-xs text-brand-text-sec font-semibold">{opp.organizer}</p>
                     <p className="text-[11px] text-brand-purple font-bold pt-1 flex items-center">
                       <DollarSign className="w-3 h-3 mr-0.5 text-brand-purple flex-shrink-0" />
@@ -152,7 +162,7 @@ export const Saved: React.FC = () => {
                     <Button
                       variant="primary"
                       size="sm"
-                      onClick={() => setCurrentPage('opportunities')}
+                      onClick={() => handleViewOpportunity(opp.id)}
                       className="text-xs py-1.5"
                     >
                       Apply
