@@ -1,0 +1,142 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-purple: #6D4AFF;
+  --color-brand-lavender: #CDBEFF;
+  --color-brand-peach: #FFC9B8;
+  --color-brand-bg: #FAF9FC;
+  --color-brand-text: #161616;
+  --color-brand-text-sec: #666666;
+  --color-brand-green: #4CAF50;
+
+  /* Compatibility fallbacks for existing components */
+  --color-brand-cream: #FAF9FC;
+  --color-brand-navy: #161616;
+  --color-brand-coral: #6D4AFF;
+  --color-brand-yellow: #FFC9B8;
+  
+  --font-display: "Clash Display", "Satoshi", sans-serif;
+  --font-sans: "Inter", "Satoshi", sans-serif;
+  --font-accent: "Cormorant Garamond", serif;
+}
+
+@layer base {
+  body {
+    @apply bg-brand-bg text-brand-text font-sans antialiased selection:bg-brand-purple/20;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-bold tracking-tight text-brand-text;
+  }
+}
+
+/* Custom Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #E5DFF0;
+  border-radius: 9999px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #FF7A60;
+}
+
+/* Page transitions */
+.fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Wave animation for hero elements */
+.wave-hover:hover {
+  animation: wave 1s ease-in-out infinite;
+}
+
+@keyframes wave {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-5deg); }
+  75% { transform: rotate(5deg); }
+}
+
+/* Floating animation for decorative card collage */
+.animate-float-slow {
+  animation: floatSlow 6s ease-in-out infinite alternate;
+}
+
+.animate-float-medium {
+  animation: floatMedium 4s ease-in-out infinite alternate;
+}
+
+.animate-float-fast {
+  animation: floatFast 3s ease-in-out infinite alternate;
+}
+
+@keyframes floatSlow {
+  0% { transform: translateY(0px) rotate(1deg); }
+  100% { transform: translateY(-12px) rotate(-1deg); }
+}
+
+@keyframes floatMedium {
+  0% { transform: translateY(0px) rotate(-2deg); }
+  100% { transform: translateY(-8px) rotate(2deg); }
+}
+
+@keyframes floatFast {
+  0% { transform: translateY(0px) rotate(0deg); }
+  100% { transform: translateY(-6px) rotate(1deg); }
+}
+
+/* Accent Font Utility */
+.font-accent {
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+}
+
+/* Glassmorphism utility cards (60% Luma / 25% Apple vibe) */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(205, 190, 255, 0.25);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(205, 190, 255, 0.3);
+}
+
+/* Custom premium badge gradients */
+.badge-purple-gradient {
+  background: linear-gradient(135deg, rgba(109, 74, 255, 0.1) 0%, rgba(205, 190, 255, 0.2) 100%);
+  color: #6D4AFF;
+  border: 1px solid rgba(109, 74, 255, 0.15);
+}
+
+.badge-peach-gradient {
+  background: linear-gradient(135deg, rgba(255, 201, 184, 0.2) 0%, rgba(255, 201, 184, 0.3) 100%);
+  color: #c95738;
+  border: 1px solid rgba(255, 201, 184, 0.4);
+}
+
+/* Custom Masonry layout overrides if needed */
+.masonry-col {
+  break-inside: avoid;
+  margin-bottom: 1.5rem;
+}
