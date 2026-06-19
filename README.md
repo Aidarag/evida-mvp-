@@ -1,73 +1,53 @@
-# React + TypeScript + Vite
+# Evida — Your Digital Campus Life 🌲
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to **Evida**, a student-life platform designed to help college students discover events, join communities, find career/educational opportunities, and build meaningful connections. 
 
-Currently, two official plugins are available:
+Evida blends Luma's glassmorphism and soft color overlays, Apple's clean design and smooth transitions, and Pinterest's aesthetic masonry discovery grids.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 🎨 Visual Identity & Brand System
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* **Brand Colors**:
+  * **Primary Purple**: `#6D4AFF` (Main branding accent)
+  * **Lavender**: `#CDBEFF`
+  * **Peach Accent**: `#FFC9B8`
+  * **Background**: `#FAF9FC` (Bright and airy)
+  * **Primary Text**: `#161616` (High contrast, modern)
+* **Typography**:
+  * **Headings**: Clash Display / Satoshi Bold
+  * **Body**: Inter / Satoshi Regular
+  * **Accents**: Cormorant Garamond Italic (e.g. *“Find your people. Build your story.”*)
+* **Atmosphere**: Warm, joyful, welcoming, and community-centered. Includes rounded corners (16px to 24px), micro-scaling hover scaling, floating polaroid collages, and playful sparkles.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 📱 Core Experience & Screens
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+1. **Landing Page**: Immersive hero section featuring action links, student count social proof, and a responsive floating collage of events, circular headshots, and active clubs.
+2. **Explore Events**: Horizontal trending gatherings bar, category tags, and a Pinterest-style masonry event discovery board.
+3. **Event Details Page**: Large hero header, attendee overlap bubbles, customizable **What to Expect** checklists, and CTAs (*"I'm Going"*, *"Save Event"*).
+4. **Communities Directory**: Active student club search grid and featured organization highlights.
+5. **Community Profile**: Tabbed portal (About, live Discussions board, Members Sheet, Projects & downloadable Resources, and Gallery) with banner logo emblem overlays.
+6. **Opportunities Hub**: Clean Notion-like list feed showing stipends and deadlines across Internships, Scholarships, Jobs, Research, and Competitions, along with an application modal.
+7. **Student Profile**: Personal card showing student photo, study Major, University, bio, achievements badges (*Community Catalyst 🌟*), upcoming RSVPs, and saved opportunities.
+8. **Mobile Navigation**: Sticky bottom nav bar on mobile resolutions linking to *Home*, *Explore*, *Create*, *Saved*, and *Profile*.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 🛠️ Getting Started (Local Run)
+
+Initialize dependencies:
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Start the Vite hot-reloading development server:
+```bash
+npm run dev
+```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Build the production bundle:
+```bash
+npm run build
 ```
