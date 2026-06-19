@@ -108,7 +108,7 @@ export const mockCommunities: Community[] = [
     category: 'Tech',
     image: 'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&q=80&w=800',
     banner: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=1200',
-    logo: '💻',
+    logo: 'Code',
     about: 'Tech Circle is the premier student builder community on campus. We focus on hands-on creation, hosting weekly hack sessions, peer-to-peer programming workshops, and hosting guest lectures from tech industry veterans. Whether you wrote your first line of code today or are already shipping production apps, you have a home here.',
     membersList: [
       { name: 'Alex Rivera', avatar: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=200', role: 'President' },
@@ -141,7 +141,7 @@ export const mockCommunities: Community[] = [
     category: 'Culture',
     image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800',
     banner: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=1200',
-    logo: '🌍',
+    logo: 'Globe',
     about: 'The International Students Club (ISC) aims to build global bridges and support international students settling on campus. We celebrate global diversity, coordinate fun cross-cultural events, and advocate for campus inclusivity.',
     membersList: [
       { name: 'Fatima Al-Sayed', avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200', role: 'President' },
@@ -169,7 +169,7 @@ export const mockCommunities: Community[] = [
     category: 'Business',
     image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800',
     banner: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80&w=1200',
-    logo: '💼',
+    logo: 'Briefcase',
     about: 'Women in Business empowers and guides undergraduate women aiming for careers in finance, management consulting, technology, and entrepreneurship. We run a structured alumni mentor pairing program and organize office tours in metropolitan hubs.',
     membersList: [
       { name: 'Sarah Jenkins', avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200', role: 'President' }
@@ -195,7 +195,7 @@ export const mockCommunities: Community[] = [
     category: 'Sports',
     image: 'https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?auto=format&fit=crop&q=80&w=800',
     banner: 'https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&q=80&w=1200',
-    logo: '🐻',
+    logo: 'Activity',
     about: 'The Blue Bears Athletics club connects students through recreation, sport, and wellness. We run intramural leagues, organize weekly runs around the campus lake, and hold watch-parties for collegiate championship games. All fitness levels are welcome!',
     membersList: [
       { name: 'Tyler Vance', avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200', role: 'Athletic Lead' }
@@ -221,7 +221,7 @@ export const mockCommunities: Community[] = [
     category: 'Creative',
     image: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&q=80&w=800',
     banner: 'https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?auto=format&fit=crop&q=80&w=1200',
-    logo: '🎨',
+    logo: 'Palette',
     about: 'Creative Studio is a joyful cross-discipline group for student creatives. We believe in building a safe space where artists, designers, film-makers, musicians, and poets can showcase work, get peer critique, and code visual design interfaces together.',
     membersList: [
       { name: 'Maya Lin', avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200', role: 'Studio Facilitator' },
@@ -249,7 +249,7 @@ export const mockCommunities: Community[] = [
     category: 'Wellness',
     image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=800',
     banner: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&q=80&w=1200',
-    logo: '🌸',
+    logo: 'Heart',
     about: 'The Wellness Society focuses on mental, emotional, and physical health. Through group meditation, stress relief workshops, and walks in nature, we provide active mindfulness tools to navigate academic pressure.',
     membersList: [
       { name: 'Chloe Kim', avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200', role: 'Meditation Instructor' }
@@ -331,10 +331,10 @@ export const initialProfile: UserProfile = {
   name: 'Maya Lin',
   major: 'Communication & Computer Science',
   university: 'Greenwood University',
-  bio: 'Sophomore, studying Communication & Computer Science. Loves sunset walks, trying new matcha lattes, and connecting people on campus! 🌸☕️',
+  bio: 'Sophomore, studying Communication & Computer Science. Loves sunset walks, trying new matcha lattes, and connecting people on campus!',
   avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=300',
   interests: ['Design', 'Community Building', 'Hiking', 'Board Games', 'Creative Tech'],
-  achievements: ['Community Catalyst 🌟', 'Hackathon Finalist 💻', 'Dean\'s List 🎓'],
+  achievements: ['Community Catalyst', 'Hackathon Finalist', 'Dean\'s List'],
   savedEventIds: ['evt-coffee-chat'],
   rsvpEventIds: ['evt-mixer'],
   followedCommunityIds: ['comm-tech', 'comm-creative'],

@@ -158,7 +158,8 @@ export const Opportunities: React.FC = () => {
                       {/* Sub row details tags */}
                       <div className="flex flex-wrap items-center gap-x-4 pt-2 text-[10px] sm:text-xs font-semibold text-brand-text-sec/60">
                         <span className="flex items-center text-brand-purple">
-                          <span className="mr-1">💰</span> {opp.reward}
+                          <DollarSign className="w-3.5 h-3.5 mr-0.5 text-brand-purple flex-shrink-0" />
+                          <span>{opp.reward}</span>
                         </span>
                         <span className="flex items-center">
                           <Calendar className="w-3.5 h-3.5 mr-1 flex-shrink-0 text-brand-text/30" /> 

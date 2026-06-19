@@ -98,7 +98,7 @@ export const CreateEvent: React.FC = () => {
           
           <div className="space-y-3">
             <h2 className="text-3xl font-bold text-brand-text font-display">
-              Event Created! 🎉
+              Event Created!
             </h2>
             <p className="text-brand-text-sec leading-relaxed text-sm sm:text-base">
               Your event is ready to be discovered. We have automatically listed it on the Explore page and RSVP'd you as the organizer.

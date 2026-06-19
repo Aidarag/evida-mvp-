@@ -2,8 +2,27 @@ import React, { useState } from 'react';
 import { useApp } from '../context/AppContext';
 import CommunityCard from '../components/CommunityCard';
 import CategoryFilter from '../components/CategoryFilter';
-import { Users, Search, Sparkles, Heart } from 'lucide-react';
+import { Users, Search, Sparkles, Heart, Code, Globe, Briefcase, Activity, Palette, Sprout } from 'lucide-react';
 import Button from '../components/Button';
+
+const renderCommunityIcon = (logoKey: string, className = "w-6 h-6 text-brand-purple") => {
+  switch (logoKey) {
+    case 'Code':
+      return <Code className={className} />;
+    case 'Globe':
+      return <Globe className={className} />;
+    case 'Briefcase':
+      return <Briefcase className={className} />;
+    case 'Activity':
+      return <Activity className={className} />;
+    case 'Palette':
+      return <Palette className={className} />;
+    case 'Heart':
+      return <Heart className={className} />;
+    default:
+      return <Sprout className={className} />;
+  }
+};
 
 export const Communities: React.FC = () => {
   const { communities, setSelectedCommunityId, setCurrentPage } = useApp();
@@ -70,7 +89,9 @@ export const Communities: React.FC = () => {
                 </div>
                 <div className="space-y-2 text-center sm:text-left flex-grow">
                   <div className="flex items-center justify-center sm:justify-start space-x-2">
-                    <span className="text-xl">{comm.logo}</span>
+                    <div className="w-8 h-8 rounded-xl bg-brand-purple/10 flex items-center justify-center">
+                      {renderCommunityIcon(comm.logo, "w-4.5 h-4.5 text-brand-purple")}
+                    </div>
                     <h3 className="text-lg font-bold text-brand-text font-display group-hover:text-brand-purple transition-colors">{comm.name}</h3>
                   </div>
                   <p className="text-xs text-brand-text-sec line-clamp-2 leading-relaxed">

@@ -1,8 +1,27 @@
 import React, { useState } from 'react';
 import { useApp } from '../context/AppContext';
-import { Users, Calendar, ArrowLeft, MessageSquare, Briefcase, FileText, Check, Plus, Image } from 'lucide-react';
+import { Users, Calendar, ArrowLeft, MessageSquare, Briefcase, FileText, Check, Plus, Image, Code, Globe, Activity, Palette, Heart, Sprout } from 'lucide-react';
 import Button from '../components/Button';
 import EventCard from '../components/EventCard';
+
+const renderCommunityIcon = (logoKey: string, className = "w-6 h-6 text-brand-purple") => {
+  switch (logoKey) {
+    case 'Code':
+      return <Code className={className} />;
+    case 'Globe':
+      return <Globe className={className} />;
+    case 'Briefcase':
+      return <Briefcase className={className} />;
+    case 'Activity':
+      return <Activity className={className} />;
+    case 'Palette':
+      return <Palette className={className} />;
+    case 'Heart':
+      return <Heart className={className} />;
+    default:
+      return <Sprout className={className} />;
+  }
+};
 
 export const CommunityProfile: React.FC = () => {
   const { 
@@ -73,8 +92,8 @@ export const CommunityProfile: React.FC = () => {
           {/* Logo & Name */}
           <div className="flex flex-col sm:flex-row items-center sm:items-end gap-4 sm:gap-5">
             {/* Logo Emblem */}
-            <div className="w-20 h-20 sm:w-24 sm:h-24 bg-white rounded-3xl border-4 border-white shadow-md flex items-center justify-center text-4xl select-none">
-              {community.logo}
+            <div className="w-20 h-20 sm:w-24 sm:h-24 bg-white rounded-3xl border-4 border-white shadow-md flex items-center justify-center select-none">
+              {renderCommunityIcon(community.logo, "w-10 h-10 sm:w-12 sm:h-12 text-brand-purple")}
             </div>
             
             <div className="text-white sm:pb-1 space-y-1">

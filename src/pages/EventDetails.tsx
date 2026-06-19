@@ -291,7 +291,7 @@ export const EventDetails: React.FC = () => {
               <div className="bg-brand-purple/5 border border-brand-purple/10 rounded-2xl p-4 text-center">
                 <p className="text-xs font-bold text-brand-purple font-display flex items-center justify-center">
                   <Check className="w-4 h-4 text-brand-purple mr-1.5 flex-shrink-0 stroke-[3px]" />
-                  Your spot is locked in! Enjoy! 🎉
+                  Your spot is locked in! Enjoy!
                 </p>
               </div>
             )}
@@ -336,7 +336,7 @@ export const EventDetails: React.FC = () => {
 
             {/* Text details */}
             <div className="space-y-2">
-              <h3 className="text-2xl font-bold font-display text-brand-text">You’re Going! 🎉</h3>
+              <h3 className="text-2xl font-bold font-display text-brand-text">You’re Going!</h3>
               <p className="text-sm text-brand-text-sec leading-relaxed">
                 Awesome! You are officially confirmed for this campus event. You can access all your upcoming RSVPs on your <span className="font-bold text-brand-purple underline cursor-pointer" onClick={() => { setShowRsvpModal(false); setCurrentPage('profile'); }}>Student Profile</span>.
               </p>
@@ -359,7 +359,7 @@ export const EventDetails: React.FC = () => {
       {showShareToast && (
         <div className="fixed bottom-6 right-6 z-50 bg-brand-text text-white text-xs font-semibold px-4.5 py-3.5 rounded-full shadow-lg flex items-center space-x-2 border border-white/10 animate-bounce">
           <Sparkle className="w-4.5 h-4.5 text-brand-peach animate-spin" />
-          <span>Event invite link copied! Send it to classmates 💌</span>
+          <span>Event invite link copied! Send it to classmates</span>
         </div>
       )}
     </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useApp } from '../context/AppContext';
-import { Sparkles, Calendar, UserPlus, Flame, Star } from 'lucide-react';
+import { Sparkles, Calendar, UserPlus, Flame, Star, Palette, Check } from 'lucide-react';
 import Button from './Button';
 
 export const HeroSection: React.FC = () => {
@@ -109,7 +109,9 @@ export const HeroSection: React.FC = () => {
           {/* Floating Card 1: Event Preview (Top Left) */}
           <div className="absolute top-4 -left-4 z-20 bg-white/90 backdrop-blur-md p-3.5 rounded-2xl shadow-md border border-brand-lavender/40 max-w-[170px] transform -rotate-6 animate-float-medium hover:rotate-0 transition-transform duration-300">
             <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 rounded-lg bg-rose-50 flex items-center justify-center text-sm flex-shrink-0">🍕</div>
+              <div className="w-8 h-8 rounded-lg bg-rose-50 flex items-center justify-center flex-shrink-0">
+                <Sparkles className="w-4 h-4 text-brand-purple" />
+              </div>
               <div className="text-left min-w-0">
                 <h4 className="text-[11px] font-bold text-brand-text truncate font-display">Welcome Pizza Mixer</h4>
                 <p className="text-[9px] text-brand-text-sec truncate font-medium">Tonight • 6:00 PM</p>
@@ -117,14 +119,18 @@ export const HeroSection: React.FC = () => {
             </div>
             <div className="flex items-center justify-between mt-2.5 pt-2 border-t border-brand-lavender/20 text-[9px] text-brand-text-sec font-semibold">
               <span className="text-brand-purple">128 attending</span>
-              <div className="w-4 h-4 bg-brand-purple text-white rounded-full flex items-center justify-center text-[8px] font-bold">✓</div>
+              <div className="w-4 h-4 bg-brand-purple text-white rounded-full flex items-center justify-center">
+                <Check className="w-2.5 h-2.5 stroke-[3.5px]" />
+              </div>
             </div>
           </div>
 
           {/* Floating Card 2: Club Spotlight (Bottom Right) */}
           <div className="absolute bottom-2 -right-4 z-20 bg-white/95 backdrop-blur-md p-3.5 rounded-2xl shadow-lg border border-brand-lavender/40 max-w-[180px] transform rotate-6 animate-float-fast hover:rotate-0 transition-transform duration-300">
             <div className="flex items-center space-x-2.5">
-              <div className="w-9 h-9 rounded-xl bg-brand-purple/10 flex items-center justify-center text-lg flex-shrink-0">🎨</div>
+              <div className="w-9 h-9 rounded-xl bg-brand-purple/10 flex items-center justify-center flex-shrink-0">
+                <Palette className="w-4.5 h-4.5 text-brand-purple" />
+              </div>
               <div className="text-left">
                 <h4 className="text-[11px] font-bold text-brand-text font-display leading-tight">Creative Studio</h4>
                 <p className="text-[9px] text-brand-text-sec font-medium">95 members active</p>

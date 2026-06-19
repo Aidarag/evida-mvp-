@@ -1,7 +1,7 @@
 import React from 'react';
 import { useApp } from '../context/AppContext';
 import type { PageName } from '../context/AppContext';
-import { Compass, Users, PlusCircle, User, Home, Heart, Briefcase, Sparkles } from 'lucide-react';
+import { Compass, Users, PlusCircle, User, Home, Heart, Briefcase, Sparkles, Sprout } from 'lucide-react';
 import Button from './Button';
 
 export const Navbar: React.FC = () => {
@@ -37,9 +37,9 @@ export const Navbar: React.FC = () => {
             {/* Logo */}
             <div 
               onClick={() => handleNavClick('home')}
-              className="flex items-center space-x-2.5 cursor-pointer group select-none"
+              className="flex items-center space-x-2.5 cursor-pointer group select-none text-brand-purple"
             >
-              <span className="text-2xl transform transition-transform duration-300 group-hover:rotate-12">🌱</span>
+              <Sprout className="w-6 h-6 transform transition-transform duration-300 group-hover:rotate-12" />
               <span className="text-xl font-display font-bold tracking-tight bg-gradient-to-r from-brand-text to-brand-purple bg-clip-text text-transparent">
                 Evida
               </span>

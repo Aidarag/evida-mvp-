@@ -4,7 +4,7 @@ import HeroSection from '../components/HeroSection';
 import EventCard from '../components/EventCard';
 import CommunityCard from '../components/CommunityCard';
 import Button from '../components/Button';
-import { CalendarRange, Compass, Landmark, Sparkles } from 'lucide-react';
+import { CalendarRange, Compass, Landmark, Sparkles, Smile } from 'lucide-react';
 
 export const Home: React.FC = () => {
   const { events, communities, setCurrentPage } = useApp();
@@ -124,9 +124,9 @@ export const Home: React.FC = () => {
 
       {/* Creative Welcome / Call to Action */}
       <section className="text-center py-8 max-w-xl mx-auto space-y-6">
-        <div className="flex justify-center items-center space-x-1">
+        <div className="flex justify-center items-center space-x-2">
           <Sparkles className="w-5 h-5 text-brand-purple fill-brand-purple/20" />
-          <span className="text-4xl wave-hover cursor-pointer select-none">👋</span>
+          <Smile className="w-8 h-8 text-brand-purple" />
           <Sparkles className="w-4 h-4 text-brand-peach fill-brand-peach/20" />
         </div>
         <h3 className="text-2xl sm:text-3xl font-bold text-brand-text font-display">

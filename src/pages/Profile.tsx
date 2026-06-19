@@ -3,7 +3,13 @@ import { useApp } from '../context/AppContext';
 import EventCard from '../components/EventCard';
 import CommunityCard from '../components/CommunityCard';
 import Button from '../components/Button';
-import { Heart, Calendar, Users, Edit3, X, Check, Award, Briefcase, GraduationCap, MapPin } from 'lucide-react';
+import { Heart, Calendar, Users, Edit3, X, Check, Award, Briefcase, GraduationCap, MapPin, Pin, DollarSign, Terminal } from 'lucide-react';
+
+const getAchievementIcon = (name: string) => {
+  if (name.includes('Catalyst')) return <Award className="w-3.5 h-3.5 mr-1 text-brand-purple flex-shrink-0" />;
+  if (name.includes('Finalist')) return <Terminal className="w-3.5 h-3.5 mr-1 text-brand-purple flex-shrink-0" />;
+  return <GraduationCap className="w-3.5 h-3.5 mr-1 text-brand-purple flex-shrink-0" />;
+};
 
 export const Profile: React.FC = () => {
   const { profile, events, communities, opportunities, updateProfile, setCurrentPage, saveOpportunity } = useApp();
@@ -134,7 +140,8 @@ export const Profile: React.FC = () => {
                       key={idx}
                       className="px-3 py-1 bg-brand-peach/25 text-[#bd5133] text-[11px] font-bold rounded-full border border-brand-peach/40 font-display flex items-center select-none"
                     >
-                      {badge}
+                      {getAchievementIcon(badge)}
+                      <span>{badge}</span>
                     </span>
                   ))}
                 </div>
@@ -152,8 +159,9 @@ export const Profile: React.FC = () => {
           </div>
           
           <div className="space-y-4 pt-2">
-            <h3 className="font-display font-extrabold text-base border-b-2 border-dashed border-[#EEDF9D] pb-2 text-center text-brand-text-sec tracking-wide uppercase">
-              📌 Fall Goals
+            <h3 className="font-display font-extrabold text-base border-b-2 border-dashed border-[#EEDF9D] pb-2 text-center text-brand-text-sec tracking-wide uppercase flex items-center justify-center space-x-1.5">
+              <Pin className="w-4 h-4 text-brand-purple transform -rotate-45 flex-shrink-0" />
+              <span>Fall Goals</span>
             </h3>
             <ul className="space-y-3 font-display font-bold text-xs text-brand-text-sec/90 pl-1.5 text-left">
               <li className="flex items-center space-x-2">
@@ -170,7 +178,7 @@ export const Profile: React.FC = () => {
               </li>
               <li className="flex items-center space-x-2">
                 <span className="text-[#DDD196] text-sm">✦</span>
-                <span>Keep campus memories positive! 🌸</span>
+                <span>Keep campus memories positive!</span>
               </li>
             </ul>
           </div>
@@ -338,7 +346,10 @@ export const Profile: React.FC = () => {
                       </span>
                       <h4 className="text-sm font-bold text-brand-text font-display pt-1">{opp.title}</h4>
                       <p className="text-xs text-brand-text-sec font-semibold">{opp.organizer}</p>
-                      <p className="text-xs text-brand-purple font-bold">💰 {opp.reward}</p>
+                      <p className="text-xs text-brand-purple font-bold flex items-center">
+                        <DollarSign className="w-3.5 h-3.5 mr-0.5 text-brand-purple flex-shrink-0" />
+                        <span>{opp.reward}</span>
+                      </p>
                     </div>
                     <div className="flex gap-2 items-center">
                       <button

@@ -3,7 +3,7 @@ import { useApp } from '../context/AppContext';
 import EventCard from '../components/EventCard';
 import CommunityCard from '../components/CommunityCard';
 import Button from '../components/Button';
-import { Calendar, Users, Briefcase, X } from 'lucide-react';
+import { Calendar, Users, Briefcase, X, DollarSign } from 'lucide-react';
 
 export const Saved: React.FC = () => {
   const { profile, events, communities, opportunities, setCurrentPage, saveOpportunity } = useApp();
@@ -135,7 +135,10 @@ export const Saved: React.FC = () => {
                     </span>
                     <h4 className="text-base font-bold text-brand-text font-display pt-1">{opp.title}</h4>
                     <p className="text-xs text-brand-text-sec font-semibold">{opp.organizer}</p>
-                    <p className="text-[11px] text-brand-purple font-bold pt-1">💰 {opp.reward}</p>
+                    <p className="text-[11px] text-brand-purple font-bold pt-1 flex items-center">
+                      <DollarSign className="w-3 h-3 mr-0.5 text-brand-purple flex-shrink-0" />
+                      <span>{opp.reward}</span>
+                    </p>
                   </div>
 
                   <div className="flex items-center gap-2">

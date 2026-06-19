@@ -1,7 +1,7 @@
 import React from 'react';
 import { useApp } from '../context/AppContext';
 import type { PageName } from '../context/AppContext';
-import { Heart } from 'lucide-react';
+import { Heart, Sprout } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   const { setCurrentPage } = useApp();
@@ -20,8 +20,8 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center text-center md:text-left">
           {/* Brand Info */}
           <div>
-            <div className="flex items-center justify-center md:justify-start space-x-2 mb-3">
-              <span className="text-2xl">🌱</span>
+            <div className="flex items-center justify-center md:justify-start space-x-2 mb-3 text-brand-purple">
+              <Sprout className="w-5 h-5" />
               <span className="text-xl font-display font-extrabold tracking-tight bg-gradient-to-r from-white to-brand-lavender bg-clip-text text-transparent">
                 Evida
               </span>
