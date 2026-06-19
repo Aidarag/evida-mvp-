@@ -7,6 +7,7 @@ import Button from './Button';
 
 export const Navbar: React.FC = () => {
   const { currentPage, setCurrentPage } = useApp();
+  const isHome = currentPage === 'home';
 
   const desktopNavItems: { label: string; page: PageName; icon: React.ReactNode }[] = [
     { label: 'Home', page: 'home', icon: <Home className="w-4 h-4" /> },
@@ -32,7 +33,11 @@ export const Navbar: React.FC = () => {
   return (
     <>
       {/* Desktop/Tablet Sticky Header */}
-      <nav className="sticky top-0 z-40 bg-white/70 backdrop-blur-md border-b border-brand-lavender/25 transition-all duration-200">
+      <nav className={`sticky top-0 z-40 backdrop-blur-md transition-all duration-300 ${
+        isHome 
+          ? 'bg-slate-950/40 border-b border-white/5 text-white' 
+          : 'bg-white/70 border-b border-brand-lavender/25 text-brand-text'
+      }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 items-center">
             {/* Logo */}
@@ -41,7 +46,7 @@ export const Navbar: React.FC = () => {
               className="flex items-center space-x-2.5 cursor-pointer group select-none text-brand-purple"
             >
               <EvidaLogo size={28} className="transform transition-transform duration-300 group-hover:rotate-6 group-hover:scale-105" />
-              <EvidaLogoText size={20} className="text-brand-text group-hover:text-brand-purple transition-colors" />
+              <EvidaLogoText size={20} className={`${isHome ? 'text-white' : 'text-brand-text'} group-hover:text-brand-purple transition-colors`} />
               <span className="inline-flex items-center px-2 py-0.5 text-[9px] font-bold bg-brand-purple/10 text-brand-purple rounded-full uppercase tracking-wider font-display">
                 CAMPUS
               </span>
@@ -60,8 +65,12 @@ export const Navbar: React.FC = () => {
                     onClick={() => handleNavClick(item.page)}
                     className={`flex items-center space-x-1.5 px-4.5 py-2.5 rounded-full text-sm font-semibold transition-all duration-200 font-display ${
                       isActive
-                        ? 'bg-brand-purple/10 text-brand-purple font-bold shadow-sm'
-                        : 'text-brand-text-sec hover:text-brand-text hover:bg-brand-lavender/20'
+                        ? isHome
+                          ? 'bg-white/10 text-white font-bold'
+                          : 'bg-brand-purple/10 text-brand-purple font-bold shadow-sm'
+                        : isHome
+                          ? 'text-slate-400 hover:text-white hover:bg-white/5'
+                          : 'text-brand-text-sec hover:text-brand-text hover:bg-brand-lavender/20'
                     }`}
                   >
                     {item.icon}

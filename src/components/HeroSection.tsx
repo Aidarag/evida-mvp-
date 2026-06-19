@@ -1,16 +1,16 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useApp } from '../context/AppContext';
 import { motion, useMotionValue, useTransform, useSpring, AnimatePresence, useReducedMotion } from 'framer-motion';
-import { Sparkles, ArrowRight, Music, Laptop, Award, Clock, Users, Activity, Bell } from 'lucide-react';
+import { Sparkles, ArrowRight, Music, Laptop, Camera, Users, Clock, Play, ArrowUpRight } from 'lucide-react';
 import Button from './Button';
 
 // Mock live notifications for the Evida living campus
 const liveNotifications = [
-  { id: 1, text: "New event added: Golden Hour Botanical Yoga", icon: <Sparkles className="w-4 h-4 text-brand-purple" /> },
-  { id: 2, text: "Photography Club gained 12 new members", icon: <Users className="w-4 h-4 text-emerald-600" /> },
-  { id: 3, text: "Google Internship deadline approaching (3 days left)", icon: <Bell className="w-4 h-4 text-rose-500 animate-bounce" /> },
-  { id: 4, text: "Intramural Soccer tournament RSVPs filled up", icon: <Activity className="w-4 h-4 text-amber-500" /> },
-  { id: 5, text: "Hackathon workshop: Git & GitHub 101 started", icon: <Laptop className="w-4 h-4 text-cyan-500" /> }
+  { id: 1, text: "Golden Hour Botanical Yoga just filled up", label: "Event Full" },
+  { id: 2, text: "Google SWE Internship gains 140 new saves today", label: "Trending Career" },
+  { id: 3, text: "Photography Club scheduled: Autumn Zine Launch", label: "Club Update" },
+  { id: 4, text: "Fall Hackathon RSVPs close in 12 hours", label: "Deadline Alert" },
+  { id: 5, text: "Creative Coding workshop: 22 spots remaining", label: "Academic Mixer" }
 ];
 
 export const HeroSection: React.FC = () => {
@@ -18,25 +18,25 @@ export const HeroSection: React.FC = () => {
   const prefersReducedMotion = useReducedMotion();
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Parallax Motion Values
+  // Parallax Motion Values (tracking pointer relative to container)
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
   // Smooth springs for cursor parallax
-  const springConfig = { damping: 30, stiffness: 120 };
+  const springConfig = { damping: 25, stiffness: 100 };
   const smoothX = useSpring(mouseX, springConfig);
   const smoothY = useSpring(mouseY, springConfig);
 
-  // Transform outputs for parallax cards (maximum 5px - 10px shift)
-  const cardParallaxX = useTransform(smoothX, [-0.5, 0.5], [-8, 8]);
-  const cardParallaxY = useTransform(smoothY, [-0.5, 0.5], [-8, 8]);
-  const cardParallaxXInverse = useTransform(smoothX, [-0.5, 0.5], [6, -6]);
-  const cardParallaxYInverse = useTransform(smoothY, [-0.5, 0.5], [6, -6]);
+  // Subtle parallax translates (maximum offset delta 12px for maximum responsiveness)
+  const cardParallaxX = useTransform(smoothX, [-0.5, 0.5], [-12, 12]);
+  const cardParallaxY = useTransform(smoothY, [-0.5, 0.5], [-12, 12]);
+  const cardParallaxXInverse = useTransform(smoothX, [-0.5, 0.5], [10, -10]);
+  const cardParallaxYInverse = useTransform(smoothY, [-0.5, 0.5], [10, -10]);
 
-  const bgParallaxX = useTransform(smoothX, [-0.5, 0.5], [-12, 12]);
-  const bgParallaxY = useTransform(smoothY, [-0.5, 0.5], [-12, 12]);
+  const bgParallaxX = useTransform(smoothX, [-0.5, 0.5], [-20, 20]);
+  const bgParallaxY = useTransform(smoothY, [-0.5, 0.5], [-20, 20]);
 
-  // Live notification rotation states
+  // Live alert rotation states
   const [notificationIndex, setNotificationIndex] = useState(0);
   const [showNotification, setShowNotification] = useState(true);
 
@@ -52,7 +52,6 @@ export const HeroSection: React.FC = () => {
     return () => clearInterval(interval);
   }, []);
 
-  // Track cursor position relative to container
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!containerRef.current || prefersReducedMotion) return;
     const rect = containerRef.current.getBoundingClientRect();
@@ -67,40 +66,45 @@ export const HeroSection: React.FC = () => {
     mouseY.set(0);
   };
 
-  // Staggered Entrance Variants
+  // Staggered Entrance Animations
   const containerVariants = {
     hidden: {},
     visible: {
       transition: {
-        staggerChildren: 0.12,
+        staggerChildren: 0.1,
       }
     }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 25, filter: prefersReducedMotion ? 'none' : 'blur(8px)' },
+    hidden: { opacity: 0, y: 30, filter: prefersReducedMotion ? 'none' : 'blur(10px)' },
     visible: { 
       opacity: 1, 
       y: 0, 
       filter: 'blur(0px)',
       transition: { 
-        duration: 0.8, 
-        ease: [0.16, 1, 0.3, 1] as const 
+        duration: 0.9, 
+        ease: [0.16, 1, 0.3, 1] as const
       } 
     }
   };
 
-  const cardContainerVariants = {
-    hidden: { opacity: 0, scale: 0.95 },
+  const dashboardVariants = {
+    hidden: { opacity: 0, scale: 0.96 },
     visible: {
       opacity: 1,
       scale: 1,
       transition: {
-        duration: 1,
+        duration: 1.2,
         ease: [0.16, 1, 0.3, 1] as const,
-        delay: 0.4
+        delay: 0.2
       }
     }
+  };
+
+  const handleOpportunityClick = () => {
+    setSelectedOpportunityId('opp-linear-intern');
+    setCurrentPage('opportunity-details');
   };
 
   return (
@@ -108,322 +112,282 @@ export const HeroSection: React.FC = () => {
       ref={containerRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="relative w-full max-w-7xl mx-auto py-16 sm:py-24 px-6 md:px-12 rounded-[2rem] border border-brand-lavender/25 shadow-sm bg-white overflow-hidden select-none transition-all duration-300"
+      className="relative w-full bg-[#030712] py-24 sm:py-32 px-6 md:px-12 overflow-hidden select-none border-b border-white/5"
     >
       
-      {/* BACKGROUND BLOBS: slow breathing animations + mouse parallax */}
+      {/* 1. RADIAL BLOB LIGHTS (Obsidian Glow Layers) */}
       <motion.div 
         style={{ x: prefersReducedMotion ? 0 : bgParallaxX, y: prefersReducedMotion ? 0 : bgParallaxY }}
-        className="absolute inset-0 z-0 pointer-events-none overflow-hidden"
+        className="absolute inset-0 z-0 pointer-events-none"
       >
-        {/* Soft Lavender Blob (Breathing scale) */}
+        {/* Glowing Purple light */}
         <motion.div
           animate={prefersReducedMotion ? {} : {
-            scale: [1, 1.12, 1],
-            x: [0, 15, 0],
-            y: [0, -10, 0]
+            scale: [1, 1.15, 1],
+            x: [0, 30, 0],
+            y: [0, -20, 0]
           }}
-          transition={{
-            duration: 25,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-          className="absolute -top-20 left-10 w-96 h-96 bg-brand-lavender/40 rounded-full blur-3xl opacity-60"
+          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute -top-40 left-1/4 w-[500px] h-[500px] bg-brand-purple/20 rounded-full blur-[140px] opacity-70"
         />
 
-        {/* Soft Green Blob */}
+        {/* Glowing Sky Blue light */}
         <motion.div
           animate={prefersReducedMotion ? {} : {
-            scale: [1, 1.18, 1],
-            x: [0, -20, 0],
-            y: [0, 15, 0]
+            scale: [1.1, 0.9, 1.1],
+            x: [0, -40, 0],
+            y: [0, 30, 0]
           }}
-          transition={{
-            duration: 35,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 2
-          }}
-          className="absolute bottom-10 right-10 w-[450px] h-[450px] bg-brand-green/10 rounded-full blur-[90px] opacity-40"
+          transition={{ duration: 25, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          className="absolute bottom-10 right-1/4 w-[600px] h-[600px] bg-brand-blue/15 rounded-full blur-[160px] opacity-60"
         />
 
-        {/* Warm Peach/Cream Blob */}
+        {/* Glowing Leaf Green light */}
         <motion.div
           animate={prefersReducedMotion ? {} : {
-            scale: [1.1, 0.95, 1.1],
-            x: [10, -10, 10],
-            y: [-15, 10, -15]
+            scale: [0.9, 1.1, 0.9],
+            x: [20, -20, 20],
+            y: [-30, 20, -30]
           }}
-          transition={{
-            duration: 30,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 4
-          }}
-          className="absolute top-1/3 left-1/3 w-80 h-80 bg-brand-peach/30 rounded-full blur-[80px] opacity-40"
+          transition={{ duration: 22, repeat: Infinity, ease: "easeInOut", delay: 4 }}
+          className="absolute top-1/3 right-10 w-[400px] h-[400px] bg-brand-green/10 rounded-full blur-[120px] opacity-45"
         />
       </motion.div>
 
-      {/* Decorative tiny stars/sparkles */}
-      <div className="absolute top-10 right-12 text-brand-purple/20 hidden sm:block animate-pulse">
-        <Sparkles className="w-5 h-5" />
-      </div>
+      {/* 2. GLOWING GRID BACKGROUND PATTERN */}
+      <div className="absolute inset-0 z-0 pointer-events-none bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-70" />
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+      {/* 3. HERO GRID CONTENT */}
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center relative z-10">
         
-        {/* LEFT SIDE: Heading & Actions */}
+        {/* LEFT COLUMN: Editorial Header */}
         <motion.div 
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="lg:col-span-7 space-y-6 text-left"
+          className="lg:col-span-6 space-y-8 text-left"
         >
-          {/* Badge */}
+          {/* Badge Tag */}
           <motion.div 
             variants={itemVariants}
-            className="inline-flex items-center space-x-2 px-4 py-1.5 bg-brand-purple/5 border border-brand-purple/15 text-xs font-bold text-brand-purple rounded-full font-display shadow-sm"
+            className="inline-flex items-center space-x-2 px-3.5 py-1 bg-white/5 border border-white/10 text-xs font-bold text-slate-300 rounded-full font-display shadow-inner backdrop-blur-sm"
           >
-            <Sparkles className="w-3.5 h-3.5 text-brand-purple" />
-            <span>Your campus, your community</span>
+            <Sparkles className="w-3.5 h-3.5 text-brand-purple fill-brand-purple/20 animate-pulse" />
+            <span>Campus life, reimagined</span>
           </motion.div>
 
-          {/* Headline */}
+          {/* Large Editorial Headline */}
           <motion.h1 
             variants={itemVariants}
-            className="text-5xl sm:text-7xl font-bold tracking-tight text-brand-text font-display leading-[1.05]"
+            className="text-6xl sm:text-[5.5rem] font-bold tracking-tight text-white font-display leading-[0.95]"
           >
-            Your next <br />
+            Life's happening. <br />
             <span className="bg-gradient-to-r from-brand-purple via-brand-blue to-brand-green bg-clip-text text-transparent">
-              opportunity
-            </span>{" "}
-            <br />
-            is waiting.
+              Don't miss it.
+            </span>
           </motion.h1>
 
-          {/* Description */}
+          {/* Editorial Paragraph */}
           <motion.p 
             variants={itemVariants}
-            className="text-lg sm:text-xl text-brand-text-sec leading-relaxed max-w-xl"
+            className="text-lg sm:text-xl text-slate-400 leading-relaxed max-w-xl font-sans"
           >
-            Discover events, communities, clubs, and opportunities that make campus life unforgettable.
+            Discover events, opportunities, communities, internships, and experiences that help you grow beyond the classroom.
           </motion.p>
 
           {/* CTA Buttons */}
           <motion.div 
             variants={itemVariants}
-            className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2"
+            className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-4"
           >
             <Button
               variant="primary"
               size="lg"
               onClick={() => setCurrentPage('explore')}
-              className="flex items-center justify-center space-x-2 shadow-lg shadow-brand-purple/10 hover:shadow-brand-purple/20 transition-all font-bold"
+              className="flex items-center justify-center space-x-2 shadow-[0_0_30px_rgba(124,58,237,0.25)] hover:shadow-[0_0_40px_rgba(124,58,237,0.4)] border-none"
             >
               <span>Explore Campus</span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </Button>
             
-            <Button
-              variant="secondary"
-              size="lg"
-              onClick={() => setCurrentPage('profile')}
-              className="flex items-center justify-center space-x-2 border border-brand-lavender/35 hover:bg-brand-lavender/10"
+            <button
+              onClick={() => setCurrentPage('opportunities')}
+              className="inline-flex items-center justify-center font-display rounded-full transition-all duration-200 border border-white/10 text-white hover:bg-white/5 hover:border-white/20 px-7 py-3.5 text-base font-bold tracking-wide active:scale-95"
             >
-              <span>Join Evida</span>
-            </Button>
+              <Play className="w-4.5 h-4.5 mr-2 fill-white/10 text-white" />
+              <span>Watch Demo</span>
+            </button>
           </motion.div>
 
-          {/* Social Proof */}
-          <motion.p 
+          {/* Social Proof metrics */}
+          <motion.div 
             variants={itemVariants}
-            className="text-xs text-brand-text-sec/60 font-semibold pt-4 flex items-center"
+            className="flex items-center space-x-3.5 pt-6 border-t border-white/5 max-w-md"
           >
-            <span className="w-2 h-2 rounded-full bg-brand-purple inline-block mr-2 animate-ping" />
-            Join 1,200+ students discovering communities this week.
-          </motion.p>
+            <div className="flex -space-x-2.5">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=80" alt="Maya" className="w-7 h-7 rounded-full border-2 border-[#030712] object-cover shadow-md" />
+              <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=80" alt="Student" className="w-7 h-7 rounded-full border-2 border-[#030712] object-cover shadow-md" />
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=80" alt="Student" className="w-7 h-7 rounded-full border-2 border-[#030712] object-cover shadow-md" />
+            </div>
+            <p className="text-xs text-slate-500 font-semibold flex items-center select-none leading-none">
+              <span className="w-1.5 h-1.5 rounded-full bg-brand-green mr-2 animate-ping" />
+              Join 1,200+ students discovering campus opportunities this week
+            </p>
+          </motion.div>
 
         </motion.div>
 
-        {/* RIGHT SIDE: Overlapping Floating Ecosystem Cards */}
+        {/* RIGHT COLUMN: Overlapping Floating UI Dashboard */}
         <motion.div 
-          variants={cardContainerVariants}
+          variants={dashboardVariants}
           initial="hidden"
           animate="visible"
-          className="lg:col-span-5 relative h-[500px] w-full flex items-center justify-center mt-8 lg:mt-0"
+          className="lg:col-span-6 relative h-[540px] w-full flex items-center justify-center mt-12 lg:mt-0 select-none"
         >
           
-          {/* Card 1: Open Mic Night (Top Left) */}
+          {/* BACKGROUND MATTE DASHBOARD PANEL MOCK (Noventis Depth Frame) */}
+          <div className="absolute inset-0 bg-slate-900/20 rounded-[2.5rem] border border-white/[0.04] backdrop-blur-sm -z-10 shadow-2xl overflow-hidden">
+            {/* Subtle dashboard lines */}
+            <div className="absolute top-0 left-0 right-0 h-11 border-b border-white/[0.04] bg-white/[0.02] flex items-center px-5 space-x-2">
+              <div className="w-2.5 h-2.5 rounded-full bg-white/10" />
+              <div className="w-2.5 h-2.5 rounded-full bg-white/10" />
+              <div className="w-2.5 h-2.5 rounded-full bg-white/10" />
+              <div className="flex-grow" />
+              <div className="w-24 h-4 bg-white/[0.03] rounded" />
+            </div>
+            <div className="absolute inset-0 pt-16 px-6 grid grid-cols-2 gap-6 opacity-30 pointer-events-none">
+              <div className="space-y-4">
+                <div className="h-6 bg-white/[0.05] rounded-xl w-3/4" />
+                <div className="h-20 bg-white/[0.03] rounded-2xl" />
+                <div className="h-20 bg-white/[0.03] rounded-2xl" />
+              </div>
+              <div className="space-y-4">
+                <div className="h-6 bg-white/[0.05] rounded-xl w-1/2" />
+                <div className="h-44 bg-white/[0.03] rounded-2xl" />
+              </div>
+            </div>
+          </div>
+
+          {/* CARD 1: Open Mic Night (Tonight • 7:00 PM) */}
           <motion.div
             style={{ x: cardParallaxX, y: cardParallaxY }}
             animate={prefersReducedMotion ? {} : {
-              y: [0, -10, 0],
-              x: [0, 5, 0]
+              y: [0, -12, 0],
+              x: [0, 4, 0]
             }}
-            transition={{
-              duration: 18,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-            className="absolute top-8 left-2 z-20 bg-white/85 backdrop-blur-md p-4 rounded-2xl shadow-md border border-brand-lavender/25 w-[190px] text-left hover:scale-[1.03] hover:shadow-lg transition-all duration-300"
+            transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-10 left-6 z-20 bg-slate-900/60 backdrop-blur-xl border border-white/10 p-4.5 rounded-2xl shadow-[0_10px_35px_rgba(0,0,0,0.5)] w-[210px] text-left hover:border-white/20 transition-colors duration-300"
           >
-            <div className="flex items-center space-x-2.5">
-              <div className="w-8 h-8 rounded-xl bg-brand-purple/15 flex items-center justify-center flex-shrink-0 text-brand-purple">
-                <Music className="w-4 h-4" />
+            <div className="flex items-center space-x-3">
+              <div className="w-9 h-9 rounded-xl bg-brand-purple/20 flex items-center justify-center flex-shrink-0 text-brand-purple shadow-inner">
+                <Music className="w-4.5 h-4.5" />
               </div>
               <div className="min-w-0">
-                <h4 className="text-xs font-bold text-brand-text truncate font-display">Open Mic Night</h4>
-                <p className="text-[9px] text-brand-purple font-bold">Tonight • 7:00 PM</p>
+                <h4 className="text-xs font-bold text-white truncate font-display">Open Mic Night</h4>
+                <p className="text-[10px] text-brand-purple font-bold mt-0.5">Tonight • 7:00 PM</p>
               </div>
             </div>
-            <p className="text-[10px] text-brand-text-sec mt-2 flex items-center">
-              <span className="w-1.5 h-1.5 rounded-full bg-brand-purple mr-1.5" />
+            <p className="text-[10px] text-slate-400 mt-3 flex items-center">
+              <span className="w-1.5 h-1.5 rounded-full bg-brand-purple mr-2" />
               Campus Center Lounge
             </p>
           </motion.div>
 
-          {/* Card 2: Design Club (Middle Right) */}
+          {/* CARD 2: Google Internship (Applications Open) */}
           <motion.div
             style={{ x: cardParallaxXInverse, y: cardParallaxYInverse }}
             animate={prefersReducedMotion ? {} : {
-              y: [0, 12, 0],
-              x: [0, -6, 0]
+              y: [0, 10, 0],
+              x: [0, -5, 0]
             }}
-            transition={{
-              duration: 20,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 1.5
-            }}
-            className="absolute top-16 right-2 z-10 bg-white/90 backdrop-blur-md p-4.5 rounded-2xl shadow-md border border-brand-lavender/25 w-[190px] text-left hover:scale-[1.03] hover:shadow-lg transition-all duration-300"
+            transition={{ duration: 20, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+            className="absolute top-28 right-6 z-10 bg-slate-900/60 backdrop-blur-xl border border-white/10 p-5 rounded-2xl shadow-[0_12px_40px_rgba(0,0,0,0.5)] w-[230px] text-left hover:border-white/20 transition-colors duration-300 cursor-pointer"
+            onClick={handleOpportunityClick}
           >
-            <div className="flex items-center space-x-2.5">
-              <div className="w-8.5 h-8.5 rounded-xl bg-[#bd5133]/10 flex items-center justify-center flex-shrink-0 text-[#bd5133]">
-                <Award className="w-4.5 h-4.5" />
-              </div>
-              <div className="min-w-0">
-                <h4 className="text-xs font-bold text-brand-text truncate font-display">Design Club</h4>
-                <p className="text-[9px] text-[#bd5133] font-bold">Monthly Meeting</p>
-              </div>
+            <div className="flex justify-between items-start">
+              <span className="bg-brand-blue/10 text-brand-blue border border-brand-blue/20 text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider font-display">
+                Internship
+              </span>
+              <ArrowUpRight className="w-4 h-4 text-slate-500 hover:text-white" />
             </div>
-            <p className="text-[10px] text-brand-text-sec mt-2.5 flex items-center font-medium">
-              <Clock className="w-3.5 h-3.5 mr-1.5 text-brand-text-sec/40" />
-              Tomorrow • 5:30 PM
-            </p>
+            <h4 className="text-sm font-bold text-white font-display mt-2">Google SWE Intern</h4>
+            <p className="text-[10px] text-slate-400 font-semibold mt-0.5">Applications Open</p>
+            <p className="text-[11px] text-brand-blue font-bold mt-3 hover:underline">Apply Now →</p>
           </motion.div>
 
-          {/* Card 3: Google SWE Internship (Center Focus) */}
+          {/* CARD 3: Hackathon (Starts in 2 Days) */}
           <motion.div
             style={{ x: cardParallaxX, y: cardParallaxYInverse }}
             animate={prefersReducedMotion ? {} : {
               y: [0, -8, 0],
-              x: [0, -4, 0]
+              x: [0, -6, 0]
             }}
-            transition={{
-              duration: 16,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 0.5
-            }}
-            className="absolute top-[165px] left-12 z-30 bg-white p-5 rounded-[1.5rem] shadow-xl border border-brand-lavender/35 w-[230px] text-left hover:scale-[1.03] hover:shadow-2xl transition-all duration-300"
+            transition={{ duration: 18, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+            className="absolute top-[200px] left-14 z-30 bg-slate-950/80 backdrop-blur-xl border border-white/10 p-5 rounded-[1.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.6)] w-[240px] text-left hover:border-white/20 transition-colors duration-300"
           >
-            <span className="bg-brand-purple/10 text-brand-purple text-[8px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider font-display select-none">
-              Career Opportunity
-            </span>
-            <h4 className="text-sm font-bold text-brand-text font-display pt-1.5">Google SWE Internship</h4>
-            <p className="text-[10px] text-brand-text-sec font-semibold mt-0.5">Google Software Engineering</p>
-            
-            <div className="flex items-center justify-between mt-4 pt-3 border-t border-brand-lavender/15 text-[10px] font-semibold">
-              <span className="text-rose-600 flex items-center">
-                <Clock className="w-3 h-3 mr-1" />
-                Close in 3 days
-              </span>
-              <span className="text-brand-purple cursor-pointer hover:underline" onClick={() => { setSelectedOpportunityId('opp-linear-intern'); setCurrentPage('opportunity-details'); }}>Apply Now →</span>
+            <div className="flex items-center space-x-3.5">
+              <div className="w-9 h-9 rounded-xl bg-brand-green/20 flex items-center justify-center flex-shrink-0 text-brand-green shadow-inner">
+                <Laptop className="w-4.5 h-4.5" />
+              </div>
+              <div className="min-w-0">
+                <h4 className="text-xs font-bold text-white truncate font-display">Fall Hackathon</h4>
+                <p className="text-[10px] text-brand-green font-bold mt-0.5">Starts in 2 days</p>
+              </div>
+            </div>
+            <div className="flex items-center justify-between mt-4 pt-3.5 border-t border-white/5 text-[10px] font-semibold text-slate-400">
+              <span className="flex items-center"><Clock className="w-3.5 h-3.5 mr-1" /> 48 hours left</span>
+              <span className="text-white hover:underline cursor-pointer" onClick={() => setCurrentPage('explore')}>Register →</span>
             </div>
           </motion.div>
 
-          {/* Card 4: Hackathon Starts in 2h (Bottom Left) */}
+          {/* CARD 4: Photography Club (127 Members) */}
           <motion.div
             style={{ x: cardParallaxXInverse, y: cardParallaxY }}
             animate={prefersReducedMotion ? {} : {
-              y: [0, 8, 0],
+              y: [0, 12, 0],
               x: [0, 5, 0]
             }}
-            transition={{
-              duration: 22,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 3
-            }}
-            className="absolute bottom-16 left-2 z-20 bg-white/90 backdrop-blur-md p-4 rounded-2xl shadow-md border border-brand-lavender/25 w-[180px] text-left hover:scale-[1.03] hover:shadow-lg transition-all duration-300"
+            transition={{ duration: 22, repeat: Infinity, ease: "easeInOut", delay: 3 }}
+            className="absolute bottom-24 left-6 z-20 bg-slate-900/60 backdrop-blur-xl border border-white/10 p-4 rounded-2xl shadow-[0_10px_35px_rgba(0,0,0,0.5)] w-[200px] text-left hover:border-white/20 transition-colors duration-300"
           >
-            <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 rounded-lg bg-emerald-50 flex items-center justify-center flex-shrink-0 text-emerald-600">
-                <Laptop className="w-4 h-4" />
+            <div className="flex items-center space-x-3">
+              <div className="w-9 h-9 rounded-xl bg-brand-blue/20 flex items-center justify-center flex-shrink-0 text-brand-blue shadow-inner">
+                <Camera className="w-4.5 h-4.5" />
               </div>
               <div className="min-w-0">
-                <h4 className="text-xs font-bold text-brand-text truncate font-display">Fall Hackathon</h4>
-                <p className="text-[9px] text-emerald-600 font-bold">Starts in 2 hours</p>
+                <h4 className="text-xs font-bold text-white truncate font-display">Photography Club</h4>
+                <p className="text-[10px] text-slate-400 font-semibold mt-0.5">127 Members</p>
               </div>
             </div>
           </motion.div>
 
-          {/* Card 5: Sarah Joined (Top Right background layer) */}
+          {/* CARD 5: Networking Event (85 Attending) */}
           <motion.div
-            style={{ x: cardParallaxX, y: cardParallaxYInverse }}
+            style={{ x: cardParallaxXInverse, y: cardParallaxYInverse }}
             animate={prefersReducedMotion ? {} : {
-              y: [0, -6, 0],
-              x: [0, 8, 0]
+              y: [0, 8, 0],
+              x: [0, -3, 0]
             }}
-            transition={{
-              duration: 24,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 1.2
-            }}
-            className="absolute top-2 right-12 z-0 bg-white/80 backdrop-blur-sm p-3 rounded-2xl shadow-sm border border-brand-lavender/20 w-[170px] text-left"
+            transition={{ duration: 17, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
+            className="absolute bottom-16 right-10 z-20 bg-slate-900/60 backdrop-blur-xl border border-white/10 p-4.5 rounded-2xl shadow-[0_10px_35px_rgba(0,0,0,0.5)] w-[210px] text-left hover:border-white/20 transition-colors duration-300"
           >
-            <div className="flex items-center space-x-2">
-              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=60" alt="Sarah" className="w-6.5 h-6.5 rounded-full object-cover shadow-inner" />
-              <div className="min-w-0">
-                <p className="text-[10px] text-brand-text font-semibold truncate leading-none">Sarah joined</p>
-                <p className="text-[9px] text-brand-purple font-semibold truncate">Photography Club</p>
-              </div>
-            </div>
-            <span className="text-[8px] text-brand-text-sec/40 block mt-1.5 text-right font-medium">2m ago</span>
-          </motion.div>
-
-          {/* Card 6: Tennis Mixer (Bottom Right) */}
-          <motion.div
-            style={{ x: cardParallaxXInverse, y: cardParallaxY }}
-            animate={prefersReducedMotion ? {} : {
-              y: [0, 10, 0],
-              x: [0, -4, 0]
-            }}
-            transition={{
-              duration: 17,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 2.2
-            }}
-            className="absolute bottom-6 right-6 z-20 bg-white/95 backdrop-blur-md p-4 rounded-2xl shadow-md border border-brand-lavender/25 w-[180px] text-left hover:scale-[1.03] hover:shadow-lg transition-all duration-300"
-          >
-            <div className="flex items-center space-x-2.5">
-              <div className="w-8.5 h-8.5 rounded-xl bg-cyan-50 flex items-center justify-center flex-shrink-0 text-cyan-600">
-                <Activity className="w-4.5 h-4.5" />
+            <div className="flex items-center space-x-3">
+              <div className="w-9 h-9 rounded-xl bg-brand-green/20 flex items-center justify-center flex-shrink-0 text-brand-green shadow-inner">
+                <Users className="w-4.5 h-4.5" />
               </div>
               <div className="min-w-0">
-                <h4 className="text-xs font-bold text-brand-text truncate font-display">Tennis Mixer</h4>
-                <p className="text-[9px] text-cyan-600 font-bold">Starts in 1 hour</p>
+                <h4 className="text-xs font-bold text-white truncate font-display">Networking Event</h4>
+                <p className="text-[10px] text-brand-green font-bold mt-0.5">85 attending</p>
               </div>
             </div>
-            <div className="flex items-center justify-between mt-3 text-[9px] text-brand-text-sec font-semibold">
-              <span>Intramural Courts</span>
-              <span className="bg-brand-purple/10 text-brand-purple px-1.5 py-0.5 rounded-full">Rec</span>
+            <div className="flex items-center justify-between mt-3 text-[9px] text-slate-400 font-semibold pt-2.5 border-t border-white/5">
+              <span>Alumni Panels</span>
+              <span className="text-brand-green cursor-pointer hover:underline" onClick={() => setCurrentPage('explore')}>Join</span>
             </div>
           </motion.div>
 
-          {/* LIVE CAMPUS ACTIVITY TOAST: rotation cycles + slide animations */}
-          <div className="absolute bottom-0 z-40 w-full max-w-[340px] px-4 sm:px-0">
+          {/* LIVE CAMPUS TOAST (Cycled Overlay) */}
+          <div className="absolute -bottom-4 z-40 w-full max-w-[340px] px-4 sm:px-0">
             <AnimatePresence mode="wait">
               {showNotification && (
                 <motion.div
@@ -431,14 +395,16 @@ export const HeroSection: React.FC = () => {
                   animate={{ opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' }}
                   exit={{ opacity: 0, y: -10, scale: 0.95, filter: prefersReducedMotion ? 'none' : 'blur(4px)' }}
                   transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] as const }}
-                  className="bg-brand-text/95 backdrop-blur-md text-white py-3 px-4.5 rounded-2xl border border-white/10 shadow-lg flex items-center space-x-3 text-left"
+                  className="bg-[#0f172a]/90 backdrop-blur-xl text-white py-3 px-4.5 rounded-2xl border border-white/10 shadow-[0_15px_40px_rgba(0,0,0,0.6)] flex items-center space-x-3.5 text-left"
                 >
-                  <div className="w-8 h-8 rounded-lg bg-white/15 flex items-center justify-center flex-shrink-0">
-                    {liveNotifications[notificationIndex].icon}
+                  <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0">
+                    <Sparkles className="w-4 h-4 text-brand-purple" />
                   </div>
                   <div className="min-w-0 flex-grow">
-                    <p className="text-[10px] text-brand-peach uppercase font-bold tracking-wider font-display">Live Campus Alert</p>
-                    <p className="text-[11px] font-semibold text-white/90 leading-snug line-clamp-1">
+                    <p className="text-[9px] text-brand-green uppercase font-bold tracking-wider font-display">
+                      {liveNotifications[notificationIndex].label}
+                    </p>
+                    <p className="text-[11px] font-semibold text-slate-300 leading-snug line-clamp-1">
                       {liveNotifications[notificationIndex].text}
                     </p>
                   </div>
@@ -453,4 +419,5 @@ export const HeroSection: React.FC = () => {
     </div>
   );
 };
+
 export default HeroSection;

@@ -14,11 +14,13 @@ export const Home: React.FC = () => {
   const featuredCommunities = communities.slice(0, 3);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-16 fade-in pb-12">
-      {/* Hero Section */}
+    <div className="fade-in pb-12 w-full">
+      {/* Hero Section (Obsidian Full Width) */}
       <HeroSection />
 
-      {/* Featured Events */}
+      {/* Main Content Sections */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-16">
+        {/* Featured Events */}
       <section className="space-y-6">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4">
           <div>
@@ -146,6 +148,7 @@ export const Home: React.FC = () => {
           </Button>
         </div>
       </section>
+      </div>
     </div>
   );
 };
