@@ -29,7 +29,7 @@ export const Communities: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
 
-  const categories = ['All', 'Tech', 'Culture', 'Sports', 'Business', 'Wellness', 'Creative'];
+  const categories = ['All', 'Tech', 'Culture', 'Academic', 'Business', 'Wellness', 'Creative'];
 
   // Filter based on search query and category
   const filteredCommunities = communities.filter((comm) => {

@@ -4,7 +4,7 @@ import HeroSection from '../components/HeroSection';
 import EventCard from '../components/EventCard';
 import CommunityCard from '../components/CommunityCard';
 import Button from '../components/Button';
-import { CalendarRange, Compass, Landmark, Sparkles, Smile } from 'lucide-react';
+import { Compass, Landmark, Sparkles, Smile, Users } from 'lucide-react';
 
 export const Home: React.FC = () => {
   const { events, communities, setCurrentPage } = useApp();
@@ -15,8 +15,24 @@ export const Home: React.FC = () => {
 
   return (
     <div className="fade-in pb-12 w-full">
-      {/* Hero Section (Obsidian Full Width) */}
+      {/* Hero Section */}
       <HeroSection />
+
+      {/* University Trust Section */}
+      <div className="bg-slate-50/60 py-8 border-b border-slate-100/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p className="text-center text-[10px] sm:text-xs font-bold uppercase tracking-widest text-slate-400 font-display mb-4">
+            Connecting students across campuses
+          </p>
+          <div className="flex flex-wrap justify-center items-center gap-x-8 sm:gap-x-12 gap-y-4 opacity-50 font-display font-black text-slate-600 text-sm sm:text-base tracking-wider">
+            <span>STANFORD</span>
+            <span>M.I.T.</span>
+            <span>HARVARD</span>
+            <span>U.C. BERKELEY</span>
+            <span>GREENWOOD</span>
+          </div>
+        </div>
+      </div>
 
       {/* Main Content Sections */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-16">
@@ -49,10 +65,10 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Why Evida? Info Cards */}
-      <section className="bg-brand-lavender/15 rounded-3xl p-8 sm:p-12 border border-brand-lavender/30 relative overflow-hidden">
-        {/* Playful sparkle in background */}
-        <div className="absolute top-0 right-0 w-24 h-24 bg-brand-peach/20 rounded-bl-full pointer-events-none" />
+      {/* 4 Feature Blocks */}
+      <section className="bg-brand-lavender/10 rounded-3xl p-8 sm:p-12 border border-brand-lavender/25 relative overflow-hidden">
+        {/* Playful subtle highlight in background */}
+        <div className="absolute top-0 right-0 w-24 h-24 bg-brand-purple/5 rounded-bl-full pointer-events-none" />
         <div className="max-w-3xl mx-auto text-center mb-10">
           <h2 className="text-2xl sm:text-3xl font-bold text-brand-text font-display mb-3">
             Designed for real college life.
@@ -62,34 +78,48 @@ export const Home: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="bg-white p-6 rounded-2xl border border-brand-lavender/15 text-center flex flex-col items-center">
-            <div className="w-12 h-12 rounded-full bg-brand-purple/10 flex items-center justify-center mb-4">
-              <CalendarRange className="w-6 h-6 text-brand-purple" />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {/* Find Your People */}
+          <div className="bg-white p-6 rounded-2xl border border-slate-100 hover:border-brand-purple/20 hover:shadow-md transition-all duration-300 flex flex-col items-center text-center group">
+            <div className="w-12 h-12 rounded-2xl bg-brand-purple/10 flex items-center justify-center mb-4 text-brand-purple group-hover:scale-110 transition-transform">
+              <Users className="w-6 h-6" />
             </div>
-            <h3 className="font-display font-bold text-lg mb-2 text-brand-text">Discover Instantly</h3>
+            <h3 className="font-display font-bold text-base mb-2 text-brand-text">Find Your People</h3>
             <p className="text-xs text-brand-text-sec leading-relaxed">
-              Find social mixers, game nights, career talks, and volunteer projects happening today.
+              Connect with classmates who share your exact niche interests, background, and passions.
             </p>
           </div>
           
-          <div className="bg-white p-6 rounded-2xl border border-brand-lavender/15 text-center flex flex-col items-center">
-            <div className="w-12 h-12 rounded-full bg-brand-peach/30 flex items-center justify-center mb-4">
-              <Landmark className="w-6 h-6 text-brand-purple" />
+          {/* Discover Events */}
+          <div className="bg-white p-6 rounded-2xl border border-slate-100 hover:border-brand-purple/20 hover:shadow-md transition-all duration-300 flex flex-col items-center text-center group">
+            <div className="w-12 h-12 rounded-2xl bg-brand-blue/10 flex items-center justify-center mb-4 text-brand-blue group-hover:scale-110 transition-transform">
+              <Compass className="w-6 h-6" />
             </div>
-            <h3 className="font-display font-bold text-lg mb-2 text-brand-text">Find Your People</h3>
+            <h3 className="font-display font-bold text-base mb-2 text-brand-text">Discover Events</h3>
             <p className="text-xs text-brand-text-sec leading-relaxed">
-              Join clubs and communities that share your passions, from tech enthusiasts to creative studios.
+              From large outdoor festivals and mixers to intimate study blocks and workshops.
             </p>
           </div>
 
-          <div className="bg-white p-6 rounded-2xl border border-brand-lavender/15 text-center flex flex-col items-center">
-            <div className="w-12 h-12 rounded-full bg-brand-lavender/50 flex items-center justify-center mb-4">
-              <Compass className="w-6 h-6 text-brand-purple" />
+          {/* Create Memories */}
+          <div className="bg-white p-6 rounded-2xl border border-slate-100 hover:border-brand-purple/20 hover:shadow-md transition-all duration-300 flex flex-col items-center text-center group">
+            <div className="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+              <Smile className="w-6 h-6" />
             </div>
-            <h3 className="font-display font-bold text-lg mb-2 text-brand-text">Simple RSVP</h3>
+            <h3 className="font-display font-bold text-base mb-2 text-brand-text">Create Memories</h3>
             <p className="text-xs text-brand-text-sec leading-relaxed">
-              One-click RSVP keeps your calendar clear and adds events directly to your profile memory board.
+              RSVP to build your personal memory board of your favorite campus chapters.
+            </p>
+          </div>
+
+          {/* Build Community */}
+          <div className="bg-white p-6 rounded-2xl border border-slate-100 hover:border-brand-purple/20 hover:shadow-md transition-all duration-300 flex flex-col items-center text-center group">
+            <div className="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+              <Landmark className="w-6 h-6" />
+            </div>
+            <h3 className="font-display font-bold text-base mb-2 text-brand-text">Build Community</h3>
+            <p className="text-xs text-brand-text-sec leading-relaxed">
+              Start your own student circle, manage host permissions, and invite members.
             </p>
           </div>
         </div>

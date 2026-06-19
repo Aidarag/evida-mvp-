@@ -38,7 +38,7 @@ export interface Community {
   name: string;
   description: string;
   memberCount: number;
-  category: 'Tech' | 'Culture' | 'Sports' | 'Business' | 'Wellness' | 'Creative';
+  category: 'Tech' | 'Culture' | 'Sports' | 'Business' | 'Wellness' | 'Creative' | 'Academic';
   image: string;
   banner: string;
   logo: string;

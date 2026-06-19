@@ -8,19 +8,19 @@ export const mockEvents: Event[] = [
     date: 'Oct 12, 2026',
     time: '4:00 PM - 6:30 PM',
     location: 'Student Center Quad (Rain location: Lobby)',
-    organizer: 'International Students Club',
+    organizer: 'Afro Culture Club',
     category: 'Social',
     image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=800',
     attendeeCount: 42
   },
   {
     id: 'evt-game-night',
-    title: 'Blue Bears Game Night',
+    title: 'Campus Game Night',
     description: 'Join us for a cozy evening of board games, video games, and trivia! We will have Mario Kart on the big screen, classic games like Catan and Codenames, and plenty of pizza. Bring your friends or come make new ones!',
     date: 'Oct 15, 2026',
     time: '6:00 PM - 9:00 PM',
-    location: 'Bears Lounge, Lower Level',
-    organizer: 'Blue Bears Athletics & Rec',
+    location: 'Student Lounge, Lower Level',
+    organizer: 'Debate Society',
     category: 'Social',
     image: 'https://images.unsplash.com/photo-1610890716171-6b1bb98ffd09?auto=format&fit=crop&q=80&w=800',
     attendeeCount: 28
@@ -32,7 +32,7 @@ export const mockEvents: Event[] = [
     date: 'Oct 19, 2026',
     time: '2:00 PM - 4:00 PM',
     location: 'Campus Brew Library Café',
-    organizer: 'Women in Business & Tech Circle',
+    organizer: 'Entrepreneurship Hub',
     category: 'Career',
     image: 'https://images.unsplash.com/photo-1511556532299-8f662fc26c06?auto=format&fit=crop&q=80&w=800',
     attendeeCount: 19
@@ -68,7 +68,7 @@ export const mockEvents: Event[] = [
     date: 'Nov 02, 2026',
     time: '5:00 PM - 7:00 PM',
     location: 'Engineering Building, Room 402',
-    organizer: 'Tech Circle',
+    organizer: 'Tech Innovators Club',
     category: 'Academic',
     image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=800',
     attendeeCount: 34
@@ -102,14 +102,14 @@ export const mockEvents: Event[] = [
 export const mockCommunities: Community[] = [
   {
     id: 'comm-tech',
-    name: 'Tech Circle',
+    name: 'Tech Innovators Club',
     description: 'For student builders, coders, and makers. We organize weekly hack nights, workshops, and help students launch side projects.',
     memberCount: 142,
     category: 'Tech',
     image: 'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&q=80&w=800',
     banner: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=1200',
     logo: 'Code',
-    about: 'Tech Circle is the premier student builder community on campus. We focus on hands-on creation, hosting weekly hack sessions, peer-to-peer programming workshops, and hosting guest lectures from tech industry veterans. Whether you wrote your first line of code today or are already shipping production apps, you have a home here.',
+    about: 'Tech Innovators Club is the premier student builder community on campus. We focus on hands-on creation, hosting weekly hack sessions, peer-to-peer programming workshops, and hosting guest lectures from tech industry veterans. Whether you wrote your first line of code today or are already shipping production apps, you have a home here.',
     membersList: [
       { name: 'Alex Rivera', avatar: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=200', role: 'President' },
       { name: 'Maya Lin', avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200', role: 'Design Lead' },
@@ -135,14 +135,14 @@ export const mockCommunities: Community[] = [
   },
   {
     id: 'comm-intl',
-    name: 'International Students Club',
-    description: 'A home away from home! We host cultural nights, international mixers, language cafés, and buddy programs to help everyone adjust to campus life.',
+    name: 'Afro Culture Club',
+    description: 'Celebrating African heritage, history, and modern culture. We host vibrant social events, food tastings, music nights, and community discussions.',
     memberCount: 210,
     category: 'Culture',
     image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800',
     banner: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=1200',
     logo: 'Globe',
-    about: 'The International Students Club (ISC) aims to build global bridges and support international students settling on campus. We celebrate global diversity, coordinate fun cross-cultural events, and advocate for campus inclusivity.',
+    about: 'The Afro Culture Club aims to share, celebrate, and explore the rich diversity of African cultures, heritage, and history on campus. We build a supportive environment, host food/music mixers, and run cultural showcases.',
     membersList: [
       { name: 'Fatima Al-Sayed', avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200', role: 'President' },
       { name: 'Lucas Dubois', avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200', role: 'Treasurer' }
@@ -163,14 +163,14 @@ export const mockCommunities: Community[] = [
   },
   {
     id: 'comm-business',
-    name: 'Women in Business',
-    description: 'Empowering future business leaders. We provide networking opportunities, corporate site visits, professional mentoring, and career seminars.',
+    name: 'Entrepreneurship Hub',
+    description: 'For future founders, product managers, and builders. We provide startup resources, pitch competitions, mentoring, and networking opportunities.',
     memberCount: 88,
     category: 'Business',
     image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800',
     banner: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80&w=1200',
     logo: 'Briefcase',
-    about: 'Women in Business empowers and guides undergraduate women aiming for careers in finance, management consulting, technology, and entrepreneurship. We run a structured alumni mentor pairing program and organize office tours in metropolitan hubs.',
+    about: 'The Entrepreneurship Hub is a community for student builders, founders, and creatives. We foster innovation, host pitch workshops, run mentor sessions with startup founders, and provide resources to take ideas from zero to one.',
     membersList: [
       { name: 'Sarah Jenkins', avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200', role: 'President' }
     ],
@@ -189,14 +189,14 @@ export const mockCommunities: Community[] = [
   },
   {
     id: 'comm-sports',
-    name: 'Blue Bears Athletics',
-    description: 'Connect with fellow student athletes and recreational sports enthusiasts. Weekly pickup games, group runs, fitness challenges, and game screenings.',
+    name: 'Debate Society',
+    description: 'Develop public speaking, logical reasoning, and debate skills. Weekly friendly debates on current issues and prep for regional debate tournaments.',
     memberCount: 165,
-    category: 'Sports',
+    category: 'Academic',
     image: 'https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?auto=format&fit=crop&q=80&w=800',
     banner: 'https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&q=80&w=1200',
     logo: 'Activity',
-    about: 'The Blue Bears Athletics club connects students through recreation, sport, and wellness. We run intramural leagues, organize weekly runs around the campus lake, and hold watch-parties for collegiate championship games. All fitness levels are welcome!',
+    about: 'The Debate Society provides a supportive platform for students to practice public speaking and structured debating. We host weekly mock debates on local and global topics, run training workshops, and attend tournaments. All majors are welcome!',
     membersList: [
       { name: 'Tyler Vance', avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200', role: 'Athletic Lead' }
     ],

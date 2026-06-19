@@ -10,10 +10,11 @@ export const Explore: React.FC = () => {
   const { events } = useApp();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const [selectedDateFilter, setSelectedDateFilter] = useState('All');
 
   const categories = ['All', 'Social', 'Career', 'Sports', 'Culture', 'Academic', 'Wellness', 'Volunteer'];
 
-  // Filter events based on search query and category
+  // Filter events based on search query, category, and date range
   const filteredEvents = events.filter((event) => {
     const matchesSearch =
       event.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -23,7 +24,24 @@ export const Explore: React.FC = () => {
 
     const matchesCategory = selectedCategory === 'All' || event.category === selectedCategory;
 
-    return matchesSearch && matchesCategory;
+    // Mock date parsing relative to the first mock event date "Oct 12, 2026"
+    let matchesDate = true;
+    if (selectedDateFilter !== 'All') {
+      const mockToday = new Date('2026-10-12');
+      const eventDate = new Date(event.date);
+      const diffTime = eventDate.getTime() - mockToday.getTime();
+      const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24)); // round to avoid timezone edge cases
+
+      if (selectedDateFilter === 'Today') {
+        matchesDate = diffDays === 0;
+      } else if (selectedDateFilter === 'This Week') {
+        matchesDate = diffDays >= 0 && diffDays <= 6;
+      } else if (selectedDateFilter === 'Next Week') {
+        matchesDate = diffDays >= 7 && diffDays <= 13;
+      }
+    }
+
+    return matchesSearch && matchesCategory && matchesDate;
   });
 
   // Trending events (high attendeeCount, e.g., >= 40)
@@ -32,6 +50,7 @@ export const Explore: React.FC = () => {
   const handleResetFilters = () => {
     setSearchQuery('');
     setSelectedCategory('All');
+    setSelectedDateFilter('All');
   };
 
   return (
@@ -49,15 +68,45 @@ export const Explore: React.FC = () => {
       {/* Search and Filters Controls */}
       <div className="space-y-6 max-w-3xl mx-auto">
         <SearchBar value={searchQuery} onChange={setSearchQuery} />
-        <CategoryFilter
-          categories={categories}
-          selectedCategory={selectedCategory}
-          onChange={setSelectedCategory}
-        />
+        
+        <div className="space-y-3">
+          <p className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-slate-400 font-display text-left">
+            Categories
+          </p>
+          <CategoryFilter
+            categories={categories}
+            selectedCategory={selectedCategory}
+            onChange={setSelectedCategory}
+          />
+        </div>
+
+        <div className="space-y-3">
+          <p className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-slate-400 font-display text-left">
+            When
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {['All', 'Today', 'This Week', 'Next Week'].map((dateFilter) => {
+              const isActive = selectedDateFilter === dateFilter;
+              return (
+                <button
+                  key={dateFilter}
+                  onClick={() => setSelectedDateFilter(dateFilter)}
+                  className={`px-4 py-2 rounded-full text-xs font-bold font-display cursor-pointer transition-all duration-200 ${
+                    isActive
+                      ? 'bg-brand-purple text-white shadow-md shadow-brand-purple/15'
+                      : 'bg-slate-50 text-slate-500 hover:bg-slate-100 border border-slate-100/50'
+                  }`}
+                >
+                  {dateFilter === 'All' ? 'All Dates' : dateFilter}
+                </button>
+              );
+            })}
+          </div>
+        </div>
       </div>
 
       {/* Trending Gatherings (Only show if not filtering/searching) */}
-      {!searchQuery && selectedCategory === 'All' && trendingEvents.length > 0 && (
+      {!searchQuery && selectedCategory === 'All' && selectedDateFilter === 'All' && trendingEvents.length > 0 && (
         <section className="space-y-5">
           <div className="flex items-center space-x-2 border-b border-brand-lavender/25 pb-3">
             <TrendingUp className="w-5 h-5 text-brand-purple" />
