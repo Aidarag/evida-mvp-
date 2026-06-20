@@ -65,6 +65,7 @@ export interface Opportunity {
 export interface UserProfile {
   name: string;
   major: string;
+  graduationYear: string;
   university: string;
   bio: string;
   avatar: string;
@@ -75,4 +76,24 @@ export interface UserProfile {
   followedCommunityIds: string[];
   savedOpportunityIds: string[];
 }
+
+export interface MomentComment {
+  id: string;
+  author: string;
+  avatar: string;
+  text: string;
+  timestamp: string;
+}
+
+export interface Moment {
+  id: string;
+  image: string;
+  studentAvatar: string;
+  studentName: string;
+  organization: string;
+  likes: number;
+  hasLiked?: boolean;
+  comments: MomentComment[];
+}
+
 

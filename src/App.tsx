@@ -1,7 +1,9 @@
 import React from 'react';
 import { AppContextProvider, useApp } from './context/AppContext';
+import Sidebar from './components/Sidebar';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import CreateEventModal from './components/CreateEventModal';
 import Home from './pages/Home';
 import Explore from './pages/Explore';
 import EventDetails from './pages/EventDetails';
@@ -44,12 +46,25 @@ const AppContent: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-brand-bg text-brand-text">
+    <div className="flex h-screen w-screen overflow-hidden bg-[#080808] text-white font-sans antialiased selection:bg-[#FF7A1A]/20">
+      {/* Desktop Left Sidebar Navigation */}
+      <div className="hidden md:block">
+        <Sidebar />
+      </div>
+
+      {/* Main Page Scroll Container */}
+      <div className="flex-1 flex flex-col h-full overflow-y-auto custom-scrollbar relative">
+        <main className="flex-grow">
+          {renderPage()}
+        </main>
+        <Footer />
+      </div>
+
+      {/* Floating Bottom Navigation Bar (Mobile Experience) */}
       <Navbar />
-      <main className="flex-grow">
-        {renderPage()}
-      </main>
-      <Footer />
+
+      {/* Premium Create Event Form Modal */}
+      <CreateEventModal />
     </div>
   );
 };

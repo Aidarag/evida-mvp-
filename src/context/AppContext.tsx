@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState } from 'react';
 import type { ReactNode } from 'react';
-import type { Event, Community, UserProfile, Opportunity, Discussion } from '../types';
-import { mockEvents, mockCommunities, mockOpportunities, initialProfile } from '../data/mockData';
+import type { Event, Community, UserProfile, Opportunity, Discussion, Moment, MomentComment } from '../types';
+import { mockEvents, mockCommunities, mockOpportunities, initialProfile, mockMoments } from '../data/mockData';
 
 export type PageName = 'home' | 'explore' | 'event-details' | 'communities' | 'create-event' | 'profile' | 'opportunities' | 'saved' | 'community-profile' | 'opportunity-details';
 
@@ -10,10 +10,13 @@ interface AppContextType {
   communities: Community[];
   opportunities: Opportunity[];
   profile: UserProfile;
+  moments: Moment[];
   currentPage: PageName;
   selectedEventId: string | null;
   selectedCommunityId: string | null;
   selectedOpportunityId: string | null;
+  isCreateModalOpen: boolean;
+  setCreateModalOpen: (open: boolean) => void;
   setCurrentPage: (page: PageName) => void;
   setSelectedEventId: (id: string | null) => void;
   setSelectedCommunityId: (id: string | null) => void;
@@ -22,9 +25,11 @@ interface AppContextType {
   saveEvent: (eventId: string) => void;
   toggleFollowCommunity: (communityId: string) => void;
   createEvent: (newEvent: Omit<Event, 'id' | 'attendeeCount'>) => void;
-  updateProfile: (name: string, bio: string, interests: string[], major: string, university: string) => void;
+  updateProfile: (name: string, bio: string, interests: string[], major: string, graduationYear: string, university: string) => void;
   saveOpportunity: (oppId: string) => void;
   addDiscussionPost: (communityId: string, postText: string) => void;
+  likeMoment: (momentId: string) => void;
+  addMomentComment: (momentId: string, commentText: string) => void;
 }
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
@@ -34,10 +39,12 @@ export const AppContextProvider: React.FC<{ children: ReactNode }> = ({ children
   const [communities, setCommunities] = useState<Community[]>(mockCommunities);
   const [opportunities] = useState<Opportunity[]>(mockOpportunities);
   const [profile, setProfile] = useState<UserProfile>(initialProfile);
+  const [moments, setMoments] = useState<Moment[]>(mockMoments);
   const [currentPage, setCurrentPageState] = useState<PageName>('home');
   const [selectedEventId, setSelectedEventId] = useState<string | null>(null);
   const [selectedCommunityId, setSelectedCommunityId] = useState<string | null>(null);
   const [selectedOpportunityId, setSelectedOpportunityId] = useState<string | null>(null);
+  const [isCreateModalOpen, setCreateModalOpen] = useState(false);
 
   const setCurrentPage = (page: PageName) => {
     setCurrentPageState(page);
@@ -120,13 +127,14 @@ export const AppContextProvider: React.FC<{ children: ReactNode }> = ({ children
     }));
   };
 
-  const updateProfile = (name: string, bio: string, interests: string[], major: string, university: string) => {
+  const updateProfile = (name: string, bio: string, interests: string[], major: string, graduationYear: string, university: string) => {
     setProfile(prev => ({
       ...prev,
       name,
       bio,
       interests,
       major,
+      graduationYear,
       university
     }));
   };
@@ -162,6 +170,44 @@ export const AppContextProvider: React.FC<{ children: ReactNode }> = ({ children
     );
   };
 
+  const likeMoment = (momentId: string) => {
+    setMoments(prevMoments =>
+      prevMoments.map(m => {
+        if (m.id === momentId) {
+          const hasLiked = !m.hasLiked;
+          return {
+            ...m,
+            hasLiked,
+            likes: hasLiked ? m.likes + 1 : m.likes - 1
+          };
+        }
+        return m;
+      })
+    );
+  };
+
+  const addMomentComment = (momentId: string, commentText: string) => {
+    const newComment: MomentComment = {
+      id: `mcomm-${Date.now()}`,
+      author: profile.name,
+      avatar: profile.avatar,
+      text: commentText,
+      timestamp: 'Just now'
+    };
+
+    setMoments(prevMoments =>
+      prevMoments.map(m => {
+        if (m.id === momentId) {
+          return {
+            ...m,
+            comments: [...m.comments, newComment]
+          };
+        }
+        return m;
+      })
+    );
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -169,10 +215,13 @@ export const AppContextProvider: React.FC<{ children: ReactNode }> = ({ children
         communities,
         opportunities,
         profile,
+        moments,
         currentPage,
         selectedEventId,
         selectedCommunityId,
         selectedOpportunityId,
+        isCreateModalOpen,
+        setCreateModalOpen,
         setCurrentPage,
         setSelectedEventId,
         setSelectedCommunityId,
@@ -183,7 +232,9 @@ export const AppContextProvider: React.FC<{ children: ReactNode }> = ({ children
         createEvent,
         updateProfile,
         saveOpportunity,
-        addDiscussionPost
+        addDiscussionPost,
+        likeMoment,
+        addMomentComment
       }}
     >
       {children}

@@ -16,17 +16,17 @@ export const EvidaLogo: React.FC<EvidaLogoProps> = ({ className = '', size = 32 
       className={`${className} flex-shrink-0`}
     >
       <defs>
-        {/* Purple to Blue gradient */}
-        <linearGradient id="evida-purple-blue" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#A855F7" />
-          <stop offset="50%" stopColor="#7C3AED" />
-          <stop offset="100%" stopColor="#0EA5E9" />
+        {/* Glowing Orange gradient */}
+        <linearGradient id="evida-orange-glow" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#FFA044" />
+          <stop offset="50%" stopColor="#FF7A1A" />
+          <stop offset="100%" stopColor="#E56717" />
         </linearGradient>
-        {/* Blue to Green gradient */}
-        <linearGradient id="evida-blue-green" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#0EA5E9" />
-          <stop offset="60%" stopColor="#10B981" />
-          <stop offset="100%" stopColor="#22C55E" />
+        {/* Secondary Warm gradient */}
+        <linearGradient id="evida-warm" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#E56717" />
+          <stop offset="60%" stopColor="#FF7A1A" />
+          <stop offset="100%" stopColor="#FFA044" />
         </linearGradient>
       </defs>
 
@@ -47,7 +47,7 @@ export const EvidaLogo: React.FC<EvidaLogoProps> = ({ className = '', size = 32 
            L 84,40
            C 85,38 84,35 82,33
            C 76,23 64,15 50,15 Z"
-        fill="url(#evida-purple-blue)"
+        fill="url(#evida-orange-glow)"
       />
 
       {/* Overlapping lower ribbon that completes the 'e' structure */}
@@ -64,7 +64,7 @@ export const EvidaLogo: React.FC<EvidaLogoProps> = ({ className = '', size = 32 
            C 64,28 60,25 55,25
            C 43,25 33,35 33,48
            C 33,65 45,85 50,85 Z"
-        fill="url(#evida-blue-green)"
+        fill="url(#evida-warm)"
         opacity="0.95"
       />
 
@@ -75,7 +75,7 @@ export const EvidaLogo: React.FC<EvidaLogoProps> = ({ className = '', size = 32 
            C 93,52 95,43 95,43
            C 95,43 86,43 80,48
            C 74,53 68,60 68,66 Z"
-        fill="#10B981"
+        fill="#FF7A1A"
       />
       {/* Leaf vein */}
       <path
@@ -111,7 +111,7 @@ export const EvidaLogoText: React.FC<{ className?: string; size?: number }> = ({
             d="M 1,9 
                C 2.5,5.5 5.5,2.5 9,1 
                C 8,5.5 5.5,8 1,9 Z"
-            fill="#10B981"
+            fill="#FF7A1A"
           />
         </svg>
       </span>

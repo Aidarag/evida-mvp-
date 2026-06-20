@@ -14,32 +14,31 @@ export const Saved: React.FC = () => {
     setCurrentPage('opportunity-details');
   };
 
-  // Filter lists based on saved IDs in student profile
   const savedEvents = events.filter(evt => profile.savedEventIds.includes(evt.id));
   const followedClubs = communities.filter(comm => profile.followedCommunityIds.includes(comm.id));
   const savedOpportunities = opportunities.filter(opp => profile.savedOpportunityIds.includes(opp.id));
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-10 fade-in pb-16">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-10 fade-in pb-16 text-left select-none">
       
       {/* Page Header */}
       <div className="text-center max-w-2xl mx-auto space-y-3">
-        <h1 className="text-3xl sm:text-5xl font-bold text-brand-text font-display">
+        <h1 className="text-3xl sm:text-5xl font-bold text-white font-display">
           My Saved Square
         </h1>
-        <p className="text-sm sm:text-base text-brand-text-sec leading-relaxed">
+        <p className="text-sm sm:text-base text-[#B8B8B8] leading-relaxed">
           Keep track of upcoming events you like, active communities you joined, and internships or scholarships you bookmarked.
         </p>
       </div>
 
       {/* Tabs Menu Bar */}
-      <div className="flex border-b border-brand-lavender/35 max-w-md mx-auto justify-center select-none">
+      <div className="flex border-b border-white/5 max-w-md mx-auto justify-center select-none">
         <button
           onClick={() => setActiveTab('events')}
-          className={`flex-1 pb-3 text-center text-sm font-bold font-display transition-all relative ${
+          className={`flex-1 pb-3 text-center text-sm font-bold font-display transition-all relative cursor-pointer ${
             activeTab === 'events' 
-              ? 'text-brand-purple font-extrabold' 
-              : 'text-brand-text-sec/60 hover:text-brand-text'
+              ? 'text-[#FF7A1A] font-extrabold' 
+              : 'text-[#B8B8B8]/60 hover:text-white'
           }`}
         >
           <span className="flex items-center justify-center space-x-1.5">
@@ -47,16 +46,16 @@ export const Saved: React.FC = () => {
             <span>Events ({savedEvents.length})</span>
           </span>
           {activeTab === 'events' && (
-            <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-brand-purple rounded-t-full" />
+            <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#FF7A1A] rounded-t-full" />
           )}
         </button>
 
         <button
           onClick={() => setActiveTab('clubs')}
-          className={`flex-1 pb-3 text-center text-sm font-bold font-display transition-all relative ${
+          className={`flex-1 pb-3 text-center text-sm font-bold font-display transition-all relative cursor-pointer ${
             activeTab === 'clubs' 
-              ? 'text-brand-purple font-extrabold' 
-              : 'text-brand-text-sec/60 hover:text-brand-text'
+              ? 'text-[#FF7A1A] font-extrabold' 
+              : 'text-[#B8B8B8]/60 hover:text-white'
           }`}
         >
           <span className="flex items-center justify-center space-x-1.5">
@@ -64,16 +63,16 @@ export const Saved: React.FC = () => {
             <span>Clubs ({followedClubs.length})</span>
           </span>
           {activeTab === 'clubs' && (
-            <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-brand-purple rounded-t-full" />
+            <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#FF7A1A] rounded-t-full" />
           )}
         </button>
 
         <button
           onClick={() => setActiveTab('opportunities')}
-          className={`flex-1 pb-3 text-center text-sm font-bold font-display transition-all relative ${
+          className={`flex-1 pb-3 text-center text-sm font-bold font-display transition-all relative cursor-pointer ${
             activeTab === 'opportunities' 
-              ? 'text-brand-purple font-extrabold' 
-              : 'text-brand-text-sec/60 hover:text-brand-text'
+              ? 'text-[#FF7A1A] font-extrabold' 
+              : 'text-[#B8B8B8]/60 hover:text-white'
           }`}
         >
           <span className="flex items-center justify-center space-x-1.5">
@@ -81,7 +80,7 @@ export const Saved: React.FC = () => {
             <span>Careers ({savedOpportunities.length})</span>
           </span>
           {activeTab === 'opportunities' && (
-            <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-brand-purple rounded-t-full" />
+            <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#FF7A1A] rounded-t-full" />
           )}
         </button>
       </div>
@@ -98,10 +97,10 @@ export const Saved: React.FC = () => {
               ))}
             </div>
           ) : (
-            <div className="text-center py-16 px-4 bg-white rounded-3xl border border-brand-lavender/25 max-w-sm mx-auto space-y-4 shadow-sm">
-              <Calendar className="w-8 h-8 text-brand-purple/40 mx-auto" />
-              <h3 className="font-display font-bold text-base text-brand-text">No saved events</h3>
-              <p className="text-xs text-brand-text-sec">Bookmark events from the explore board to keep them pinned here.</p>
+            <div className="text-center py-16 px-4 bg-[#111111] rounded-3xl border border-white/5 max-w-sm mx-auto space-y-4 shadow-sm">
+              <Calendar className="w-8 h-8 text-[#FF7A1A]/40 mx-auto" />
+              <h3 className="font-display font-bold text-base text-white">No saved events</h3>
+              <p className="text-xs text-[#B8B8B8]">Bookmark events from the explore board to keep them pinned here.</p>
               <Button variant="primary" size="sm" onClick={() => setCurrentPage('explore')}>Explore Events</Button>
             </div>
           )
@@ -116,10 +115,10 @@ export const Saved: React.FC = () => {
               ))}
             </div>
           ) : (
-            <div className="text-center py-16 px-4 bg-white rounded-3xl border border-brand-lavender/25 max-w-sm mx-auto space-y-4 shadow-sm">
-              <Users className="w-8 h-8 text-brand-purple/40 mx-auto" />
-              <h3 className="font-display font-bold text-base text-brand-text">No joined communities</h3>
-              <p className="text-xs text-brand-text-sec">Find and join active student chapters and athletic clubs on campus.</p>
+            <div className="text-center py-16 px-4 bg-[#111111] rounded-3xl border border-white/5 max-w-sm mx-auto space-y-4 shadow-sm">
+              <Users className="w-8 h-8 text-[#FF7A1A]/40 mx-auto" />
+              <h3 className="font-display font-bold text-base text-white">No joined communities</h3>
+              <p className="text-xs text-[#B8B8B8]">Find and join active student chapters and athletic clubs on campus.</p>
               <Button variant="primary" size="sm" onClick={() => setCurrentPage('communities')}>Browse Clubs</Button>
             </div>
           )
@@ -132,21 +131,21 @@ export const Saved: React.FC = () => {
               {savedOpportunities.map((opp) => (
                 <div 
                   key={`saved-opp-${opp.id}`}
-                  className="bg-white p-5 rounded-3xl border border-brand-lavender/25 shadow-sm hover:shadow-md transition-all flex justify-between items-center gap-4 text-left"
+                  className="bg-[#111111] p-5 rounded-3xl border border-white/5 shadow-sm hover:shadow-md transition-all flex justify-between items-center gap-4 text-left"
                 >
                   <div>
-                    <span className="bg-brand-purple/10 text-brand-purple text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider font-display select-none">
+                    <span className="bg-[#FF7A1A]/10 text-[#FF7A1A] text-[9px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider font-display select-none border border-[#FF7A1A]/15">
                       {opp.type}
                     </span>
                     <h4 
                       onClick={() => handleViewOpportunity(opp.id)}
-                      className="text-base font-bold text-brand-text font-display pt-1 cursor-pointer hover:text-brand-purple transition-colors"
+                      className="text-base font-bold text-white font-display pt-1.5 cursor-pointer hover:text-[#FF7A1A] transition-colors"
                     >
                       {opp.title}
                     </h4>
-                    <p className="text-xs text-brand-text-sec font-semibold">{opp.organizer}</p>
-                    <p className="text-[11px] text-brand-purple font-bold pt-1 flex items-center">
-                      <DollarSign className="w-3 h-3 mr-0.5 text-brand-purple flex-shrink-0" />
+                    <p className="text-xs text-[#B8B8B8] font-semibold">{opp.organizer}</p>
+                    <p className="text-[11px] text-[#FF7A1A] font-bold pt-1 flex items-center">
+                      <DollarSign className="w-3.5 h-3.5 mr-0.5 text-[#FF7A1A] flex-shrink-0" />
                       <span>{opp.reward}</span>
                     </p>
                   </div>
@@ -154,7 +153,7 @@ export const Saved: React.FC = () => {
                   <div className="flex items-center gap-2">
                     <button
                       onClick={() => saveOpportunity(opp.id)}
-                      className="p-2 bg-brand-purple/10 text-brand-purple rounded-full hover:bg-brand-purple/20 transition-colors"
+                      className="p-2 bg-white/5 text-[#B8B8B8] hover:text-[#FF7A1A] rounded-full hover:bg-white/10 transition-colors cursor-pointer"
                       title="Remove bookmark"
                     >
                       <X className="w-4 h-4" />
@@ -172,10 +171,10 @@ export const Saved: React.FC = () => {
               ))}
             </div>
           ) : (
-            <div className="text-center py-16 px-4 bg-white rounded-3xl border border-brand-lavender/25 max-w-sm mx-auto space-y-4 shadow-sm">
-              <Briefcase className="w-8 h-8 text-brand-purple/40 mx-auto" />
-              <h3 className="font-display font-bold text-base text-brand-text">No saved opportunities</h3>
-              <p className="text-xs text-brand-text-sec">Bookmark research roles, tutor positions, and internships to follow up later.</p>
+            <div className="text-center py-16 px-4 bg-[#111111] rounded-3xl border border-white/5 max-w-sm mx-auto space-y-4 shadow-sm">
+              <Briefcase className="w-8 h-8 text-[#FF7A1A]/40 mx-auto" />
+              <h3 className="font-display font-bold text-base text-white">No saved opportunities</h3>
+              <p className="text-xs text-[#B8B8B8]">Bookmark research roles, tutor positions, and internships to follow up later.</p>
               <Button variant="primary" size="sm" onClick={() => setCurrentPage('opportunities')}>Explore Hub</Button>
             </div>
           )
@@ -186,4 +185,5 @@ export const Saved: React.FC = () => {
     </div>
   );
 };
+
 export default Saved;

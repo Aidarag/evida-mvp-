@@ -1,20 +1,20 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-purple: #6C3BFF;
-  --color-brand-blue: #0EA5E9;
-  --color-brand-green: #10B981;
-  --color-brand-bg: #FFFFFF;
-  --color-brand-text: #0F172A;
-  --color-brand-text-sec: #475569;
+  --color-brand-purple: #FF7A1A;
+  --color-brand-blue: #E56717;
+  --color-brand-green: #FF9F43;
+  --color-brand-bg: #080808;
+  --color-brand-text: #FFFFFF;
+  --color-brand-text-sec: #B8B8B8;
 
   /* Compatibility fallbacks for existing components */
-  --color-brand-lavender: #F4F0FF;
-  --color-brand-peach: #EAE5FF;
-  --color-brand-cream: #FFFFFF;
-  --color-brand-navy: #0F172A;
-  --color-brand-coral: #6C3BFF;
-  --color-brand-yellow: #F4F0FF;
+  --color-brand-lavender: rgba(255, 255, 255, 0.08);
+  --color-brand-peach: rgba(255, 122, 26, 0.15);
+  --color-brand-cream: #111111;
+  --color-brand-navy: #000000;
+  --color-brand-coral: #FF7A1A;
+  --color-brand-yellow: rgba(255, 122, 26, 0.05);
   
   --font-display: "Clash Display", "Satoshi", sans-serif;
   --font-sans: "Inter", "Satoshi", sans-serif;
@@ -24,6 +24,8 @@
 @layer base {
   body {
     @apply bg-brand-bg text-brand-text font-sans antialiased selection:bg-brand-purple/20;
+    background-color: #080808;
+    color: #FFFFFF;
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -40,11 +42,11 @@
   background: transparent;
 }
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: #E5DFF0;
+  background: rgba(255, 122, 26, 0.25);
   border-radius: 9999px;
 }
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #FF7A60;
+  background: #FF7A1A;
 }
 
 /* Page transitions */
@@ -110,30 +112,30 @@
 
 /* Glassmorphism utility cards (60% Luma / 25% Apple vibe) */
 .glass-panel {
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(17, 17, 17, 0.7);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(205, 190, 255, 0.25);
+  border: 1px solid rgba(255, 122, 26, 0.15);
 }
 
 .glass-card {
-  background: rgba(255, 255, 255, 0.65);
+  background: rgba(17, 17, 17, 0.65);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(205, 190, 255, 0.3);
+  border: 1px solid rgba(255, 122, 26, 0.2);
 }
 
 /* Custom premium badge gradients */
 .badge-purple-gradient {
-  background: linear-gradient(135deg, rgba(108, 59, 255, 0.08) 0%, rgba(14, 165, 233, 0.08) 100%);
-  color: #6C3BFF;
-  border: 1px solid rgba(108, 59, 255, 0.12);
+  background: linear-gradient(135deg, rgba(255, 122, 26, 0.08) 0%, rgba(229, 103, 23, 0.08) 100%);
+  color: #FF7A1A;
+  border: 1px solid rgba(255, 122, 26, 0.15);
 }
 
 .badge-peach-gradient {
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(34, 197, 94, 0.1) 100%);
-  color: #10B981;
-  border: 1px solid rgba(16, 185, 129, 0.12);
+  background: linear-gradient(135deg, rgba(255, 122, 26, 0.08) 0%, rgba(229, 103, 23, 0.1) 100%);
+  color: #E56717;
+  border: 1px solid rgba(229, 103, 23, 0.15);
 }
 
 /* Custom Masonry layout overrides if needed */
@@ -141,3 +143,22 @@
   break-inside: avoid;
   margin-bottom: 1.5rem;
 }
+
+/* Orange Glows */
+.orange-glow {
+  box-shadow: 0 0 25px rgba(255, 122, 26, 0.2);
+}
+
+.orange-glow-sm {
+  box-shadow: 0 0 15px rgba(255, 122, 26, 0.12);
+}
+
+.orange-glow-lg {
+  box-shadow: 0 0 40px rgba(255, 122, 26, 0.3);
+}
+
+.orange-glow-border {
+  border-color: rgba(255, 122, 26, 0.4);
+  box-shadow: 0 0 10px rgba(255, 122, 26, 0.1);
+}
+
