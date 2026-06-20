@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useApp } from '../context/AppContext';
 import { 
   Bell, Calendar, Users, Briefcase, ArrowRight, 
-  Plus, TrendingUp, Compass, UserCheck 
+  Plus, TrendingUp, Compass, UserCheck, Check 
 } from 'lucide-react';
 import EventCard from '../components/EventCard';
 
@@ -64,7 +64,9 @@ export const Home: React.FC = () => {
       {/* Toast Notification */}
       {showToast && (
         <div className="fixed top-6 left-1/2 -translate-x-1/2 z-[100] px-5 py-3 rounded-full dark-glass-card border border-[#FE7F42]/30 flex items-center gap-2.5 shadow-xl animate-bounce">
-          <div className="w-5 h-5 rounded-full bg-[#FE7F42] flex items-center justify-center text-white text-[10px]">✓</div>
+          <div className="w-5 h-5 rounded-full bg-[#FE7F42] flex items-center justify-center text-white">
+            <Check className="w-3 h-3 stroke-[3px]" />
+          </div>
           <span className="text-[11px] font-bold text-white tracking-wide">{toastMessage}</span>
         </div>
       )}
@@ -74,7 +76,7 @@ export const Home: React.FC = () => {
         <div>
           <span className="text-[10px] font-black uppercase tracking-widest text-[#FE7F42]">Campus Hub</span>
           <h1 className="text-3xl sm:text-4xl font-extrabold text-white mt-1 font-sans">
-            Hey, {profile.name.split(' ')[0]} 👋
+            Hey, {profile.name.split(' ')[0]}
           </h1>
           <p className="text-xs text-white/60 mt-1">Here is what is happening around you at {profile.university}.</p>
         </div>

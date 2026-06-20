@@ -153,11 +153,15 @@ export const OpportunityDetails: React.FC = () => {
 
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
               <li className="flex items-start space-x-2.5 text-xs text-brand-text-sec font-sans font-medium">
-                <div className="w-4.5 h-4.5 rounded-full bg-[#FE7F42]/10 border border-[#FE7F42]/20 flex items-center justify-center flex-shrink-0 text-[#FE7F42] font-bold text-[10px]">✓</div>
+                <div className="w-4.5 h-4.5 rounded-full bg-[#FE7F42]/10 border border-[#FE7F42]/20 flex items-center justify-center flex-shrink-0 text-[#FE7F42] mt-0.5">
+                  <Check className="w-2.5 h-2.5" />
+                </div>
                 <span>Pre-filled profile & CV application routing</span>
               </li>
               <li className="flex items-start space-x-2.5 text-xs text-brand-text-sec font-sans font-medium">
-                <div className="w-4.5 h-4.5 rounded-full bg-[#FE7F42]/10 border border-[#FE7F42]/20 flex items-center justify-center flex-shrink-0 text-[#FE7F42] font-bold text-[10px]">✓</div>
+                <div className="w-4.5 h-4.5 rounded-full bg-[#FE7F42]/10 border border-[#FE7F42]/20 flex items-center justify-center flex-shrink-0 text-[#FE7F42] mt-0.5">
+                  <Check className="w-2.5 h-2.5" />
+                </div>
                 <span>Reviewed by {opportunity.organizer} admissions</span>
               </li>
             </ul>

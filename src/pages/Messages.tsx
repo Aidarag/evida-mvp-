@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Send, Search, Sparkles, Check, CheckCheck } from 'lucide-react';
+import { Send, Search, Sparkles, Check, CheckCheck, Users } from 'lucide-react';
 
 interface MessageThread {
   id: string;
@@ -18,7 +18,7 @@ export const Messages: React.FC = () => {
   const threads: MessageThread[] = [
     {
       id: 'thread-bsu',
-      name: 'BSU Event Planning 🎪',
+      name: 'BSU Event Planning',
       avatar: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=200',
       lastMessage: 'Marcus Vance: The decorations are in the quad!',
       time: '12:42 PM',
@@ -37,7 +37,7 @@ export const Messages: React.FC = () => {
     },
     {
       id: 'thread-tech',
-      name: 'Tech Innovators Hackathon 💻',
+      name: 'Tech Innovators Hackathon',
       avatar: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=200',
       lastMessage: 'Tariq Al-Fayed: Make sure your repositories are updated.',
       time: 'Yesterday',
@@ -114,8 +114,8 @@ export const Messages: React.FC = () => {
                     className="w-11 h-11 rounded-full border border-brand-text/5 object-cover"
                   />
                   {thread.isGroup && (
-                    <span className="absolute -bottom-0.5 -right-0.5 w-4 h-4 rounded-full bg-[#FF7A30] text-[8px] font-bold text-white flex items-center justify-center border border-white">
-                      👥
+                    <span className="absolute -bottom-0.5 -right-0.5 w-4 h-4 rounded-full bg-[#FF7A30] text-white flex items-center justify-center border border-white">
+                      <Users className="w-2 h-2" />
                     </span>
                   )}
                 </div>
@@ -163,7 +163,7 @@ export const Messages: React.FC = () => {
               className="w-10 h-10 rounded-full border border-brand-text/5 object-cover"
             />
             <div>
-              <h3 className="text-sm font-bold text-brand-text leading-tight">BSU Event Planning 🎪</h3>
+              <h3 className="text-sm font-bold text-brand-text leading-tight">BSU Event Planning</h3>
               <p className="text-[10px] text-[#FF7A30] font-bold mt-0.5">Marcus, Sarah, and 12 others active</p>
             </div>
           </div>
