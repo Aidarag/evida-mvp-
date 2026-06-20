@@ -32,16 +32,16 @@ export const Opportunities: React.FC = () => {
   const getOppIcon = (type: string) => {
     switch (type) {
       case 'Internship':
-        return <Briefcase className="w-5 h-5 text-[#FF7A30]" />;
+        return <Briefcase className="w-5 h-5 text-[#FE7F42]" />;
       case 'Scholarship':
-        return <Award className="w-5 h-5 text-[#FFC857]" />;
+        return <Award className="w-5 h-5 text-[#FFFB97]" />;
       case 'Campus Job':
       case 'Job':
-        return <DollarSign className="w-5 h-5 text-[#FF7A30]" />;
+        return <DollarSign className="w-5 h-5 text-[#FE7F42]" />;
       case 'Research':
-        return <FileSpreadsheet className="w-5 h-5 text-[#E0601B]" />;
+        return <FileSpreadsheet className="w-5 h-5 text-[#FF8A4C]" />;
       default:
-        return <Sparkle className="w-5 h-5 text-[#FF7A30]" />;
+        return <Sparkle className="w-5 h-5 text-[#FE7F42]" />;
     }
   };
 
@@ -76,8 +76,8 @@ export const Opportunities: React.FC = () => {
                 onClick={() => setSelectedType(type)}
                 className={`flex-shrink-0 px-5 py-2.5 rounded-full text-xs font-bold font-display cursor-pointer transition-all duration-200 border active:scale-95 ${
                   isActive
-                    ? 'bg-[#FF7A30] text-white border-[#FF7A30] shadow-md shadow-[#FF7A30]/20'
-                    : 'bg-white text-brand-text-sec border-brand-text/10 hover:border-brand-purple hover:bg-brand-bg hover:text-brand-text'
+                    ? 'bg-[#FE7F42] text-white border-[#FE7F42] shadow-md shadow-[#FE7F42]/20'
+                    : 'bg-[#1A1214] text-brand-text-sec border-white/10 hover:border-[#FE7F42] hover:bg-[#2A1617]/20 hover:text-white'
                 }`}
               >
                 {type === 'Job' ? 'Campus Jobs' : type}
@@ -101,11 +101,11 @@ export const Opportunities: React.FC = () => {
               return (
                 <div 
                   key={opp.id}
-                  className="bg-white hover:bg-brand-bg/50 p-5 sm:px-6 rounded-3xl border border-brand-text/5 hover:border-[#FF7A30]/20 transition-all flex flex-col md:flex-row items-start md:items-center justify-between gap-5 group shadow-sm hover:shadow-md"
+                  className="bg-[#1A1214]/60 hover:bg-[#1A1214]/85 p-5 sm:px-6 rounded-3xl border border-white/10 hover:border-[#FE7F42]/30 transition-all flex flex-col md:flex-row items-start md:items-center justify-between gap-5 group shadow-sm hover:shadow-md"
                 >
                   {/* Left block info */}
                   <div className="flex items-start gap-4 flex-grow min-w-0">
-                    <div className="w-11 h-11 rounded-2xl bg-brand-bg flex items-center justify-center flex-shrink-0 border border-brand-text/5 select-none shadow-inner">
+                    <div className="w-11 h-11 rounded-2xl bg-brand-bg flex items-center justify-center flex-shrink-0 border border-white/10 select-none shadow-inner">
                       {getOppIcon(opp.type)}
                     </div>
                     
@@ -114,10 +114,10 @@ export const Opportunities: React.FC = () => {
                         className="flex flex-wrap items-center gap-x-2 gap-y-1 cursor-pointer"
                         onClick={() => handleViewOpportunity(opp.id)}
                       >
-                        <h3 className="text-base font-bold text-brand-text font-display group-hover:text-brand-purple transition-colors truncate">
+                        <h3 className="text-base font-bold text-brand-text font-display group-hover:text-[#FF8A4C] transition-colors truncate">
                           {opp.title}
                         </h3>
-                        <span className="bg-brand-purple/10 text-brand-purple text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider font-display select-none border border-brand-purple/15">
+                        <span className="bg-[#FF8A4C]/10 text-[#FF8A4C] text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider font-display select-none border border-[#FF8A4C]/15">
                           {opp.type}
                         </span>
                       </div>
@@ -132,8 +132,8 @@ export const Opportunities: React.FC = () => {
                       
                       {/* Sub row details tags */}
                       <div className="flex flex-wrap items-center gap-x-4 pt-2 text-[10px] sm:text-xs font-semibold text-brand-text-sec/55">
-                        <span className="flex items-center text-brand-purple">
-                          <DollarSign className="w-3.5 h-3.5 mr-0.5 text-brand-purple flex-shrink-0" />
+                        <span className="flex items-center text-[#FF8A4C]">
+                          <DollarSign className="w-3.5 h-3.5 mr-0.5 text-[#FF8A4C] flex-shrink-0" />
                           <span>{opp.reward}</span>
                         </span>
                         <span className="flex items-center font-sans">
@@ -145,18 +145,18 @@ export const Opportunities: React.FC = () => {
                   </div>
 
                   {/* Right actions block */}
-                  <div className="flex items-center gap-3 w-full md:w-auto justify-end flex-shrink-0 pt-3 md:pt-0 border-t md:border-t-0 border-brand-text/5">
+                  <div className="flex items-center gap-3 w-full md:w-auto justify-end flex-shrink-0 pt-3 md:pt-0 border-t md:border-t-0 border-white/10">
                     {/* Bookmark Save icon */}
                     <button
                       onClick={() => saveOpportunity(opp.id)}
                       className={`p-2.5 rounded-full border transition-all duration-200 cursor-pointer ${
                         isSaved
-                          ? 'bg-brand-purple/10 border-brand-purple text-brand-purple'
-                          : 'bg-white border-brand-text/10 hover:border-brand-purple hover:text-brand-purple text-brand-text-sec/60'
+                          ? 'bg-[#FE7F42]/10 border-[#FE7F42] text-[#FE7F42]'
+                          : 'bg-[#1A1214] border-white/10 hover:border-[#FE7F42] hover:text-[#FE7F42] text-brand-text-sec/60'
                       }`}
                       title={isSaved ? 'Remove Bookmark' : 'Save Opportunity'}
                     >
-                      <Heart className={`w-4.5 h-4.5 ${isSaved ? 'fill-brand-purple' : ''}`} />
+                      <Heart className={`w-4.5 h-4.5 ${isSaved ? 'fill-[#FE7F42]' : ''}`} />
                     </button>
 
                     {/* Apply Button */}
@@ -176,7 +176,7 @@ export const Opportunities: React.FC = () => {
           </div>
         ) : (
           /* Empty Search State */
-          <div className="text-center py-16 px-4 bg-white rounded-3xl border border-brand-text/5 max-w-md mx-auto space-y-4 shadow-sm">
+          <div className="text-center py-16 px-4 bg-[#1A1214]/60 backdrop-blur-md rounded-3xl border border-white/10 max-w-md mx-auto space-y-4 shadow-sm">
             <Briefcase className="w-8 h-8 text-brand-text-sec/30 mx-auto" />
             <h4 className="font-display font-bold text-base text-brand-text">No matches found</h4>
             <p className="text-xs text-brand-text-sec">We couldn't locate opportunities matching "{searchQuery}". Try editing filters.</p>

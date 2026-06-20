@@ -179,7 +179,7 @@ export const Explore: React.FC = () => {
         </div>
 
         <div className="space-y-3">
-          <p className="text-[10px] font-bold uppercase tracking-widest text-brand-text-sec/60 text-left">
+          <p className="text-[10px] font-bold uppercase tracking-widest text-white/45 text-left">
             When
           </p>
           <div className="flex flex-wrap gap-2">
@@ -191,8 +191,8 @@ export const Explore: React.FC = () => {
                   onClick={() => setSelectedDateFilter(dateFilter)}
                   className={`px-4 py-2 rounded-full text-xs font-bold cursor-pointer transition-all duration-200 ${
                     isActive
-                      ? 'bg-[#FF7A30] text-white shadow-md shadow-[#FF7A30]/15'
-                      : 'bg-white text-brand-text-sec hover:bg-brand-bg border border-brand-text/10 shadow-sm'
+                      ? 'bg-[#FE7F42] text-white shadow-md shadow-[#FE7F42]/15'
+                      : 'bg-white/5 text-white/70 hover:bg-white/10 border border-white/10 shadow-sm'
                   }`}
                 >
                   {dateFilter === 'All' ? 'All Dates' : dateFilter}
@@ -206,10 +206,10 @@ export const Explore: React.FC = () => {
       {/* Trending (Only show if not filtering/searching) */}
       {!searchQuery && selectedCategory === 'All' && selectedDateFilter === 'All' && trendingEvents.length > 0 && (
         <section className="space-y-5">
-          <div className="flex items-center space-x-2 border-b border-brand-text/5 pb-3">
-            <TrendingUp className="w-5 h-5 text-[#FF7A30]" />
-            <h2 className="text-2xl sm:text-3xl font-display text-brand-text uppercase tracking-tight">Trending Gatherings</h2>
-            <span className="bg-[#FF7A30]/15 text-[#FF7A30] text-[9px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider border border-[#FF7A30]/20">Hot</span>
+          <div className="flex items-center space-x-2 border-b border-white/5 pb-3">
+            <TrendingUp className="w-5 h-5 text-[#FE7F42]" />
+            <h2 className="text-2xl sm:text-3xl font-display text-white uppercase tracking-tight">Trending Gatherings</h2>
+            <span className="bg-[#FE7F42]/15 text-[#FE7F42] text-[9px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider border border-[#FE7F42]/20">Hot</span>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {trendingEvents.map((event) => (
@@ -221,14 +221,14 @@ export const Explore: React.FC = () => {
 
       {/* Main Discover Layout */}
       <section className="space-y-6">
-        <div className="flex justify-between items-center border-b border-brand-text/5 pb-3">
+        <div className="flex justify-between items-center border-b border-white/5 pb-3">
           <div className="flex items-center space-x-2">
-            <CalendarDays className="w-5 h-5 text-[#FF7A30]" />
-            <h2 className="text-2xl sm:text-3xl font-display text-brand-text uppercase tracking-tight">
+            <CalendarDays className="w-5 h-5 text-[#FE7F42]" />
+            <h2 className="text-2xl sm:text-3xl font-display text-white uppercase tracking-tight">
               {!searchQuery && selectedCategory === 'All' ? 'Upcoming Events' : 'Matching Events'}
             </h2>
           </div>
-          <span className="text-xs font-semibold uppercase tracking-wider text-brand-text-sec/60">
+          <span className="text-xs font-semibold uppercase tracking-wider text-white/50">
             {filteredEvents.length} {filteredEvents.length === 1 ? 'event' : 'events'}
           </span>
         </div>
@@ -240,13 +240,13 @@ export const Explore: React.FC = () => {
             ))}
           </div>
         ) : (
-          <div className="text-center py-16 px-4 max-w-md mx-auto bg-white rounded-3xl border border-brand-text/5 shadow-sm space-y-6">
-            <div className="w-16 h-16 rounded-full bg-brand-bg mx-auto flex items-center justify-center">
-              <CalendarRange className="w-8 h-8 text-[#FF7A30]/50" />
+          <div className="text-center py-16 px-4 max-w-md mx-auto bg-[#1A1214] rounded-3xl border border-white/5 shadow-sm space-y-6">
+            <div className="w-16 h-16 rounded-full bg-white/5 mx-auto flex items-center justify-center border border-white/10">
+              <CalendarRange className="w-8 h-8 text-[#FE7F42]/50" />
             </div>
             <div className="space-y-2">
-              <h3 className="text-xl font-bold text-brand-text">No events found</h3>
-              <p className="text-sm text-brand-text-sec leading-relaxed">
+              <h3 className="text-xl font-bold text-white">No events found</h3>
+              <p className="text-sm text-white/60 leading-relaxed">
                 We couldn't find any events matching "{searchQuery}". Try refining your keywords or filters.
               </p>
             </div>
@@ -265,10 +265,10 @@ export const Explore: React.FC = () => {
       {/* Featured Communities (Only show when not filtering/searching) */}
       {!commSearchQuery && commSelectedCategory === 'All' && featuredComms.length > 0 && (
         <section className="space-y-6">
-          <div className="flex items-center space-x-2 border-b border-brand-text/5 pb-3">
-            <Heart className="w-5 h-5 text-[#FF7A30] fill-[#FF7A30]/10" />
-            <h2 className="text-2xl sm:text-3xl font-display text-brand-text uppercase tracking-tight">Featured Clubs</h2>
-            <span className="bg-[#FF7A30]/15 text-[#FF7A30] text-[9px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider border border-[#FF7A30]/20">Spotlight</span>
+          <div className="flex items-center space-x-2 border-b border-white/5 pb-3">
+            <Heart className="w-5 h-5 text-[#FE7F42] fill-[#FE7F42]/10" />
+            <h2 className="text-2xl sm:text-3xl font-display text-white uppercase tracking-tight">Featured Clubs</h2>
+            <span className="bg-[#FE7F42]/15 text-[#FE7F42] text-[9px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider border border-[#FE7F42]/20">Spotlight</span>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -276,25 +276,25 @@ export const Explore: React.FC = () => {
               <div 
                 key={`featured-${comm.id}`}
                 onClick={() => handleCommunityClick(comm.id)}
-                className="bg-gradient-to-r from-[#FF7A30]/5 to-[#E0601B]/5 rounded-[2rem] p-6 border border-brand-text/5 flex flex-col sm:flex-row gap-6 items-center cursor-pointer hover:shadow-md hover:border-[#FF7A30]/20 transition-all duration-300 group"
+                className="bg-gradient-to-r from-[#FE7F42]/5 to-[#FF8A4C]/5 rounded-[2rem] p-6 border border-white/5 flex flex-col sm:flex-row gap-6 items-center cursor-pointer hover:border-[#FE7F42]/30 transition-all duration-300 group"
               >
-                <div className="w-24 h-24 rounded-2xl overflow-hidden flex-shrink-0 border border-brand-text/10 shadow-inner bg-brand-bg">
+                <div className="w-24 h-24 rounded-2xl overflow-hidden flex-shrink-0 border border-white/10 shadow-inner bg-white/5">
                   <img src={comm.image} alt={comm.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                 </div>
                 <div className="space-y-2 text-center sm:text-left flex-grow">
                   <div className="flex items-center justify-center sm:justify-start space-x-2">
-                    <div className="w-8 h-8 rounded-xl bg-[#FF7A30]/10 flex items-center justify-center">
-                      {renderCommunityIcon(comm.logo, "w-4.5 h-4.5 text-[#FF7A30]")}
+                    <div className="w-8 h-8 rounded-xl bg-[#FE7F42]/10 flex items-center justify-center">
+                      {renderCommunityIcon(comm.logo, "w-4.5 h-4.5 text-[#FE7F42]")}
                     </div>
-                    <h3 className="text-lg font-bold text-brand-text group-hover:text-[#FF7A30] transition-colors">{comm.name}</h3>
+                    <h3 className="text-lg font-bold text-white group-hover:text-[#FE7F42] transition-colors">{comm.name}</h3>
                   </div>
-                  <p className="text-xs text-brand-text-sec line-clamp-2 leading-relaxed font-sans">
+                  <p className="text-xs text-white/70 line-clamp-2 leading-relaxed font-sans">
                     {comm.description}
                   </p>
-                  <div className="flex items-center justify-center sm:justify-start space-x-3 pt-1 text-[11px] text-[#FF7A30] font-bold">
+                  <div className="flex items-center justify-center sm:justify-start space-x-3 pt-1 text-[11px] text-[#FE7F42] font-bold">
                     <span>{comm.memberCount} active members</span>
                     <span>•</span>
-                    <span className="underline group-hover:text-[#E0601B]">View Hub →</span>
+                    <span className="underline group-hover:text-[#FF8A4C]">View Hub →</span>
                   </div>
                 </div>
               </div>
@@ -319,9 +319,9 @@ export const Explore: React.FC = () => {
 
       {/* Grid of Results */}
       <section className="space-y-6">
-        <div className="flex justify-between items-center border-b border-brand-text/5 pb-3">
-          <h2 className="text-2xl sm:text-3xl font-display text-brand-text uppercase tracking-tight">All Communities</h2>
-          <span className="text-xs font-semibold uppercase tracking-wider text-brand-text-sec/60">
+        <div className="flex justify-between items-center border-b border-white/5 pb-3">
+          <h2 className="text-2xl sm:text-3xl font-display text-white uppercase tracking-tight">All Communities</h2>
+          <span className="text-xs font-semibold uppercase tracking-wider text-white/50">
             {filteredCommunities.length} {filteredCommunities.length === 1 ? 'club' : 'clubs'}
           </span>
         </div>
@@ -333,13 +333,13 @@ export const Explore: React.FC = () => {
             ))}
           </div>
         ) : (
-          <div className="text-center py-16 px-4 max-w-md mx-auto bg-white rounded-3xl border border-brand-text/5 shadow-sm space-y-6">
-            <div className="w-16 h-16 rounded-full bg-brand-bg mx-auto flex items-center justify-center">
-              <Users className="w-8 h-8 text-[#FF7A30]" />
+          <div className="text-center py-16 px-4 max-w-md mx-auto bg-[#1A1214] rounded-3xl border border-white/5 shadow-sm space-y-6">
+            <div className="w-16 h-16 rounded-full bg-white/5 mx-auto flex items-center justify-center border border-white/10">
+              <Users className="w-8 h-8 text-[#FE7F42]" />
             </div>
             <div className="space-y-2">
-              <h3 className="text-xl font-bold text-brand-text">No clubs found</h3>
-              <p className="text-sm text-brand-text-sec leading-relaxed font-sans">
+              <h3 className="text-xl font-bold text-white">No clubs found</h3>
+              <p className="text-sm text-white/60 leading-relaxed font-sans">
                 We couldn't find any communities matching "{commSearchQuery}".
               </p>
             </div>
@@ -372,8 +372,8 @@ export const Explore: React.FC = () => {
                 onClick={() => setOppSelectedType(type)}
                 className={`flex-shrink-0 px-5 py-2.5 rounded-full text-xs font-bold cursor-pointer transition-all duration-200 border active:scale-95 ${
                   isActive
-                    ? 'bg-[#FF7A30] text-white border-[#FF7A30] shadow-md shadow-[#FF7A30]/20'
-                    : 'bg-white text-brand-text-sec/80 border-brand-text/10 hover:border-brand-text/20 hover:bg-brand-bg hover:text-brand-text shadow-sm'
+                    ? 'bg-[#FE7F42] text-white border-[#FE7F42] shadow-md shadow-[#FE7F42]/20'
+                    : 'bg-white/5 text-white/70 border-white/10 hover:border-white/25 hover:bg-[#1A1214] hover:text-white shadow-sm'
                 }`}
               >
                 {type === 'Job' ? 'Campus Jobs' : type}
@@ -385,7 +385,7 @@ export const Explore: React.FC = () => {
 
       {/* Feed list */}
       <div className="space-y-4 max-w-5xl mx-auto">
-        <div className="flex justify-between items-center text-xs font-bold text-brand-text-sec/50 uppercase tracking-wider px-4">
+        <div className="flex justify-between items-center text-xs font-bold text-white/40 uppercase tracking-wider px-4">
           <span>Opportunities Feed</span>
           <span>{filteredOpps.length} listed</span>
         </div>
@@ -397,10 +397,10 @@ export const Explore: React.FC = () => {
               return (
                 <div 
                   key={opp.id}
-                  className="bg-white p-5 sm:px-6 rounded-3xl border border-brand-text/5 hover:border-[#FF7A30]/20 transition-all flex flex-col md:flex-row items-start md:items-center justify-between gap-5 group shadow-sm hover:shadow-md"
+                  className="bg-[#1A1214] p-5 sm:px-6 rounded-3xl border border-white/5 hover:border-[#FE7F42]/20 transition-all flex flex-col md:flex-row items-start md:items-center justify-between gap-5 group shadow-sm hover:shadow-md"
                 >
                   <div className="flex items-start gap-4 flex-grow min-w-0">
-                    <div className="w-11 h-11 rounded-2xl bg-brand-bg flex items-center justify-center flex-shrink-0 border border-brand-text/5 select-none shadow-inner">
+                    <div className="w-11 h-11 rounded-2xl bg-white/5 flex items-center justify-center flex-shrink-0 border border-white/10 select-none shadow-inner">
                       {getOppIcon(opp.type)}
                     </div>
                     
@@ -409,45 +409,45 @@ export const Explore: React.FC = () => {
                         className="flex flex-wrap items-center gap-x-2 gap-y-1 cursor-pointer"
                         onClick={() => handleViewOpportunity(opp.id)}
                       >
-                        <h3 className="text-base font-bold text-brand-text group-hover:text-[#FF7A30] transition-colors truncate">
+                        <h3 className="text-base font-bold text-white group-hover:text-[#FE7F42] transition-colors truncate">
                           {opp.title}
                         </h3>
-                        <span className="bg-[#FF7A30]/10 text-[#FF7A30] text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider select-none border border-[#FF7A30]/15">
+                        <span className="bg-[#FE7F42]/10 text-[#FE7F42] text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider select-none border border-[#FE7F42]/15">
                           {opp.type}
                         </span>
                       </div>
                       
-                      <p className="text-xs font-semibold text-brand-text-sec">
+                      <p className="text-xs font-semibold text-white/70">
                         {opp.organizer}
                       </p>
                       
-                      <p className="text-xs text-brand-text-sec/80 line-clamp-2 leading-relaxed pt-1 select-text">
+                      <p className="text-xs text-white/60 line-clamp-2 leading-relaxed pt-1 select-text">
                         {opp.description}
                       </p>
                       
-                      <div className="flex flex-wrap items-center gap-x-4 pt-2 text-[10px] sm:text-xs font-semibold text-brand-text-sec/55">
-                        <span className="flex items-center text-[#FF7A30]">
-                          <DollarSign className="w-3.5 h-3.5 mr-0.5 text-[#FF7A30] flex-shrink-0" />
+                      <div className="flex flex-wrap items-center gap-x-4 pt-2 text-[10px] sm:text-xs font-semibold text-white/50">
+                        <span className="flex items-center text-[#FE7F42]">
+                          <DollarSign className="w-3.5 h-3.5 mr-0.5 text-[#FE7F42] flex-shrink-0" />
                           <span>{opp.reward}</span>
                         </span>
                         <span className="flex items-center">
-                          <Calendar className="w-3.5 h-3.5 mr-1 flex-shrink-0 text-brand-text-sec/30" /> 
+                          <Calendar className="w-3.5 h-3.5 mr-1 flex-shrink-0 text-white/20" /> 
                           Deadline: {opp.deadline}
                         </span>
                       </div>
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-3 w-full md:w-auto justify-end flex-shrink-0 pt-3 md:pt-0 border-t md:border-t-0 border-brand-text/5">
+                  <div className="flex items-center gap-3 w-full md:w-auto justify-end flex-shrink-0 pt-3 md:pt-0 border-t md:border-t-0 border-white/5">
                     <button
                       onClick={() => saveOpportunity(opp.id)}
                       className={`p-2.5 rounded-full border transition-all duration-200 cursor-pointer ${
                         isSaved
-                          ? 'bg-[#FF7A30]/10 border-[#FF7A30] text-[#FF7A30]'
-                          : 'bg-white border-brand-text/10 hover:border-[#FF7A30] hover:text-[#FF7A30] text-brand-text-sec shadow-sm'
+                          ? 'bg-[#FE7F42]/10 border-[#FE7F42] text-[#FE7F42]'
+                          : 'bg-white/5 border-white/10 hover:border-[#FE7F42] hover:text-[#FE7F42] text-white/65 shadow-sm'
                       }`}
                     >
-                      <Heart className={`w-4.5 h-4.5 ${isSaved ? 'fill-[#FF7A30]' : ''}`} />
+                      <Heart className={`w-4.5 h-4.5 ${isSaved ? 'fill-[#FE7F42]' : ''}`} />
                     </button>
 
                     <Button
@@ -464,11 +464,11 @@ export const Explore: React.FC = () => {
             })}
           </div>
         ) : (
-          <div className="text-center py-16 px-4 bg-white rounded-3xl border border-brand-text/5 max-w-md mx-auto space-y-4 shadow-sm">
-            <Briefcase className="w-8 h-8 text-brand-text-sec/30 mx-auto" />
-            <h4 className="font-bold text-base text-brand-text">No matches found</h4>
-            <p className="text-xs text-brand-text-sec">We couldn't locate opportunities matching search filters.</p>
-            <Button variant="outline" size="sm" onClick={handleResetOpps}>
+          <div className="text-center py-16 px-4 bg-[#1A1214] rounded-3xl border border-white/5 max-w-md mx-auto space-y-4 shadow-sm">
+            <Briefcase className="w-8 h-8 text-white/30 mx-auto" />
+            <h4 className="font-bold text-base text-white">No matches found</h4>
+            <p className="text-xs text-white/60">We couldn't locate opportunities matching search filters.</p>
+            <Button variant="outline" size="sm" onClick={handleResetOpps} className="border-white/10 text-white">
               Reset Filters
             </Button>
           </div>
@@ -478,19 +478,19 @@ export const Explore: React.FC = () => {
   );
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8 fade-in pb-24 text-left select-none bg-brand-bg">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8 fade-in pb-24 text-left select-none bg-transparent text-white">
       {/* Page Header */}
       <div className="text-center max-w-2xl mx-auto space-y-3">
-        <h1 className="text-3xl sm:text-5xl font-bold text-brand-text font-display uppercase tracking-tight">
+        <h1 className="text-3xl sm:text-5xl font-bold text-white font-display uppercase tracking-tight">
           Explore Campus
         </h1>
-        <p className="text-sm sm:text-base text-brand-text-sec leading-relaxed font-sans font-medium">
+        <p className="text-sm sm:text-base text-white/70 leading-relaxed font-sans font-medium">
           Mingle at student gatherings, check out organizations, and lock in career internships in one place.
         </p>
       </div>
 
       {/* Tab Switcher */}
-      <div className="flex border-b border-brand-text/5 max-w-md mx-auto sm:mx-0 select-none">
+      <div className="flex border-b border-white/5 max-w-md mx-auto sm:mx-0 select-none">
         {['events', 'communities', 'opportunities'].map((tab) => {
           const isActive = exploreActiveTab === tab;
           return (
@@ -499,8 +499,8 @@ export const Explore: React.FC = () => {
               onClick={() => setExploreActiveTab(tab as any)}
               className={`flex-1 sm:flex-initial px-6 py-3 border-b-2 text-xs font-bold uppercase tracking-wider transition-all duration-200 cursor-pointer ${
                 isActive
-                  ? 'border-[#FF7A30] text-[#FF7A30]'
-                  : 'border-transparent text-brand-text-sec/55 hover:text-brand-text'
+                  ? 'border-[#FE7F42] text-[#FE7F42]'
+                  : 'border-transparent text-white/50 hover:text-white'
               }`}
             >
               {tab}
@@ -517,11 +517,11 @@ export const Explore: React.FC = () => {
       </div>
 
       {/* Integrated Protip Bottom banner */}
-      <div className="bg-[#FFF0DE] max-w-4xl mx-auto rounded-3xl p-5 border border-brand-text/5 flex items-start space-x-3.5 mt-8 select-none shadow-sm">
-        <Sparkles className="w-5 h-5 text-[#FF7A30] flex-shrink-0 mt-0.5" />
+      <div className="bg-[#2A1617] max-w-4xl mx-auto rounded-3xl p-5 border border-[#FE7F42]/15 flex items-start space-x-3.5 mt-8 select-none shadow-sm">
+        <Sparkles className="w-5 h-5 text-[#FE7F42] flex-shrink-0 mt-0.5" />
         <div className="text-left">
-          <h4 className="font-bold text-xs text-[#FF7A30] uppercase tracking-wider mb-1">Evida Protip</h4>
-          <p className="text-xs text-brand-text-sec leading-relaxed">
+          <h4 className="font-bold text-xs text-[#FE7F42] uppercase tracking-wider mb-1">Evida Protip</h4>
+          <p className="text-xs text-white/70 leading-relaxed">
             Hosting a campus group match, a study circle, or an open mic jam that isn't listed here? Head over to the Create Event page to broadcast it instantly to the square!
           </p>
         </div>

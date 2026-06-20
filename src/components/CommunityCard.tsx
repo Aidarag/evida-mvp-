@@ -14,12 +14,12 @@ export const CommunityCard: React.FC<CommunityCardProps> = ({ community }) => {
   const isFollowing = profile.followedCommunityIds.includes(community.id);
 
   const categoryStyles: Record<string, string> = {
-    Tech: 'bg-[#FFC857]/15 text-[#B47C00] border border-[#FFC857]/35',
-    Culture: 'bg-[#E0601B]/10 text-[#E0601B] border border-[#E0601B]/20',
-    Sports: 'bg-[#FF5E00]/10 text-[#FF5E00] border border-[#FF5E00]/20',
-    Business: 'bg-[#FF7A30]/10 text-[#FF7A30] border border-[#FF7A30]/20',
-    Wellness: 'bg-[#FF7A30]/10 text-[#FF7A30] border border-[#FF7A30]/20',
-    Creative: 'bg-[#FFC857]/15 text-[#B47C00] border border-[#FFC857]/35',
+    Tech: 'bg-[#FFFB97]/10 text-[#FFFB97] border border-[#FFFB97]/25',
+    Culture: 'bg-[#FE7F42]/10 text-[#FE7F42] border border-[#FE7F42]/20',
+    Sports: 'bg-[#FF8A4C]/10 text-[#FF8A4C] border border-[#FF8A4C]/20',
+    Business: 'bg-[#FE7F42]/10 text-[#FE7F42] border border-[#FE7F42]/20',
+    Wellness: 'bg-[#FF8A4C]/10 text-[#FF8A4C] border border-[#FF8A4C]/20',
+    Creative: 'bg-[#FFFB97]/10 text-[#FFFB97] border border-[#FFFB97]/25',
   };
 
   const handleCardClick = () => {
@@ -30,7 +30,7 @@ export const CommunityCard: React.FC<CommunityCardProps> = ({ community }) => {
   return (
     <div 
       onClick={handleCardClick}
-      className="group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-md hover:shadow-brand-text/5 transition-all duration-300 border border-brand-text/5 hover:border-brand-text/10 flex flex-col h-full hover:-translate-y-1 cursor-pointer select-none"
+      className="group bg-[#1A1214] rounded-3xl overflow-hidden transition-all duration-300 border border-white/5 hover:border-[#FE7F42]/30 flex flex-col h-full hover:-translate-y-1 cursor-pointer select-none"
     >
       {/* Banner/Header image */}
       <div className="relative h-32 w-full overflow-hidden bg-white/5">
@@ -40,28 +40,28 @@ export const CommunityCard: React.FC<CommunityCardProps> = ({ community }) => {
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
           loading="lazy"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-white to-transparent opacity-85" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#1A1214] via-[#1A1214]/50 to-transparent" />
         
         {/* Category Tag */}
-        <span className={`absolute top-4 left-4 px-2.5 py-0.5 rounded-full text-[9px] font-bold tracking-wider uppercase ${categoryStyles[community.category] || 'bg-white border border-brand-text/10 text-brand-text'}`}>
+        <span className={`absolute top-4 left-4 px-2.5 py-0.5 rounded-full text-[9px] font-bold tracking-wider uppercase ${categoryStyles[community.category] || 'bg-white/10 border border-white/10 text-white'}`}>
           {community.category}
         </span>
       </div>
 
       {/* Community Info */}
       <div className="p-5 flex flex-col flex-grow text-left">
-        <h3 className="text-lg font-bold text-brand-text mb-1.5 group-hover:text-[#FF7A30] transition-colors">
+        <h3 className="text-lg font-bold text-white mb-1.5 group-hover:text-[#FE7F42] transition-colors">
           {community.name}
         </h3>
         
-        <p className="text-xs text-brand-text-sec line-clamp-2 mb-4 flex-grow leading-relaxed">
+        <p className="text-xs text-white/70 line-clamp-2 mb-4 flex-grow leading-relaxed">
           {community.description}
         </p>
 
         {/* Member Count & Follow Action */}
-        <div className="pt-3.5 border-t border-brand-text/5 flex justify-between items-center mt-auto">
-          <div className="flex items-center text-[10px] text-brand-text-sec font-semibold bg-brand-bg px-2.5 py-1 rounded-full border border-brand-text/5">
-            <Users className="w-3.5 h-3.5 text-brand-text-sec/30 mr-1.5" />
+        <div className="pt-3.5 border-t border-white/5 flex justify-between items-center mt-auto">
+          <div className="flex items-center text-[10px] text-white/60 font-semibold bg-white/5 px-2.5 py-1 rounded-full border border-white/5">
+            <Users className="w-3.5 h-3.5 text-white/30 mr-1.5" />
             <span>{community.memberCount} members</span>
           </div>
 
@@ -72,11 +72,11 @@ export const CommunityCard: React.FC<CommunityCardProps> = ({ community }) => {
               e.stopPropagation();
               toggleFollowCommunity(community.id);
             }}
-            className="flex items-center space-x-1 py-1 px-3 border-brand-text/10 font-bold text-xs"
+            className="flex items-center space-x-1 py-1 px-3 border-white/10 font-bold text-xs text-[#FE7F42]"
           >
             {isFollowing ? (
               <>
-                <Check className="w-3 h-3 stroke-[3px]" />
+                <Check className="w-3.5 h-3.5 stroke-[3px]" />
                 <span>Joined</span>
               </>
             ) : (

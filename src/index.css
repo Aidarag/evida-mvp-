@@ -1,37 +1,37 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-purple: #FF7A30; /* Sunset Orange */
-  --color-brand-blue: #E0601B; /* Sunset Orange Hover */
-  --color-brand-green: #FFC857; /* Soft Gold */
-  --color-brand-bg: #FFF6EB; /* Warm Cream background */
-  --color-brand-text: #0E1726; /* Primary Navy */
-  --color-brand-text-sec: #5A6578; /* Muted Navy/Gray */
+  --color-brand-purple: #FF8A4C; /* Primary Orange */
+  --color-brand-blue: #FE7F42; /* Primary Glow */
+  --color-brand-green: #FFFB97; /* Warm Gold */
+  --color-brand-bg: #0F0D11; /* Background */
+  --color-brand-text: #FFFFFF; /* Text */
+  --color-brand-text-sec: rgba(255, 255, 255, 0.72); /* Secondary Text */
 
   --color-evida-orange: #FE7F42;
-  --color-evida-dark-orange: #D85A1A;
-  --color-evida-burnt-orange: #B32C1A;
-  --color-evida-charcoal: #1A1617;
-  --color-evida-cream: #FFF8F0;
+  --color-evida-dark-orange: #FF8A4C;
+  --color-evida-burnt-orange: #2A1617; /* Deep Brown */
+  --color-evida-charcoal: #1A1214; /* Dark Surface */
+  --color-evida-cream: #0F0D11;
 
   /* Compatibility fallbacks for existing components */
-  --color-brand-lavender: rgba(14, 23, 38, 0.04); /* very soft navy wash */
-  --color-brand-peach: rgba(255, 122, 48, 0.1); /* soft sunset orange wash */
-  --color-brand-cream: #FFFFFF; /* Pure White cards */
-  --color-brand-navy: #FFF0DE; /* Soft cream subpages background / active items wash */
-  --color-brand-coral: #FF7A30; /* Sunset Orange */
-  --color-brand-yellow: rgba(255, 200, 87, 0.15); /* soft gold wash */
+  --color-brand-lavender: rgba(255, 255, 255, 0.05); /* very soft white wash */
+  --color-brand-peach: rgba(254, 127, 66, 0.12); /* soft sunset orange wash */
+  --color-brand-cream: #1A1214; /* Dark Surface */
+  --color-brand-navy: #1A1214; /* Dark Surface */
+  --color-brand-coral: #FF8A4C; /* Primary Orange */
+  --color-brand-yellow: rgba(255, 251, 151, 0.15); /* soft gold wash */
   
   --font-display: "Bebas Neue", sans-serif;
-  --font-sans: "Geist", "Inter", sans-serif;
-  --font-accent: "Cormorant Garamond", serif;
+  --font-sans: "Inter Tight", "Geist", "Inter", sans-serif;
+  --font-accent: "Inter Tight", sans-serif;
 }
 
 @layer base {
   body {
     @apply bg-brand-bg text-brand-text font-sans antialiased selection:bg-brand-purple/20;
-    background-color: #FFF6EB;
-    color: #0E1726;
+    background-color: #0F0D11;
+    color: #FFFFFF;
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -48,11 +48,11 @@
   background: transparent;
 }
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: rgba(255, 122, 48, 0.25);
+  background: rgba(254, 127, 66, 0.25);
   border-radius: 9999px;
 }
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #FF7A30;
+  background: #FF8A4C;
 }
 
 /* Page transitions */
@@ -112,36 +112,35 @@
 
 /* Accent Font Utility */
 .font-accent {
-  font-family: "Cormorant Garamond", serif;
-  font-style: italic;
+  font-family: "Inter Tight", sans-serif;
 }
 
 /* Glassmorphism utility cards (60% Luma / 25% Apple vibe) */
 .glass-panel {
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(26, 18, 20, 0.7);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(14, 23, 38, 0.05);
+  border: 1px solid rgba(254, 127, 66, 0.1);
 }
 
 .glass-card {
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(26, 18, 20, 0.85);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(14, 23, 38, 0.08);
+  border: 1px solid rgba(254, 127, 66, 0.12);
 }
 
 /* Custom premium badge gradients */
 .badge-purple-gradient {
-  background: linear-gradient(135deg, rgba(255, 122, 26, 0.08) 0%, rgba(229, 103, 23, 0.08) 100%);
-  color: #FF7A1A;
-  border: 1px solid rgba(255, 122, 26, 0.15);
+  background: linear-gradient(135deg, rgba(254, 127, 66, 0.08) 0%, rgba(255, 138, 76, 0.08) 100%);
+  color: #FF8A4C;
+  border: 1px solid rgba(254, 127, 66, 0.15);
 }
 
 .badge-peach-gradient {
-  background: linear-gradient(135deg, rgba(255, 122, 26, 0.08) 0%, rgba(229, 103, 23, 0.1) 100%);
-  color: #E56717;
-  border: 1px solid rgba(229, 103, 23, 0.15);
+  background: linear-gradient(135deg, rgba(254, 127, 66, 0.08) 0%, rgba(255, 138, 76, 0.1) 100%);
+  color: #FF8A4C;
+  border: 1px solid rgba(255, 138, 76, 0.15);
 }
 
 /* Custom Masonry layout overrides if needed */
@@ -152,25 +151,25 @@
 
 /* Orange Glows */
 .orange-glow {
-  box-shadow: 0 0 25px rgba(255, 122, 26, 0.2);
+  box-shadow: 0 0 25px rgba(254, 127, 66, 0.2);
 }
 
 .orange-glow-sm {
-  box-shadow: 0 0 15px rgba(255, 122, 26, 0.12);
+  box-shadow: 0 0 15px rgba(254, 127, 66, 0.12);
 }
 
 .orange-glow-lg {
-  box-shadow: 0 0 40px rgba(255, 122, 26, 0.3);
+  box-shadow: 0 0 40px rgba(254, 127, 66, 0.3);
 }
 
 .orange-glow-border {
-  border-color: rgba(255, 122, 26, 0.4);
-  box-shadow: 0 0 10px rgba(255, 122, 26, 0.1);
+  border-color: rgba(254, 127, 66, 0.4);
+  box-shadow: 0 0 10px rgba(254, 127, 66, 0.1);
 }
 
 /* Premium Dark Cinematic styles */
 .dark-glass-card {
-  background: rgba(26, 22, 23, 0.6);
+  background: rgba(26, 18, 20, 0.6);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   border: 1px solid rgba(254, 127, 66, 0.12);
@@ -254,4 +253,5 @@
 .concert-glow {
   filter: drop-shadow(0 0 15px rgba(254, 127, 66, 0.4));
 }
+
 

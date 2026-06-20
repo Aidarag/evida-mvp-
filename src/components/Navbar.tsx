@@ -1,17 +1,16 @@
 import React from 'react';
 import { useApp } from '../context/AppContext';
 import type { PageName } from '../context/AppContext';
-import { Compass, User, Home, MessageSquare, Plus } from 'lucide-react';
+import { Compass, User, Home, Heart, Plus } from 'lucide-react';
 
 export const Navbar: React.FC = () => {
   const { currentPage, setCurrentPage } = useApp();
-  const isLandingPage = currentPage === 'home';
 
   const mobileBottomItems: { label: string; page: PageName; icon: React.ReactNode; isCreate?: boolean }[] = [
     { label: 'Home', page: 'home', icon: <Home className="w-5 h-5" /> },
     { label: 'Explore', page: 'explore', icon: <Compass className="w-5 h-5" /> },
     { label: 'Create', page: 'create-event', icon: <Plus className="w-6 h-6 text-white stroke-[3px]" />, isCreate: true },
-    { label: 'Messages', page: 'messages', icon: <MessageSquare className="w-5 h-5" /> },
+    { label: 'Saved', page: 'saved', icon: <Heart className="w-5 h-5" /> },
     { label: 'Profile', page: 'profile', icon: <User className="w-5 h-5" /> },
   ];
 
@@ -21,13 +20,9 @@ export const Navbar: React.FC = () => {
 
   return (
     <>
-      {/* Floating Bottom Navigation Bar (Mobile Experience only) */}
+      {/* Floating Bottom Navigation Bar (Mobile Experience only, dark glass design) */}
       <div 
-        className={`md:hidden fixed bottom-0 left-0 right-0 z-50 py-2 px-4 flex justify-between items-center shadow-2xl rounded-t-3xl pb-safe transition-all duration-300 ${
-          isLandingPage 
-            ? 'bg-[#1A1617]/85 border-t border-white/5 backdrop-blur-2xl' 
-            : 'bg-white/90 border-t border-brand-text/5 backdrop-blur-xl'
-        }`}
+        className="md:hidden fixed bottom-0 left-0 right-0 z-50 py-2.5 px-4 flex justify-between items-center shadow-2xl rounded-t-[2rem] pb-safe border-t border-white/5 bg-[#1A1214]/85 backdrop-blur-2xl transition-all duration-300"
       >
         {mobileBottomItems.map((item) => {
           const isActive = currentPage === item.page || 
@@ -38,9 +33,7 @@ export const Navbar: React.FC = () => {
               <button
                 key={item.page}
                 onClick={() => handleNavClick(item.page)}
-                className={`relative -top-5 flex items-center justify-center w-14 h-14 rounded-full bg-[#FE7F42] hover:bg-[#D85A1A] hover:scale-105 active:scale-95 transition-all shadow-lg shadow-[#FE7F42]/35 border-4 z-50 cursor-pointer text-white ${
-                  isLandingPage ? 'border-[#1A1617]' : 'border-brand-bg'
-                }`}
+                className="relative -top-5 flex items-center justify-center w-14 h-14 rounded-full bg-[#FE7F42] hover:bg-[#FF8A4C] hover:scale-105 active:scale-95 transition-all shadow-lg shadow-[#FE7F42]/35 border-4 border-[#0F0D11] z-50 cursor-pointer text-white"
                 aria-label="Create Event"
               >
                 {item.icon}
@@ -48,13 +41,8 @@ export const Navbar: React.FC = () => {
             );
           }
 
-          const activeColorClass = isLandingPage 
-            ? 'text-[#FE7F42] font-bold' 
-            : 'text-brand-text font-bold';
-            
-          const inactiveColorClass = isLandingPage 
-            ? 'text-white/40 hover:text-white/70' 
-            : 'text-brand-text-sec/50 hover:text-brand-text/80';
+          const activeColorClass = 'text-[#FE7F42] font-bold';
+          const inactiveColorClass = 'text-white/40 hover:text-white/70';
 
           return (
             <button
@@ -67,15 +55,13 @@ export const Navbar: React.FC = () => {
                 {item.icon}
               </div>
               
-              <span className={`text-[9px] font-display mt-1 tracking-tight ${isActive ? activeColorClass : inactiveColorClass}`}>
+              <span className={`text-[9px] font-sans mt-1 tracking-tight ${isActive ? activeColorClass : inactiveColorClass}`}>
                 {item.label}
               </span>
 
               {/* Active Indicator dot */}
               {isActive && (
-                <span className={`absolute -top-1 w-1 h-1 rounded-full shadow-sm ${
-                  isLandingPage ? 'bg-[#FE7F42]' : 'bg-brand-text'
-                }`} />
+                <span className="absolute -top-1 w-1.5 h-1.5 rounded-full bg-[#FE7F42] shadow-sm shadow-[#FE7F42]/30" />
               )}
             </button>
           );

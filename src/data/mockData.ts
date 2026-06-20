@@ -10,7 +10,7 @@ export const mockEvents: Event[] = [
     location: 'Main Stadium',
     organizer: 'Student Government Association',
     category: 'Culture',
-    image: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&q=80&w=800',
+    image: '/concert_confetti.jpg',
     attendeeCount: 236
   },
   {
@@ -22,7 +22,7 @@ export const mockEvents: Event[] = [
     location: 'Student Center Main Hall',
     organizer: 'Women in Tech',
     category: 'Academic',
-    image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=800',
+    image: '/crowd_ribbons.jpg',
     attendeeCount: 142
   },
   {
@@ -46,7 +46,7 @@ export const mockEvents: Event[] = [
     location: 'Campus Brew Library Café',
     organizer: 'BSU',
     category: 'Social',
-    image: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&q=80&w=800',
+    image: '/campus_festival.jpg',
     attendeeCount: 64
   },
   {
@@ -58,7 +58,7 @@ export const mockEvents: Event[] = [
     location: 'Entrepreneurship Hub Center',
     organizer: 'Entrepreneur Society',
     category: 'Career',
-    image: 'https://images.unsplash.com/photo-1511556532299-8f662fc26c06?auto=format&fit=crop&q=80&w=800',
+    image: '/career_fair.png',
     attendeeCount: 57
   },
   {
@@ -70,7 +70,7 @@ export const mockEvents: Event[] = [
     location: 'Main Library Digital Den',
     organizer: 'Tech Innovators',
     category: 'Academic',
-    image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=800',
+    image: '/crowd_ribbons.jpg',
     attendeeCount: 88
   },
   {
@@ -82,7 +82,7 @@ export const mockEvents: Event[] = [
     location: 'Grand Ballroom',
     organizer: 'BSU',
     category: 'Culture',
-    image: 'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&q=80&w=800',
+    image: '/indoor_party.jpg',
     attendeeCount: 180
   }
 ];
@@ -94,18 +94,19 @@ export const mockCommunities: Community[] = [
     description: 'Building software, hackathons, and learning modern tech together.',
     memberCount: 142,
     category: 'Tech',
-    image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=800',
-    banner: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=1200',
+    image: '/crowd_ribbons.jpg',
+    banner: '/crowd_ribbons.jpg',
     logo: 'Code',
     about: 'Tech Innovators is the premier student tech club on campus.',
     membersList: [
       { name: 'Tariq Al-Fayed', avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200', role: 'President' }
     ],
     projects: [
-      { id: 'proj-nsbe-map', title: 'Interactive Campus Directory', description: 'A sleek visual directory helping freshmen find classes and student labs.', image: 'https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80&w=400' }
+      { id: 'proj-nsbe-map', title: 'Interactive Campus Directory', description: 'A sleek visual directory helping freshmen find classes and student labs.', image: '/crowd_ribbons.jpg' }
     ],
     gallery: [
-      'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=400'
+      '/crowd_ribbons.jpg',
+      '/campus_festival.jpg'
     ],
     discussions: [
       { id: 'disc-nsbe-1', author: 'Tariq Al-Fayed', avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200', text: 'Hackathon schedules are live! Make sure your teams are registered.', timestamp: '1 day ago' }
@@ -120,18 +121,18 @@ export const mockCommunities: Community[] = [
     description: 'Empowering women in STEM, mentorship circles, and workshops.',
     memberCount: 125,
     category: 'Tech',
-    image: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&q=80&w=800',
-    banner: 'https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?auto=format&fit=crop&q=80&w=1200',
+    image: '/crowd_ribbons.jpg',
+    banner: '/crowd_ribbons.jpg',
     logo: 'Palette',
     about: 'Women in Tech supports professional mentorship and networking.',
     membersList: [
       { name: 'Maya Lin', avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200', role: 'Event Chair' }
     ],
     projects: [
-      { id: 'proj-wistem-code', title: 'Girls Who Code Camp', description: 'Weekly free programming camps for local high school kids.', image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=400' }
+      { id: 'proj-wistem-code', title: 'Girls Who Code Camp', description: 'Weekly free programming camps for local high school kids.', image: '/crowd_ribbons.jpg' }
     ],
     gallery: [
-      'https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&q=80&w=400'
+      '/crowd_ribbons.jpg'
     ],
     discussions: [
       { id: 'disc-wistem-1', author: 'Maya Lin', avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200', text: 'Thank you to everyone who supported the Innovation Expo! We had an incredible turnout.', timestamp: '2 days ago' }
@@ -146,8 +147,8 @@ export const mockCommunities: Community[] = [
     description: 'Black Student Union - fostering cultural awareness, community, and excellence.',
     memberCount: 210,
     category: 'Culture',
-    image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800',
-    banner: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=1200',
+    image: '/indoor_party.jpg',
+    banner: '/campus_festival.jpg',
     logo: 'Users',
     about: 'BSU empowers and connects students of African descent.',
     membersList: [
@@ -155,10 +156,11 @@ export const mockCommunities: Community[] = [
       { name: 'Aida Garba', avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=200', role: 'Event Planner' }
     ],
     projects: [
-      { id: 'proj-zine', title: 'BSU Campus Voice', description: 'Student publications, reflections, and photography on community.', image: 'https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&q=80&w=400' }
+      { id: 'proj-zine', title: 'BSU Campus Voice', description: 'Student publications, reflections, and photography on community.', image: '/indoor_party.jpg' }
     ],
     gallery: [
-      'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=400'
+      '/indoor_party.jpg',
+      '/campus_festival.jpg'
     ],
     discussions: [
       { id: 'disc-bsu-1', author: 'Marcus Vance', avatar: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=200', text: 'Who is down to help set up the quad decorations for Open Mic Night tomorrow at 6 PM?', timestamp: '3 hours ago' }
@@ -173,18 +175,18 @@ export const mockCommunities: Community[] = [
     description: 'Pitch practices, startup builders, and MVP developer circles.',
     memberCount: 95,
     category: 'Business',
-    image: 'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&q=80&w=800',
-    banner: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=1200',
+    image: '/career_fair.png',
+    banner: '/career_fair.png',
     logo: 'Briefcase',
     about: 'Entrepreneur Society empowers student builders with mentorship.',
     membersList: [
       { name: 'Alex Rivera', avatar: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=200', role: 'President' }
     ],
     projects: [
-      { id: 'proj-esoc-pitch', title: 'Student Pitch Competition', description: 'Molding collegiate MVPs into investable startup candidates.', image: 'https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80&w=400' }
+      { id: 'proj-esoc-pitch', title: 'Student Pitch Competition', description: 'Molding collegiate MVPs into investable startup candidates.', image: '/career_fair.png' }
     ],
     gallery: [
-      'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=400'
+      '/career_fair.png'
     ],
     discussions: [
       { id: 'disc-esoc-1', author: 'Alex Rivera', avatar: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=200', text: 'Startup mixer is this Friday! Mingle with student founders.', timestamp: '1 hour ago' }
@@ -206,7 +208,7 @@ export const mockOpportunities: Opportunity[] = [
     reward: '$45/hour Stipend • Remote/Hybrid',
     deadline: 'Nov 01, 2026',
     link: '#',
-    thumbnail: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=300',
+    thumbnail: '/career_fair.png',
     category: 'Engineering'
   },
   {
@@ -219,7 +221,7 @@ export const mockOpportunities: Opportunity[] = [
     reward: '$6,000 / Year • Academic Support',
     deadline: 'Oct 30, 2026',
     link: '#',
-    thumbnail: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=300',
+    thumbnail: '/crowd_ribbons.jpg',
     category: 'Leadership'
   },
   {
@@ -232,7 +234,7 @@ export const mockOpportunities: Opportunity[] = [
     reward: '$22/hour or Course Credit',
     deadline: 'Oct 15, 2026',
     link: '#',
-    thumbnail: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=300',
+    thumbnail: '/crowd_ribbons.jpg',
     category: 'AI Research'
   }
 ];
@@ -251,5 +253,3 @@ export const initialProfile: UserProfile = {
   followedCommunityIds: ['comm-bsu', 'comm-tech-innovators'],
   savedOpportunityIds: ['opp-linear-intern']
 };
-
-

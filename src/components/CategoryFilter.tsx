@@ -21,8 +21,8 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
             onClick={() => onChange(category)}
             className={`flex-shrink-0 px-5 py-2.5 rounded-full text-xs font-bold font-display transition-all duration-200 border active:scale-95 cursor-pointer ${
               isActive
-                ? 'bg-[#FF7A30] text-white border-[#FF7A30] shadow-md shadow-[#FF7A30]/25'
-                : 'bg-white text-brand-text-sec hover:text-brand-text border-brand-text/10 hover:bg-brand-bg hover:border-brand-text/20 shadow-sm'
+                ? 'bg-[#FE7F42] text-white border-[#FE7F42] shadow-md shadow-[#FE7F42]/25'
+                : 'bg-[#1A1214] text-brand-text-sec hover:text-brand-text border-white/10 hover:bg-[#2A1617]/20 hover:border-[#FE7F42]/30 shadow-sm'
             }`}
           >
             {category}

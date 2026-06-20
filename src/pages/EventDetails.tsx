@@ -23,13 +23,13 @@ export const EventDetails: React.FC = () => {
   const isSaved = profile.savedEventIds.includes(event.id);
 
   const categoryStyles: Record<string, string> = {
-    Social: 'bg-[#FF7A30]/10 text-[#FF7A30] border border-[#FF7A30]/20',
-    Career: 'bg-[#FFC857]/15 text-[#B47C00] border border-[#FFC857]/35',
-    Sports: 'bg-[#FF5E00]/10 text-[#FF5E00] border border-[#FF5E00]/20',
-    Culture: 'bg-[#E0601B]/10 text-[#E0601B] border border-[#E0601B]/20',
-    Academic: 'bg-[#0E1726]/5 text-[#0E1726] border border-[#0E1726]/10',
-    Wellness: 'bg-[#FF7A30]/10 text-[#FF7A30] border border-[#FF7A30]/20',
-    Volunteer: 'bg-[#E0601B]/10 text-[#E0601B] border border-[#E0601B]/20',
+    Social: 'bg-[#FE7F42]/10 text-[#FE7F42] border border-[#FE7F42]/20',
+    Career: 'bg-[#FFFB97]/10 text-[#FFFB97] border border-[#FFFB97]/25',
+    Sports: 'bg-[#FF8A4C]/10 text-[#FF8A4C] border border-[#FF8A4C]/20',
+    Culture: 'bg-[#FE7F42]/10 text-[#FE7F42] border border-[#FE7F42]/20',
+    Academic: 'bg-[#FFFB97]/10 text-[#FFFB97] border border-[#FFFB97]/25',
+    Wellness: 'bg-[#FF8A4C]/10 text-[#FF8A4C] border border-[#FF8A4C]/20',
+    Volunteer: 'bg-[#FE7F42]/10 text-[#FE7F42] border border-[#FE7F42]/20',
   };
 
   const getExpectations = (cat: string) => {
@@ -105,7 +105,7 @@ export const EventDetails: React.FC = () => {
       {/* Back Button Link */}
       <button 
         onClick={handleBackClick}
-        className="flex items-center space-x-2 text-sm text-brand-text-sec hover:text-[#FF7A30] font-bold group transition-colors select-none cursor-pointer"
+        className="flex items-center space-x-2 text-sm text-brand-text-sec hover:text-[#FE7F42] font-bold group transition-colors select-none cursor-pointer"
       >
         <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
         <span>Back to explore</span>
@@ -118,7 +118,7 @@ export const EventDetails: React.FC = () => {
         <div className="lg:col-span-2 space-y-8">
           
           {/* Big Immersive Banner Container */}
-          <div className="relative h-64 sm:h-96 rounded-[2rem] overflow-hidden border border-brand-text/5 bg-white/5">
+          <div className="relative h-64 sm:h-96 rounded-[2rem] overflow-hidden border border-white/10 bg-[#1A1214]/60 backdrop-blur-md">
             <img 
               src={event.image} 
               alt={event.title}
@@ -140,14 +140,14 @@ export const EventDetails: React.FC = () => {
                 {event.title}
               </h1>
               <p className="text-xs sm:text-sm text-white/80 font-semibold">
-                Hosted by <span className="underline hover:text-[#FF7A30] cursor-pointer transition-colors" onClick={() => setCurrentPage('communities')}>{event.organizer}</span>
+                Hosted by <span className="underline hover:text-[#FE7F42] cursor-pointer transition-colors" onClick={() => setCurrentPage('communities')}>{event.organizer}</span>
               </p>
             </div>
           </div>
 
           {/* Description Details Card */}
-          <div className="bg-white p-6 sm:p-10 rounded-[2rem] border border-brand-text/5 shadow-sm space-y-4">
-            <h2 className="text-2xl font-display text-brand-text uppercase tracking-tight border-b border-brand-text/5 pb-3">
+          <div className="bg-[#1A1214]/60 backdrop-blur-md p-6 sm:p-10 rounded-[2rem] border border-white/10 shadow-sm space-y-4">
+            <h2 className="text-2xl font-display text-brand-text uppercase tracking-tight border-b border-white/5 pb-3">
               About the Event
             </h2>
             <p className="text-brand-text-sec leading-relaxed text-sm sm:text-base whitespace-pre-line font-sans font-medium">
@@ -156,9 +156,9 @@ export const EventDetails: React.FC = () => {
           </div>
 
           {/* What to Expect Section */}
-          <div className="bg-white p-6 sm:p-10 rounded-[2rem] border border-brand-text/5 space-y-6 shadow-sm">
+          <div className="bg-[#1A1214]/60 backdrop-blur-md p-6 sm:p-10 rounded-[2rem] border border-white/10 space-y-6 shadow-sm">
             <div className="flex items-center space-x-2.5">
-              <Sparkles className="w-5 h-5 text-[#FF7A30]" />
+              <Sparkles className="w-5 h-5 text-[#FE7F42]" />
               <h2 className="text-2xl font-display text-brand-text uppercase tracking-tight">
                 What to Expect
               </h2>
@@ -167,7 +167,7 @@ export const EventDetails: React.FC = () => {
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {getExpectations(event.category).map((item, idx) => (
                 <li key={idx} className="flex items-start space-x-2.5 text-xs sm:text-sm text-brand-text-sec leading-relaxed font-sans">
-                  <div className="w-5 h-5 rounded-full bg-[#FF7A30]/10 border border-[#FF7A30]/20 flex items-center justify-center flex-shrink-0 text-xs text-[#FF7A30] font-bold mt-0.5 select-none">
+                  <div className="w-5 h-5 rounded-full bg-[#FE7F42]/10 border border-[#FE7F42]/20 flex items-center justify-center flex-shrink-0 text-xs text-[#FE7F42] font-bold mt-0.5 select-none">
                     ✦
                   </div>
                   <span>{item}</span>
@@ -179,14 +179,14 @@ export const EventDetails: React.FC = () => {
 
         {/* Right Column: RSVP Actions Widget */}
         <div className="space-y-6">
-          <div className="bg-white p-6 sm:p-8 rounded-[2rem] border border-brand-text/5 shadow-sm space-y-6 sticky top-24">
+          <div className="bg-[#1A1214]/60 backdrop-blur-md p-6 sm:p-8 rounded-[2rem] border border-white/10 shadow-sm space-y-6 sticky top-24">
             
             {/* Event Stats / Highlights */}
             <div className="space-y-5">
               
               {/* Date */}
               <div className="flex items-start space-x-3.5">
-                <div className="w-10 h-10 rounded-xl bg-[#FF7A30]/10 border border-[#FF7A30]/15 flex items-center justify-center flex-shrink-0 text-[#FF7A30]">
+                <div className="w-10 h-10 rounded-xl bg-[#FE7F42]/10 border border-[#FE7F42]/15 flex items-center justify-center flex-shrink-0 text-[#FE7F42]">
                   <Calendar className="w-5 h-5" />
                 </div>
                 <div>
@@ -198,7 +198,7 @@ export const EventDetails: React.FC = () => {
 
               {/* Location */}
               <div className="flex items-start space-x-3.5">
-                <div className="w-10 h-10 rounded-xl bg-brand-bg border border-brand-text/5 flex items-center justify-center flex-shrink-0 text-[#FF7A30]">
+                <div className="w-10 h-10 rounded-xl bg-brand-bg border border-white/10 flex items-center justify-center flex-shrink-0 text-[#FE7F42]">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
@@ -208,8 +208,8 @@ export const EventDetails: React.FC = () => {
               </div>
 
               {/* RSVP Count & Attendee Avatars Group */}
-              <div className="flex items-start space-x-3.5 border-t border-brand-text/5 pt-4">
-                <div className="w-10 h-10 rounded-xl bg-[#FFC857]/15 border border-[#FFC857]/30 flex items-center justify-center flex-shrink-0 text-[#FF7A30]">
+              <div className="flex items-start space-x-3.5 border-t border-white/5 pt-4">
+                <div className="w-10 h-10 rounded-xl bg-[#FE7F42]/10 border border-[#FE7F42]/15 flex items-center justify-center flex-shrink-0 text-[#FE7F42]">
                   <Users className="w-5 h-5" />
                 </div>
                 <div>
@@ -218,9 +218,9 @@ export const EventDetails: React.FC = () => {
                   {/* Overlapping Attendee Avatars */}
                   <div className="flex items-center space-x-2 mt-1">
                     <div className="flex -space-x-2 select-none">
-                      <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=80" alt="Attendee" className="w-6 h-6 rounded-full border border-white object-cover shadow-sm" />
-                      <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=80" alt="Attendee" className="w-6 h-6 rounded-full border border-white object-cover shadow-sm" />
-                      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=80" alt="Attendee" className="w-6 h-6 rounded-full border border-white object-cover shadow-sm" />
+                      <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=80" alt="Attendee" className="w-6 h-6 rounded-full border border-brand-bg object-cover shadow-sm" />
+                      <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=80" alt="Attendee" className="w-6 h-6 rounded-full border border-brand-bg object-cover shadow-sm" />
+                      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=80" alt="Attendee" className="w-6 h-6 rounded-full border border-brand-bg object-cover shadow-sm" />
                     </div>
                     <p className="text-xs font-semibold text-brand-text">
                       {event.attendeeCount} going
@@ -231,7 +231,7 @@ export const EventDetails: React.FC = () => {
 
             </div>
 
-            <hr className="border-brand-text/5" />
+            <hr className="border-white/5" />
 
             {/* RSVP and Action Buttons */}
             <div className="space-y-3.5">
@@ -241,7 +241,7 @@ export const EventDetails: React.FC = () => {
                 variant={isRsvped ? 'secondary' : 'primary'}
                 size="lg"
                 onClick={handleRsvpClick}
-                className="w-full flex items-center justify-center space-x-2 text-sm font-bold shadow-md shadow-[#FF7A30]/10"
+                className="w-full flex items-center justify-center space-x-2 text-sm font-bold shadow-md shadow-[#FE7F42]/10"
               >
                 {isRsvped ? (
                   <>
@@ -259,9 +259,9 @@ export const EventDetails: React.FC = () => {
                   variant="outline"
                   size="md"
                   onClick={() => saveEvent(event.id)}
-                  className="flex items-center justify-center space-x-1.5 border-brand-text/10 hover:border-[#FF7A30]/40 font-bold text-brand-text"
+                  className="flex items-center justify-center space-x-1.5 border-white/10 hover:border-[#FE7F42]/40 font-bold text-brand-text"
                 >
-                  <Heart className={`w-4 h-4 ${isSaved ? 'text-[#FF7A30] fill-[#FF7A30]' : 'text-brand-text-sec/50'}`} />
+                  <Heart className={`w-4 h-4 ${isSaved ? 'text-[#FE7F42] fill-[#FE7F42]' : 'text-brand-text-sec/50'}`} />
                   <span>{isSaved ? 'Saved' : 'Save'}</span>
                 </Button>
 
@@ -270,7 +270,7 @@ export const EventDetails: React.FC = () => {
                   variant="outline"
                   size="md"
                   onClick={handleShareClick}
-                  className="flex items-center justify-center space-x-1.5 border-brand-text/10 hover:border-[#FF7A30]/40 font-bold text-brand-text"
+                  className="flex items-center justify-center space-x-1.5 border-white/10 hover:border-[#FE7F42]/40 font-bold text-brand-text"
                 >
                   <Share2 className="w-4 h-4 text-brand-text-sec/50" />
                   <span>Share</span>
@@ -280,9 +280,9 @@ export const EventDetails: React.FC = () => {
 
             {/* Attendance indicator confirmation card */}
             {isRsvped && (
-              <div className="bg-[#FF7A30]/10 border border-[#FF7A30]/15 rounded-2xl p-4 text-center">
-                <p className="text-xs font-bold text-[#FF7A30] flex items-center justify-center">
-                  <Check className="w-4 h-4 text-[#FF7A30] mr-1.5 flex-shrink-0 stroke-[3px]" />
+              <div className="bg-[#FE7F42]/10 border border-[#FE7F42]/15 rounded-2xl p-4 text-center">
+                <p className="text-xs font-bold text-[#FE7F42] flex items-center justify-center">
+                  <Check className="w-4 h-4 text-[#FE7F42] mr-1.5 flex-shrink-0 stroke-[3px]" />
                   Your spot is locked in! Enjoy!
                 </p>
               </div>
@@ -292,7 +292,7 @@ export const EventDetails: React.FC = () => {
       </div>
 
       {/* Similar Events Section */}
-      <section className="space-y-6 pt-8 border-t border-brand-text/5">
+      <section className="space-y-6 pt-8 border-t border-white/5">
         <h2 className="text-2xl font-display text-brand-text uppercase tracking-tight">
           Similar Gatherings
         </h2>
@@ -311,8 +311,8 @@ export const EventDetails: React.FC = () => {
 
       {/* RSVP Success Modal Dialog (Apple Invites style) */}
       {showRsvpModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center px-4 bg-[#0E1726]/40 backdrop-blur-md">
-          <div className="bg-white rounded-[2rem] p-8 max-w-md w-full border border-brand-text/5 shadow-2xl relative text-center space-y-6 animate-fadeIn">
+        <div className="fixed inset-0 z-50 flex items-center justify-center px-4 bg-black/60 backdrop-blur-md">
+          <div className="bg-[#1A1214] rounded-[2rem] p-8 max-w-md w-full border border-white/10 shadow-2xl relative text-center space-y-6 animate-fadeIn">
             {/* Close Button */}
             <button 
               onClick={() => setShowRsvpModal(false)}
@@ -322,15 +322,15 @@ export const EventDetails: React.FC = () => {
             </button>
 
             {/* Celebration Sparkles */}
-            <div className="w-16 h-16 rounded-full bg-[#FF7A30]/10 mx-auto flex items-center justify-center">
-              <Sparkles className="w-8 h-8 text-[#FF7A30] animate-pulse" />
+            <div className="w-16 h-16 rounded-full bg-[#FE7F42]/10 mx-auto flex items-center justify-center">
+              <Sparkles className="w-8 h-8 text-[#FE7F42] animate-pulse" />
             </div>
 
             {/* Text details */}
             <div className="space-y-2 text-center">
               <h3 className="text-2xl font-bold text-brand-text">You’re Going!</h3>
               <p className="text-sm text-brand-text-sec leading-relaxed font-sans">
-                Awesome! You are officially confirmed for this campus event. You can access all your upcoming RSVPs on your <span className="font-bold text-[#FF7A30] underline cursor-pointer" onClick={() => { setShowRsvpModal(false); setCurrentPage('profile'); }}>Student Profile</span>.
+                Awesome! You are officially confirmed for this campus event. You can access all your upcoming RSVPs on your <span className="font-bold text-[#FE7F42] underline cursor-pointer" onClick={() => { setShowRsvpModal(false); setCurrentPage('profile'); }}>Student Profile</span>.
               </p>
             </div>
 
@@ -349,8 +349,8 @@ export const EventDetails: React.FC = () => {
 
       {/* Share Toast Notification */}
       {showShareToast && (
-        <div className="fixed bottom-6 right-6 z-50 bg-white text-brand-text text-xs font-semibold px-4.5 py-3.5 rounded-full shadow-lg flex items-center space-x-2 border border-brand-text/10 animate-bounce">
-          <Sparkle className="w-4.5 h-4.5 text-[#FF7A30] animate-spin" />
+        <div className="fixed bottom-6 right-6 z-50 bg-[#1A1214] text-white text-xs font-semibold px-4.5 py-3.5 rounded-full shadow-lg flex items-center space-x-2 border border-white/10 animate-bounce">
+          <Sparkle className="w-4.5 h-4.5 text-[#FE7F42] animate-spin" />
           <span>Event invite link copied! Send it to classmates</span>
         </div>
       )}

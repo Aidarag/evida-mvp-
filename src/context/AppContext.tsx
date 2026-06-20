@@ -29,6 +29,14 @@ interface AppContextType {
   addDiscussionPost: (communityId: string, postText: string) => void;
   exploreActiveTab: 'events' | 'communities' | 'opportunities';
   setExploreActiveTab: (tab: 'events' | 'communities' | 'opportunities') => void;
+  isLoading: boolean;
+  setIsLoading: (val: boolean) => void;
+  isAuthenticated: boolean;
+  setIsAuthenticated: (val: boolean) => void;
+  isOnboarded: boolean;
+  setIsOnboarded: (val: boolean) => void;
+  onboardingStep: number;
+  setOnboardingStep: (val: number) => void;
 }
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
@@ -44,6 +52,12 @@ export const AppContextProvider: React.FC<{ children: ReactNode }> = ({ children
   const [selectedOpportunityId, setSelectedOpportunityId] = useState<string | null>(null);
   const [isCreateModalOpen, setCreateModalOpen] = useState(false);
   const [exploreActiveTab, setExploreActiveTab] = useState<'events' | 'communities' | 'opportunities'>('events');
+  
+  // Loading and Onboarding States
+  const [isLoading, setIsLoading] = useState(true);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isOnboarded, setIsOnboarded] = useState(false);
+  const [onboardingStep, setOnboardingStep] = useState(1);
 
   const setCurrentPage = (page: PageName) => {
     setCurrentPageState(page);
@@ -194,7 +208,15 @@ export const AppContextProvider: React.FC<{ children: ReactNode }> = ({ children
         saveOpportunity,
         addDiscussionPost,
         exploreActiveTab,
-        setExploreActiveTab
+        setExploreActiveTab,
+        isLoading,
+        setIsLoading,
+        isAuthenticated,
+        setIsAuthenticated,
+        isOnboarded,
+        setIsOnboarded,
+        onboardingStep,
+        setOnboardingStep
       }}
     >
       {children}
