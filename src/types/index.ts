@@ -60,6 +60,8 @@ export interface Opportunity {
   reward: string;
   deadline: string;
   link?: string;
+  thumbnail?: string;
+  category?: string;
 }
 
 export interface UserProfile {

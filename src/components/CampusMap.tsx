@@ -115,6 +115,15 @@ export const CampusMap: React.FC = () => {
           <rect x="72%" y="60%" width="14%" height="16%" rx="12" fill="#111111" stroke="currentColor" strokeWidth="1" />
         </svg>
 
+        {/* User Location Pulse Pin */}
+        <div className="absolute transform -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2 z-20 select-none pointer-events-none" title="Your Location">
+          <span className="flex h-3.5 w-3.5 relative">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white/70 opacity-75"></span>
+            <span className="animate-pulse absolute -inset-1.5 rounded-full bg-[#FF7A1A]/30"></span>
+            <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-gradient-to-r from-[#FF7A1A] to-[#E56717] border-2 border-white shadow-lg shadow-[#FF7A1A]/40"></span>
+          </span>
+        </div>
+
         {/* Location Pins */}
         {locations.map((loc) => {
           const locEvents = getEventsForPin(loc);

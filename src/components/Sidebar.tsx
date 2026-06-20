@@ -62,11 +62,11 @@ export const Sidebar: React.FC = () => {
               onClick={() => handleNavClick(item)}
               className={`w-full flex items-center space-x-4 py-3 px-5 rounded-full text-sm font-semibold transition-all duration-200 font-display cursor-pointer ${
                 isActive
-                  ? 'bg-white/5 text-[#FF7A1A] border border-[#FF7A1A]/10 font-bold'
+                  ? 'bg-white/10 text-white shadow-inner border border-white/5 font-bold'
                   : 'text-[#B8B8B8] hover:text-white hover:bg-white/5 border border-transparent'
               }`}
             >
-              <div className={`transition-transform duration-200 ${isActive ? 'scale-110 text-[#FF7A1A]' : ''}`}>
+              <div className={`transition-transform duration-200 ${isActive ? 'scale-110 text-white' : ''}`}>
                 {item.icon}
               </div>
               <span className="tracking-wide">{item.label}</span>
@@ -87,7 +87,7 @@ export const Sidebar: React.FC = () => {
         />
         <div className="min-w-0 text-left">
           <h4 className="text-sm font-bold text-white truncate font-display tracking-wide">{profile.name}</h4>
-          <p className="text-[11px] text-[#B8B8B8] font-medium leading-tight mt-0.5">{profile.graduationYear}</p>
+          <p className="text-[11px] text-[#B8B8B8] font-medium leading-tight mt-0.5">{profile.major} {profile.graduationYear}</p>
           <p className="text-[10px] text-[#B8B8B8]/60 truncate mt-0.5">{profile.university}</p>
         </div>
       </div>

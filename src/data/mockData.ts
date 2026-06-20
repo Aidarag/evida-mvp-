@@ -3,57 +3,57 @@ import type { Event, Community, UserProfile, Opportunity, Moment } from '../type
 export const mockEvents: Event[] = [
   {
     id: 'evt-homecoming',
-    title: 'Homecoming Concert & Fireworks',
+    title: 'Homecoming 2026',
     description: 'The biggest night of the school year! Join us for live student bands, concert lights, free street foods, and a spectacular fireworks show over the campus quad. Bring your friends, celebrate campus culture, and kick off homecoming weekend in style!',
-    date: 'Oct 16, 2026',
-    time: '7:00 PM - 11:30 PM',
-    location: 'Livingstone Stadium Quad',
+    date: 'Sat, May 24',
+    time: '7:00 PM',
+    location: 'Main Stadium',
     organizer: 'Student Government Association',
     category: 'Culture',
     image: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&q=80&w=800',
-    attendeeCount: 420
+    attendeeCount: 236
   },
   {
     id: 'evt-stem-expo',
-    title: 'STEM Innovation Expo',
+    title: 'STEM Expo',
     description: 'Discover cutting-edge research, hands-on student demos, and tech prototypes. Meet industry sponsors from local labs and show off your own builds. Free merchandise, stickers, and pizza for all attendees!',
-    date: 'Oct 14, 2026',
+    date: 'Wed, May 21',
     time: '1:00 PM - 5:00 PM',
     location: 'Student Center Main Hall',
-    organizer: 'Women in STEM',
+    organizer: 'Women in Tech',
     category: 'Academic',
     image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=800',
     attendeeCount: 142
   },
   {
     id: 'evt-bball',
-    title: 'Intramural Basketball Tournament',
-    description: ' Livingstone College annual basketball showdown! Grab a squad or come cheer from the bleachers. DJ music, half-time student contests, and prizes for the winning team. Hydration stations and snacks are free!',
-    date: 'Oct 15, 2026',
+    title: 'Basketball Tournament',
+    description: 'Livingstone College annual basketball showdown! Grab a squad or come cheer from the bleachers. DJ music, half-time student contests, and prizes for the winning team.',
+    date: 'Thu, May 22',
     time: '5:00 PM - 9:00 PM',
     location: 'Campus Sports Complex',
-    organizer: 'Tennis Team',
+    organizer: 'Athletics Department',
     category: 'Sports',
     image: 'https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&q=80&w=800',
     attendeeCount: 98
   },
   {
     id: 'evt-open-mic',
-    title: 'Acoustic Open Mic Night',
-    description: 'Sing, recite poetry, show off your standup comedy, or just cozy up with a warm apple cider. Student performers get a free custom sticker pack. Open to all students!',
-    date: 'Oct 17, 2026',
+    title: 'Open Mic Night',
+    description: 'Sing, recite poetry, show off your standup comedy, or just cozy up with a warm apple cider. Student performers get a free custom sticker pack.',
+    date: 'Fri, May 23',
     time: '8:00 PM - 10:30 PM',
     location: 'Campus Brew Library Café',
-    organizer: 'Black Student Union',
+    organizer: 'BSU',
     category: 'Social',
     image: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&q=80&w=800',
     attendeeCount: 64
   },
   {
     id: 'evt-career-mixer',
-    title: 'Startup Career Mixer',
+    title: 'Career Fair 2026',
     description: 'Looking for internships or part-time student work? Mingle with local startups and student founders. Bring your resumes, grab a custom coffee, and chat in an informal, low-pressure setting.',
-    date: 'Oct 18, 2026',
+    date: 'Mon, May 26',
     time: '3:00 PM - 6:00 PM',
     location: 'Entrepreneurship Hub Center',
     organizer: 'Entrepreneur Society',
@@ -62,54 +62,94 @@ export const mockEvents: Event[] = [
     attendeeCount: 57
   },
   {
-    id: 'evt-culture-fest',
-    title: 'Campus Cultural Festival',
-    description: 'A celebration of our diverse campus! Traditional music performances, dance workshops, student art booths, and local street foods representing over 15 different cultures.',
-    date: 'Oct 20, 2026',
-    time: '12:00 PM - 6:00 PM',
-    location: 'Student Center Lawn',
-    organizer: 'Black Student Union',
-    category: 'Culture',
-    image: 'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&q=80&w=800',
-    attendeeCount: 310
-  },
-  {
-    id: 'evt-hackathon',
-    title: 'Evida Fall Hackathon',
-    description: 'Build projects that solve campus challenges. 24 hours of coding, design, and brainstorming. Mentors will be on standby. Winning teams receive $1,500 and hardware gear.',
-    date: 'Oct 23, 2026',
-    time: '6:00 PM Friday - 6:00 PM Saturday',
+    id: 'evt-ai-basics',
+    title: 'Workshop: AI Basics',
+    description: 'Discover the power of large language models, prompt engineering, and generative AI systems in this hands-on workshop led by industry researchers.',
+    date: 'Tue, May 27',
+    time: '2:00 PM - 4:00 PM',
     location: 'Main Library Digital Den',
-    organizer: 'NSBE',
+    organizer: 'Tech Innovators',
     category: 'Academic',
     image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=800',
-    attendeeCount: 120
+    attendeeCount: 88
   },
   {
-    id: 'evt-game-night',
-    title: 'Game Night: Mario Kart & Trivia',
-    description: 'Board games, pizza, and Mario Kart 8 Deluxe tournament on the theater screen! Come make new friends, eat free pizza, and take home the tournament champion cup.',
-    date: 'Oct 12, 2026',
-    time: '6:00 PM - 9:00 PM',
-    location: 'Student Center Lounge',
-    organizer: 'Student Government Association',
-    category: 'Social',
-    image: 'https://images.unsplash.com/photo-1610890716171-6b1bb98ffd09?auto=format&fit=crop&q=80&w=800',
-    attendeeCount: 42
+    id: 'evt-gala',
+    title: 'Black Excellence Gala',
+    description: 'An elegant evening celebrating achievements, culture, and unity on campus. Dress to impress for the final student-run gala of the academic year.',
+    date: 'Thu, May 29',
+    time: '6:30 PM - 10:00 PM',
+    location: 'Grand Ballroom',
+    organizer: 'BSU',
+    category: 'Culture',
+    image: 'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&q=80&w=800',
+    attendeeCount: 180
   }
 ];
 
 export const mockCommunities: Community[] = [
   {
+    id: 'comm-tech-innovators',
+    name: 'Tech Innovators',
+    description: 'Building software, hackathons, and learning modern tech together.',
+    memberCount: 142,
+    category: 'Tech',
+    image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=800',
+    banner: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=1200',
+    logo: 'Code',
+    about: 'Tech Innovators is the premier student tech club on campus.',
+    membersList: [
+      { name: 'Tariq Al-Fayed', avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200', role: 'President' }
+    ],
+    projects: [
+      { id: 'proj-nsbe-map', title: 'Interactive Campus Directory', description: 'A sleek visual directory helping freshmen find classes and student labs.', image: 'https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80&w=400' }
+    ],
+    gallery: [
+      'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=400'
+    ],
+    discussions: [
+      { id: 'disc-nsbe-1', author: 'Tariq Al-Fayed', avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200', text: 'Hackathon schedules are live! Make sure your teams are registered.', timestamp: '1 day ago' }
+    ],
+    resources: [
+      { id: 'res-nsbe-1', title: 'Hackathon Tech Stack Setup Guide', category: 'Tutorial', url: '#' }
+    ]
+  },
+  {
+    id: 'comm-wistem',
+    name: 'Women in Tech',
+    description: 'Empowering women in STEM, mentorship circles, and workshops.',
+    memberCount: 125,
+    category: 'Tech',
+    image: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&q=80&w=800',
+    banner: 'https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?auto=format&fit=crop&q=80&w=1200',
+    logo: 'Palette',
+    about: 'Women in Tech supports professional mentorship and networking.',
+    membersList: [
+      { name: 'Maya Lin', avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200', role: 'Event Chair' }
+    ],
+    projects: [
+      { id: 'proj-wistem-code', title: 'Girls Who Code Camp', description: 'Weekly free programming camps for local high school kids.', image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=400' }
+    ],
+    gallery: [
+      'https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&q=80&w=400'
+    ],
+    discussions: [
+      { id: 'disc-wistem-1', author: 'Maya Lin', avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200', text: 'Thank you to everyone who supported the Innovation Expo! We had an incredible turnout.', timestamp: '2 days ago' }
+    ],
+    resources: [
+      { id: 'res-wistem-1', title: 'STEM Mentor Circle Registration', category: 'Link', url: '#' }
+    ]
+  },
+  {
     id: 'comm-bsu',
-    name: 'Black Student Union',
-    description: 'Fostering unity, celebrating culture, and building leadership. We organize social mixers, educational panels, and homecoming events.',
-    memberCount: 185,
+    name: 'BSU',
+    description: 'Black Student Union - fostering cultural awareness, community, and excellence.',
+    memberCount: 210,
     category: 'Culture',
     image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800',
     banner: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=1200',
     logo: 'Users',
-    about: 'The Black Student Union aims to empower and connect students of African descent, raising political, social, and cultural awareness on campus.',
+    about: 'BSU empowers and connects students of African descent.',
     membersList: [
       { name: 'Marcus Vance', avatar: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=200', role: 'President' },
       { name: 'Aida Garba', avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=200', role: 'Event Planner' }
@@ -128,93 +168,15 @@ export const mockCommunities: Community[] = [
     ]
   },
   {
-    id: 'comm-nsbe',
-    name: 'NSBE',
-    description: 'National Society of Black Engineers. Promoting academic excellence, professional development, and community impact in STEM.',
-    memberCount: 110,
-    category: 'Tech',
-    image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800',
-    banner: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=1200',
-    logo: 'Code',
-    about: 'We support and encourage collegiate engineers to excel academically, succeed professionally, and positively impact the community.',
-    membersList: [
-      { name: 'Tariq Al-Fayed', avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200', role: 'President' }
-    ],
-    projects: [
-      { id: 'proj-nsbe-map', title: 'Interactive Campus Directory', description: 'A sleek visual directory helping freshmen find classes and student labs.', image: 'https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80&w=400' }
-    ],
-    gallery: [
-      'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=400'
-    ],
-    discussions: [
-      { id: 'disc-nsbe-1', author: 'Tariq Al-Fayed', avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200', text: 'Hackathon schedules are live! Make sure your teams are registered.', timestamp: '1 day ago' }
-    ],
-    resources: [
-      { id: 'res-nsbe-1', title: 'Hackathon Tech Stack Setup Guide', category: 'Tutorial', url: '#' }
-    ]
-  },
-  {
-    id: 'comm-sga',
-    name: 'Student Government Association',
-    description: 'The official voice of the student body. Advocating for campus life initiatives, managing club resources, and planning homecoming.',
-    memberCount: 250,
-    category: 'Business',
-    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800',
-    banner: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80&w=1200',
-    logo: 'Briefcase',
-    about: 'Livingstone SGA acts as a bridge between the student body and campus administration, planning campus events and distributing organization funds.',
-    membersList: [
-      { name: 'Sarah Jenkins', avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200', role: 'Student President' }
-    ],
-    projects: [
-      { id: 'proj-sga-shuttle', title: 'Campus Sports Night Shuttle', description: 'Coordinating student shuttles to off-site athletic matches.', image: 'https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&q=80&w=400' }
-    ],
-    gallery: [
-      'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400'
-    ],
-    discussions: [
-      { id: 'disc-sga-1', author: 'Sarah Jenkins', avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200', text: 'Homecoming event schedule has been updated. Join the planning committee session today!', timestamp: '5 hours ago' }
-    ],
-    resources: [
-      { id: 'res-sga-1', title: 'SGA Event Checklist Form', category: 'Document', url: '#' }
-    ]
-  },
-  {
-    id: 'comm-wistem',
-    name: 'Women in STEM',
-    description: 'Empowering women in science, technology, engineering, and math. Monthly mentor circles, tech workshops, and coding meetups.',
-    memberCount: 145,
-    category: 'Tech',
-    image: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&q=80&w=800',
-    banner: 'https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?auto=format&fit=crop&q=80&w=1200',
-    logo: 'Palette',
-    about: 'Women in STEM provides professional mentorship, educational resources, and social support networks to women pursuing careers in STEM.',
-    membersList: [
-      { name: 'Maya Lin', avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200', role: 'Event Chair' }
-    ],
-    projects: [
-      { id: 'proj-wistem-code', title: 'Girls Who Code Camp', description: 'Weekly free programming camps for local high school kids.', image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=400' }
-    ],
-    gallery: [
-      'https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&q=80&w=400'
-    ],
-    discussions: [
-      { id: 'disc-wistem-1', author: 'Maya Lin', avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200', text: 'Thank you to everyone who supported the Innovation Expo! We had an incredible turnout.', timestamp: '2 days ago' }
-    ],
-    resources: [
-      { id: 'res-wistem-1', title: 'STEM Mentor Circle Registration', category: 'Link', url: '#' }
-    ]
-  },
-  {
     id: 'comm-esoc',
     name: 'Entrepreneur Society',
-    description: 'Where startup builders, side-project makers, and innovators launch their MVPs. Weekly pitch practice and local founder talks.',
+    description: 'Pitch practices, startup builders, and MVP developer circles.',
     memberCount: 95,
     category: 'Business',
     image: 'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&q=80&w=800',
     banner: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=1200',
-    logo: 'Code',
-    about: 'Entrepreneur Society empowers student builders with mentorship, tech resources, and demo days to take ideas from zero to one.',
+    logo: 'Briefcase',
+    about: 'Entrepreneur Society empowers student builders with mentorship.',
     membersList: [
       { name: 'Alex Rivera', avatar: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=200', role: 'President' }
     ],
@@ -225,62 +187,10 @@ export const mockCommunities: Community[] = [
       'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=400'
     ],
     discussions: [
-      { id: 'disc-esoc-1', author: 'Alex Rivera', avatar: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=200', text: 'Startup mixer is this Friday! Mingle with student founders and grab custom brews.', timestamp: '1 hour ago' }
+      { id: 'disc-esoc-1', author: 'Alex Rivera', avatar: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=200', text: 'Startup mixer is this Friday! Mingle with student founders.', timestamp: '1 hour ago' }
     ],
     resources: [
       { id: 'res-esoc-1', title: 'Venture Capital Pitch Deck Template', category: 'Document', url: '#' }
-    ]
-  },
-  {
-    id: 'comm-ministry',
-    name: 'Campus Ministry',
-    description: 'Providing a supportive space for spiritual growth, fellowship, and active campus service projects. Everyone is welcome!',
-    memberCount: 78,
-    category: 'Wellness',
-    image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=800',
-    banner: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&q=80&w=1200',
-    logo: 'Heart',
-    about: 'Campus Ministry cultivates spiritual wellness, supportive study circles, and volunteer activities serving the local community.',
-    membersList: [
-      { name: 'Chloe Kim', avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200', role: 'Outreach Leader' }
-    ],
-    projects: [
-      { id: 'proj-min-food', title: 'Livingstone Food Drive', description: 'Weekly student pop-up food stands supplying families in need.', image: 'https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&q=80&w=400' }
-    ],
-    gallery: [
-      'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&q=80&w=400'
-    ],
-    discussions: [
-      { id: 'disc-min-1', author: 'Chloe Kim', avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200', text: 'Volunteer sign-up sheet for the weekend food pantry is ready. Appreciate the support!', timestamp: '4 hours ago' }
-    ],
-    resources: [
-      { id: 'res-min-1', title: 'Food Drive Coordinator Form', category: 'Link', url: '#' }
-    ]
-  },
-  {
-    id: 'comm-tennis',
-    name: 'Tennis Team',
-    description: 'Livingstone College Tennis Team. Competitive matches, casual student hit nights, and beginner drills. Grab a racket and join!',
-    memberCount: 65,
-    category: 'Sports',
-    image: 'https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?auto=format&fit=crop&q=80&w=800',
-    banner: 'https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&q=80&w=1200',
-    logo: 'Activity',
-    about: 'We promote physical fitness and competitive spirit on campus through weekly tennis tournaments and casual clinic hit nights.',
-    membersList: [
-      { name: 'Tyler Vance', avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200', role: 'Team Captain' }
-    ],
-    projects: [
-      { id: 'proj-tennis-court', title: 'Livingstone Open Hit Night', description: 'Friday outdoor courts social, open to all skill levels.', image: 'https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?auto=format&fit=crop&q=80&w=400' }
-    ],
-    gallery: [
-      'https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&q=80&w=400'
-    ],
-    discussions: [
-      { id: 'disc-ten-1', author: 'Tyler Vance', avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200', text: 'Intramural singles register by tonight! Matches kick off this Thursday.', timestamp: '3 hours ago' }
-    ],
-    resources: [
-      { id: 'res-ten-1', title: 'Singles Tournament Roster Sign-up', category: 'Portal', url: '#' }
     ]
   }
 ];
@@ -288,62 +198,57 @@ export const mockCommunities: Community[] = [
 export const mockOpportunities: Opportunity[] = [
   {
     id: 'opp-linear-intern',
-    title: 'Product Design Intern',
+    title: 'Software Engineering Intern',
     organizer: 'Linear Systems Group',
     type: 'Internship',
-    description: 'We are seeking an undergraduate product designer passionate about clean interfaces and developer workflows. You will design core application features, test layouts with target engineers, and collaborate closely with our engineering team.',
-    requirements: 'Familiarity with Figma, a visual portfolio showcasing interface layouts, and basic knowledge of frontend UI systems (HTML/CSS/JS).',
-    reward: '$40/hour Stipend • Remote allowed',
+    description: 'We are seeking a Software Engineering Intern passionate about code quality, performance, and building premium interfaces. You will work on core features using React, TypeScript, and TailwindCSS.',
+    requirements: 'Solid knowledge of JavaScript/TypeScript, React, and responsive layouts. Experience with Git.',
+    reward: '$45/hour Stipend • Remote/Hybrid',
     deadline: 'Nov 01, 2026',
-    link: '#'
+    link: '#',
+    thumbnail: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=300',
+    category: 'Engineering'
   },
   {
     id: 'opp-stem-scholar',
-    title: 'Aspirational Women in STEM Scholarship',
+    title: 'Evida Leaders Scholarship',
     organizer: 'Tech Foundation Fellowship',
     type: 'Scholarship',
-    description: 'A fund supporting undergraduate women studying Computer Science, Mathematics, or engineering fields. Awardees receive funding support plus placement in a formal mentoring circle with senior technology leaders.',
-    requirements: 'Full-time undergraduate enrollment, minimum GPA 3.2, 500-word personal essay on campus impact.',
-    reward: '$5,000 / Year • Academic Support',
+    description: 'The Evida Leaders Scholarship recognizes undergraduate students who demonstrate outstanding leadership, technical talent, and active contributions to campus community building.',
+    requirements: 'Undergraduate student, active participation in campus organizations, essay on community contribution.',
+    reward: '$6,000 / Year • Academic Support',
     deadline: 'Oct 30, 2026',
-    link: '#'
-  },
-  {
-    id: 'opp-tutor-job',
-    title: 'Computer Science Peer Tutor',
-    organizer: 'University Center for Academic Success',
-    type: 'Campus Job',
-    description: 'Help freshman and sophomore students master Python, Java, Data Structures, and basic database design. You will host drop-in tutoring blocks and hold exam prep workshops twice a week.',
-    requirements: 'Received A/A- in introductory CS sequence, strong communication skills, recommendation letter from a professor.',
-    reward: '$22/hour • 10-15 hrs/week',
-    deadline: 'Sep 30, 2026',
-    link: '#'
+    link: '#',
+    thumbnail: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=300',
+    category: 'Leadership'
   },
   {
     id: 'opp-hci-research',
-    title: 'Undergraduate HCI Lab Assistant',
+    title: 'AI Research Assistant',
     organizer: 'Future Human-Computer Interaction Lab',
     type: 'Research',
-    description: 'Assist in drafting user study plans, running usability tests for smart-home assistive hardware devices, and tagging interview logs. This research is funded by the National Science Foundation.',
-    requirements: 'Curious about accessibility, prompt and detail-oriented, completed introductory statistics.',
-    reward: '$18/hour or Course Research Credits',
+    description: 'Assist in training, fine-tuning, and evaluating generative model prompts and interfaces for accessible education. Conduct user study sessions and analyze feedback data.',
+    requirements: 'Strong interest in AI/HCI, basic Python/data analysis skills, completion of intro CS course.',
+    reward: '$22/hour or Course Credit',
     deadline: 'Oct 15, 2026',
-    link: '#'
+    link: '#',
+    thumbnail: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=300',
+    category: 'AI Research'
   }
 ];
 
 export const initialProfile: UserProfile = {
   name: 'Aida Garba',
-  graduationYear: 'Class of 2027',
+  graduationYear: "'26",
   university: 'Livingstone College',
-  major: 'Computer Science & Visual Design',
-  bio: 'Livingstone junior, building neat interfaces, capturing student campus moments, and organizing coding socials! BSU and NSBE member.',
+  major: 'Computer Science',
+  bio: 'Livingstone Computer Science student, building neat interfaces, capturing student campus moments, and organizing coding socials! BSU and Tech Innovators member.',
   avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=300',
   interests: ['Coding', 'UI Design', 'Homecoming Concerts', 'Basketball', 'Photography'],
   achievements: ['Community Catalyst', 'Hackathon Finalist', 'Dean\'s List'],
   savedEventIds: ['evt-open-mic'],
   rsvpEventIds: ['evt-game-night'],
-  followedCommunityIds: ['comm-bsu', 'comm-nsbe'],
+  followedCommunityIds: ['comm-bsu', 'comm-tech-innovators'],
   savedOpportunityIds: ['opp-linear-intern']
 };
 
@@ -353,7 +258,7 @@ export const mockMoments: Moment[] = [
     image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=800',
     studentAvatar: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=200',
     studentName: 'Marcus Vance',
-    organization: 'Black Student Union',
+    organization: 'BSU',
     likes: 124,
     hasLiked: false,
     comments: [
@@ -366,7 +271,7 @@ export const mockMoments: Moment[] = [
     image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800',
     studentAvatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200',
     studentName: 'Sarah Jenkins',
-    organization: 'Women in STEM',
+    organization: 'Women in Tech',
     likes: 85,
     hasLiked: false,
     comments: [
@@ -402,7 +307,7 @@ export const mockMoments: Moment[] = [
     image: 'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&q=80&w=800',
     studentAvatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200',
     studentName: 'Tariq Al-Fayed',
-    organization: 'Black Student Union',
+    organization: 'BSU',
     likes: 210,
     hasLiked: false,
     comments: []
