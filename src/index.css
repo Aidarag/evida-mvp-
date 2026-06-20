@@ -1,26 +1,26 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-purple: #FF8A4C; /* Primary Orange */
-  --color-brand-blue: #FE7F42; /* Primary Glow */
+  --color-brand-purple: #FF7A1A; /* Primary Accent (Warm Orange) */
+  --color-brand-blue: #0F766E; /* Secondary Accent (Deep Teal) */
   --color-brand-green: #FFFB97; /* Warm Gold */
-  --color-brand-bg: #0F0D11; /* Background */
-  --color-brand-text: #FFFFFF; /* Text */
-  --color-brand-text-sec: rgba(255, 255, 255, 0.72); /* Secondary Text */
+  --color-brand-bg: #FFFFFF; /* Background */
+  --color-brand-text: #111111; /* Typography Text */
+  --color-brand-text-sec: #555555; /* Secondary Typography Text */
 
-  --color-evida-orange: #FE7F42;
-  --color-evida-dark-orange: #FF8A4C;
-  --color-evida-burnt-orange: #2A1617; /* Deep Brown */
-  --color-evida-charcoal: #1A1214; /* Dark Surface */
-  --color-evida-cream: #0F0D11;
+  --color-evida-orange: #FF7A1A;
+  --color-evida-teal: #0F766E;
+  --color-evida-burnt-orange: #2A1617;
+  --color-evida-charcoal: #F7F8FA; /* Surface Card Background */
+  --color-evida-cream: #FFFFFF;
 
   /* Compatibility fallbacks for existing components */
-  --color-brand-lavender: rgba(255, 255, 255, 0.05); /* very soft white wash */
-  --color-brand-peach: rgba(254, 127, 66, 0.12); /* soft sunset orange wash */
-  --color-brand-cream: #1A1214; /* Dark Surface */
-  --color-brand-navy: #1A1214; /* Dark Surface */
-  --color-brand-coral: #FF8A4C; /* Primary Orange */
-  --color-brand-yellow: rgba(255, 251, 151, 0.15); /* soft gold wash */
+  --color-brand-lavender: rgba(15, 118, 110, 0.04); /* very soft teal wash */
+  --color-brand-peach: rgba(255, 122, 26, 0.06); /* soft warm orange wash */
+  --color-brand-cream: #F7F8FA; /* Surface card */
+  --color-brand-navy: #F7F8FA; /* Surface card */
+  --color-brand-coral: #FF7A1A; /* Accent Orange */
+  --color-brand-yellow: rgba(255, 251, 151, 0.25); /* soft gold wash */
   
   --font-display: "Bebas Neue", sans-serif;
   --font-sans: "Inter Tight", "Geist", "Inter", sans-serif;
@@ -29,9 +29,9 @@
 
 @layer base {
   body {
-    @apply bg-brand-bg text-brand-text font-sans antialiased selection:bg-brand-purple/20;
-    background-color: #0F0D11;
-    color: #FFFFFF;
+    @apply bg-brand-bg text-brand-text font-sans antialiased selection:bg-brand-purple/10;
+    background-color: #FFFFFF;
+    color: #111111;
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -48,11 +48,11 @@
   background: transparent;
 }
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: rgba(254, 127, 66, 0.25);
+  background: rgba(255, 122, 26, 0.15);
   border-radius: 9999px;
 }
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #FF8A4C;
+  background: #FF7A1A;
 }
 
 /* Page transitions */
@@ -115,64 +115,58 @@
   font-family: "Inter Tight", sans-serif;
 }
 
-/* Glassmorphism utility cards (60% Luma / 25% Apple vibe) */
+/* Glassmorphism utility cards (Light Mode Luma / Apple style) */
 .glass-panel {
-  background: rgba(26, 18, 20, 0.7);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(254, 127, 66, 0.1);
+  border: 1px solid rgba(15, 118, 110, 0.08);
 }
 
 .glass-card {
-  background: rgba(26, 18, 20, 0.85);
+  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(254, 127, 66, 0.12);
+  border: 1px solid rgba(255, 122, 26, 0.12);
 }
 
 /* Custom premium badge gradients */
 .badge-purple-gradient {
-  background: linear-gradient(135deg, rgba(254, 127, 66, 0.08) 0%, rgba(255, 138, 76, 0.08) 100%);
-  color: #FF8A4C;
-  border: 1px solid rgba(254, 127, 66, 0.15);
+  background: linear-gradient(135deg, rgba(255, 122, 26, 0.06) 0%, rgba(15, 118, 110, 0.06) 100%);
+  color: #FF7A1A;
+  border: 1px solid rgba(255, 122, 26, 0.12);
 }
 
 .badge-peach-gradient {
-  background: linear-gradient(135deg, rgba(254, 127, 66, 0.08) 0%, rgba(255, 138, 76, 0.1) 100%);
-  color: #FF8A4C;
-  border: 1px solid rgba(255, 138, 76, 0.15);
-}
-
-/* Custom Masonry layout overrides if needed */
-.masonry-col {
-  break-inside: avoid;
-  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, rgba(255, 122, 26, 0.06) 0%, rgba(255, 122, 26, 0.08) 100%);
+  color: #FF7A1A;
+  border: 1px solid rgba(255, 122, 26, 0.15);
 }
 
 /* Orange Glows */
 .orange-glow {
-  box-shadow: 0 0 25px rgba(254, 127, 66, 0.2);
+  box-shadow: 0 0 25px rgba(255, 122, 26, 0.12);
 }
 
 .orange-glow-sm {
-  box-shadow: 0 0 15px rgba(254, 127, 66, 0.12);
+  box-shadow: 0 0 15px rgba(255, 122, 26, 0.08);
 }
 
 .orange-glow-lg {
-  box-shadow: 0 0 40px rgba(254, 127, 66, 0.3);
+  box-shadow: 0 0 40px rgba(255, 122, 26, 0.2);
 }
 
 .orange-glow-border {
-  border-color: rgba(254, 127, 66, 0.4);
-  box-shadow: 0 0 10px rgba(254, 127, 66, 0.1);
+  border-color: rgba(255, 122, 26, 0.3);
+  box-shadow: 0 0 10px rgba(255, 122, 26, 0.06);
 }
 
-/* Premium Dark Cinematic styles */
+/* Premium Light Glass styles */
 .dark-glass-card {
-  background: rgba(26, 18, 20, 0.6);
+  background: rgba(255, 255, 255, 0.88);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(254, 127, 66, 0.12);
+  border: 1px solid rgba(255, 122, 26, 0.15);
 }
 
 .dark-glass-card-hover {
@@ -180,8 +174,8 @@
 }
 
 .dark-glass-card-hover:hover {
-  border-color: rgba(254, 127, 66, 0.35);
-  box-shadow: 0 12px 40px -10px rgba(254, 127, 66, 0.25);
+  border-color: rgba(255, 122, 26, 0.35);
+  box-shadow: 0 12px 40px -10px rgba(255, 122, 26, 0.18);
   transform: translateY(-4px) scale(1.01);
 }
 
@@ -251,7 +245,5 @@
 
 /* Concert glow highlight filter */
 .concert-glow {
-  filter: drop-shadow(0 0 15px rgba(254, 127, 66, 0.4));
+  filter: drop-shadow(0 0 15px rgba(255, 122, 26, 0.25));
 }
-
-

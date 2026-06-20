@@ -73,27 +73,27 @@ export const CampusMap: React.FC = () => {
   };
 
   return (
-    <div className="bg-[#1A1214]/60 border border-white/10 rounded-3xl p-5 relative overflow-hidden select-none backdrop-blur-md">
+    <div className="bg-white border border-gray-200/80 rounded-3xl p-5 relative overflow-hidden select-none shadow-sm">
       <div className="flex items-center justify-between mb-4">
         <div>
-          <h3 className="font-display font-bold text-sm text-white">Campus Map</h3>
-          <p className="text-[10px] text-brand-text-sec/60 font-medium mt-0.5">Explore active events by location</p>
+          <h3 className="font-display font-bold text-sm text-[#111111] uppercase tracking-wide">Campus Map</h3>
+          <p className="text-[10px] text-[#555555] font-semibold mt-0.5">Explore active events by location</p>
         </div>
         <span className="flex h-2 w-2 relative">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FE7F42]/40 opacity-75"></span>
-          <span className="relative inline-flex rounded-full h-2 w-2 bg-[#FE7F42]"></span>
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF7A1A]/40 opacity-75"></span>
+          <span className="relative inline-flex rounded-full h-2 w-2 bg-[#FF7A1A]"></span>
         </span>
       </div>
 
       {/* SVG Vector Blueprint Map */}
-      <div className="relative aspect-[4/3] w-full rounded-2xl bg-[#0F0D11]/60 border border-white/10 overflow-hidden">
+      <div className="relative aspect-[4/3] w-full rounded-2xl bg-[#F7F8FA] border border-gray-200/80 overflow-hidden shadow-inner">
         {/* Grid Overlay */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(254,127,66,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(254,127,66,0.02)_1px,transparent_1px)] bg-[size:16px_16px] pointer-events-none" />
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,122,26,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,122,26,0.02)_1px,transparent_1px)] bg-[size:16px_16px] pointer-events-none" />
 
         {/* Blueprint Paths & Rivers */}
-        <svg className="absolute inset-0 w-full h-full text-white/5" xmlns="http://www.w3.org/2000/svg">
+        <svg className="absolute inset-0 w-full h-full text-gray-300" xmlns="http://www.w3.org/2000/svg">
           {/* River / Lake */}
-          <path d="M -10,220 C 100,180 180,240 300,190 C 380,150 420,100 520,80" fill="none" stroke="rgba(254,127,66,0.04)" strokeWidth="24" strokeLinecap="round" />
+          <path d="M -10,220 C 100,180 180,240 300,190 C 380,150 420,100 520,80" fill="none" stroke="rgba(255,122,26,0.05)" strokeWidth="24" strokeLinecap="round" />
           
           {/* Main Ring Road Path */}
           <rect x="15%" y="20%" width="70%" height="60%" rx="36" fill="none" stroke="currentColor" strokeWidth="1" strokeDasharray="3,3" />
@@ -104,23 +104,23 @@ export const CampusMap: React.FC = () => {
 
           {/* Stylized Buildings */}
           {/* Auditorium */}
-          <rect x="16%" y="22%" width="12%" height="16%" rx="6" fill="#1A1214" stroke="currentColor" strokeWidth="1" />
+          <rect x="16%" y="22%" width="12%" height="16%" rx="6" fill="#FFFFFF" stroke="currentColor" strokeWidth="0.75" />
           {/* Library */}
-          <rect x="58%" y="18%" width="14%" height="18%" rx="8" fill="#1A1214" stroke="currentColor" strokeWidth="1" />
+          <rect x="58%" y="18%" width="14%" height="18%" rx="8" fill="#FFFFFF" stroke="currentColor" strokeWidth="0.75" />
           {/* Student Center */}
-          <circle cx="35%" cy="58%" r="7%" fill="#1A1214" stroke="currentColor" strokeWidth="1" />
+          <circle cx="35%" cy="58%" r="7%" fill="#FFFFFF" stroke="currentColor" strokeWidth="0.75" />
           {/* Dining */}
-          <polygon points="45,30 55,30 52,44 48,44" transform="scale(3.5)" fill="#1A1214" stroke="currentColor" strokeWidth="0.25" />
+          <polygon points="45,30 55,30 52,44 48,44" transform="scale(3.5)" fill="#FFFFFF" stroke="currentColor" strokeWidth="0.25" />
           {/* Sports Complex */}
-          <rect x="72%" y="60%" width="14%" height="16%" rx="12" fill="#1A1214" stroke="currentColor" strokeWidth="1" />
+          <rect x="72%" y="60%" width="14%" height="16%" rx="12" fill="#FFFFFF" stroke="currentColor" strokeWidth="0.75" />
         </svg>
 
         {/* User Location Pulse Pin */}
         <div className="absolute transform -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2 z-20 select-none pointer-events-none" title="Your Location">
           <span className="flex h-3.5 w-3.5 relative">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white/70 opacity-75"></span>
-            <span className="animate-pulse absolute -inset-1.5 rounded-full bg-[#FE7F42]/30"></span>
-            <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-gradient-to-r from-[#FE7F42] to-[#FF8A4C] border-2 border-white shadow-lg shadow-[#FE7F42]/40"></span>
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+            <span className="animate-pulse absolute -inset-1.5 rounded-full bg-[#FF7A1A]/30"></span>
+            <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-gradient-to-r from-[#FF7A1A] to-[#FF8A4C] border-2 border-white shadow-lg shadow-[#FF7A1A]/40"></span>
           </span>
         </div>
 
@@ -141,53 +141,53 @@ export const CampusMap: React.FC = () => {
               {/* Pin Glowing Aura */}
               <div className={`absolute -inset-2.5 rounded-full transition-all duration-300 ${
                 hasEvents 
-                  ? 'bg-[#FE7F42]/10 scale-100 group-hover:scale-120 animate-pulse' 
+                  ? 'bg-[#FF7A1A]/10 scale-100 group-hover:scale-120 animate-pulse' 
                   : 'bg-white/5'
               }`} />
 
               {/* Pin Icon */}
               <div className={`p-1.5 rounded-full border transition-all duration-300 ${
                 isHovered
-                  ? 'bg-[#FE7F42] border-[#FE7F42] text-white scale-110 shadow-lg shadow-[#FE7F42]/30'
+                  ? 'bg-[#FF7A1A] border-[#FF7A1A] text-white scale-110 shadow-lg shadow-[#FF7A1A]/30'
                   : hasEvents
-                    ? 'bg-[#1A1214] border-[#FE7F42]/50 text-[#FE7F42]'
-                    : 'bg-[#1A1214] border-white/10 text-brand-text-sec/60'
+                    ? 'bg-white border-[#FF7A1A]/50 text-[#FF7A1A]'
+                    : 'bg-white border-gray-200 text-[#555555]'
               }`}>
                 <MapPin className="w-3.5 h-3.5" />
               </div>
 
               {/* Live Event Count Tag */}
               {hasEvents && !isHovered && (
-                <span className="absolute -top-1.5 -right-1.5 bg-[#FE7F42] text-white text-[8px] font-black w-3.5 h-3.5 flex items-center justify-center rounded-full border border-[#1A1214]">
+                <span className="absolute -top-1.5 -right-1.5 bg-[#FF7A1A] text-white text-[8px] font-black w-3.5 h-3.5 flex items-center justify-center rounded-full border border-white">
                   {locEvents.length}
                 </span>
               )}
 
               {/* Tooltip Overlay */}
               {isHovered && (
-                <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-56 p-3 rounded-2xl bg-[#1A1214]/95 border border-white/10 shadow-2xl backdrop-blur-md pointer-events-auto z-20 text-left animate-fadeIn">
-                  <h4 className="text-xs font-bold text-white font-display truncate">{loc.name}</h4>
-                  <p className="text-[9px] text-[#B8B8B8] mt-0.5 leading-tight">{loc.description}</p>
+                <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-56 p-3 rounded-2xl bg-white border border-gray-100 shadow-2xl pointer-events-auto z-20 text-left animate-fadeIn">
+                  <h4 className="text-xs font-bold text-[#111111] font-display truncate">{loc.name}</h4>
+                  <p className="text-[9px] text-[#555555] mt-0.5 leading-tight font-medium font-sans">{loc.description}</p>
                   
-                  <div className="mt-2.5 pt-2 border-t border-white/5 space-y-1.5 max-h-36 overflow-y-auto custom-scrollbar">
+                  <div className="mt-2.5 pt-2 border-t border-gray-100 space-y-1.5 max-h-36 overflow-y-auto custom-scrollbar">
                     {hasEvents ? (
                       locEvents.map((evt) => (
                         <div
                           key={evt.id}
                           onClick={() => handleEventClick(evt.id)}
-                          className="flex items-start space-x-1.5 p-1 rounded-lg hover:bg-white/5 cursor-pointer group/item transition-colors"
+                          className="flex items-start space-x-1.5 p-1 rounded-lg hover:bg-gray-50 cursor-pointer group/item transition-colors"
                         >
-                          <Calendar className="w-2.5 h-2.5 text-[#FE7F42] mt-0.5 flex-shrink-0" />
+                          <Calendar className="w-2.5 h-2.5 text-[#FF7A1A] mt-0.5 flex-shrink-0" />
                           <div className="min-w-0">
-                            <p className="text-[10px] font-bold text-white group-hover/item:text-[#FE7F42] transition-colors truncate">
+                            <p className="text-[10px] font-bold text-[#111111] group-hover/item:text-[#FF7A1A] transition-colors truncate">
                               {evt.title}
                             </p>
-                            <p className="text-[8px] text-[#B8B8B8] truncate">{evt.time}</p>
+                            <p className="text-[8px] text-[#555555] font-semibold truncate">{evt.time}</p>
                           </div>
                         </div>
                       ))
                     ) : (
-                      <p className="text-[9px] text-[#B8B8B8]/50 italic">No events scheduled here</p>
+                      <p className="text-[9px] text-[#555555]/50 italic">No events scheduled here</p>
                     )}
                   </div>
                 </div>

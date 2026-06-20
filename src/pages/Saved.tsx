@@ -23,22 +23,22 @@ export const Saved: React.FC = () => {
       
       {/* Page Header */}
       <div className="text-center max-w-2xl mx-auto space-y-3">
-        <h1 className="text-3xl sm:text-5xl font-display text-white uppercase tracking-tight">
+        <h1 className="text-3xl sm:text-5xl font-display text-[#111111] uppercase tracking-tight">
           My Saved Square
         </h1>
-        <p className="text-sm sm:text-base text-white/70 leading-relaxed font-sans font-medium">
+        <p className="text-sm sm:text-base text-gray-600 leading-relaxed font-sans font-medium">
           Keep track of upcoming events you like, active communities you joined, and internships or scholarships you bookmarked.
         </p>
       </div>
 
       {/* Tabs Menu Bar */}
-      <div className="flex border-b border-white/5 max-w-md mx-auto justify-center select-none">
+      <div className="flex border-b border-gray-200/80 max-w-md mx-auto justify-center select-none">
         <button
           onClick={() => setActiveTab('events')}
           className={`flex-1 pb-3 text-center text-sm font-bold transition-all relative cursor-pointer ${
             activeTab === 'events' 
               ? 'text-[#FE7F42] font-extrabold' 
-              : 'text-white/40 hover:text-white/80'
+              : 'text-gray-500 hover:text-gray-900'
           }`}
         >
           <span className="flex items-center justify-center space-x-1.5">
@@ -55,7 +55,7 @@ export const Saved: React.FC = () => {
           className={`flex-1 pb-3 text-center text-sm font-bold transition-all relative cursor-pointer ${
             activeTab === 'clubs' 
               ? 'text-[#FE7F42] font-extrabold' 
-              : 'text-white/40 hover:text-white/80'
+              : 'text-gray-500 hover:text-gray-900'
           }`}
         >
           <span className="flex items-center justify-center space-x-1.5">
@@ -72,7 +72,7 @@ export const Saved: React.FC = () => {
           className={`flex-1 pb-3 text-center text-sm font-bold transition-all relative cursor-pointer ${
             activeTab === 'opportunities' 
               ? 'text-[#FE7F42] font-extrabold' 
-              : 'text-white/40 hover:text-white/80'
+              : 'text-gray-500 hover:text-gray-900'
           }`}
         >
           <span className="flex items-center justify-center space-x-1.5">
@@ -97,10 +97,10 @@ export const Saved: React.FC = () => {
               ))}
             </div>
           ) : (
-            <div className="text-center py-16 px-4 bg-[#1A1214] rounded-3xl border border-white/5 max-w-sm mx-auto space-y-4 shadow-sm">
+            <div className="text-center py-16 px-4 bg-[#F7F8FA] rounded-3xl border border-gray-200/80 max-w-sm mx-auto space-y-4 shadow-sm">
               <Calendar className="w-8 h-8 text-[#FE7F42]/50 mx-auto" />
-              <h3 className="font-bold text-base text-white">No saved events</h3>
-              <p className="text-xs text-white/60 leading-relaxed font-sans">Bookmark events from the explore board to keep them pinned here.</p>
+              <h3 className="font-bold text-base text-[#111111]">No saved events</h3>
+              <p className="text-xs text-gray-600 leading-relaxed font-sans">Bookmark events from the explore board to keep them pinned here.</p>
               <Button variant="primary" size="sm" onClick={() => setCurrentPage('explore')}>Explore Events</Button>
             </div>
           )
@@ -115,10 +115,10 @@ export const Saved: React.FC = () => {
               ))}
             </div>
           ) : (
-            <div className="text-center py-16 px-4 bg-[#1A1214] rounded-3xl border border-white/5 max-w-sm mx-auto space-y-4 shadow-sm">
+            <div className="text-center py-16 px-4 bg-[#F7F8FA] rounded-3xl border border-gray-200/80 max-w-sm mx-auto space-y-4 shadow-sm">
               <Users className="w-8 h-8 text-[#FE7F42]/50 mx-auto" />
-              <h3 className="font-bold text-base text-white">No joined communities</h3>
-              <p className="text-xs text-white/60 leading-relaxed font-sans">Find and join active student chapters and athletic clubs on campus.</p>
+              <h3 className="font-bold text-base text-[#111111]">No joined communities</h3>
+              <p className="text-xs text-gray-600 leading-relaxed font-sans">Find and join active student chapters and athletic clubs on campus.</p>
               <Button variant="primary" size="sm" onClick={() => setCurrentPage('communities')}>Browse Clubs</Button>
             </div>
           )
@@ -131,7 +131,7 @@ export const Saved: React.FC = () => {
               {savedOpportunities.map((opp) => (
                 <div 
                   key={`saved-opp-${opp.id}`}
-                  className="bg-[#1A1214] p-5 rounded-3xl border border-white/5 shadow-sm hover:border-[#FE7F42]/30 transition-all flex justify-between items-center gap-4 text-left"
+                  className="bg-[#F7F8FA] p-5 rounded-3xl border border-gray-200/80 shadow-sm hover:border-[#FE7F42]/30 transition-all flex justify-between items-center gap-4 text-left"
                 >
                   <div>
                     <span className="bg-[#FE7F42]/10 text-[#FE7F42] text-[9px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider select-none border border-[#FE7F42]/15">
@@ -139,11 +139,11 @@ export const Saved: React.FC = () => {
                     </span>
                     <h4 
                       onClick={() => handleViewOpportunity(opp.id)}
-                      className="text-base font-bold text-white pt-1.5 cursor-pointer hover:text-[#FE7F42] transition-colors font-sans"
+                      className="text-base font-bold text-[#111111] pt-1.5 cursor-pointer hover:text-[#FE7F42] transition-colors font-sans"
                     >
                       {opp.title}
                     </h4>
-                    <p className="text-xs text-white/70 font-semibold">{opp.organizer}</p>
+                    <p className="text-xs text-gray-600 font-semibold">{opp.organizer}</p>
                     <p className="text-[11px] text-[#FE7F42] font-bold pt-1 flex items-center">
                       <DollarSign className="w-3.5 h-3.5 mr-0.5 text-[#FE7F42] flex-shrink-0" />
                       <span>{opp.reward}</span>
@@ -153,7 +153,7 @@ export const Saved: React.FC = () => {
                   <div className="flex items-center gap-2">
                     <button
                       onClick={() => saveOpportunity(opp.id)}
-                      className="p-2 bg-white/5 text-white/60 hover:text-[#FE7F42] rounded-full hover:bg-[#FE7F42]/10 border border-white/5 transition-colors cursor-pointer"
+                      className="p-2 bg-white text-gray-500 hover:text-[#FE7F42] rounded-full hover:bg-[#FE7F42]/10 border border-gray-200 transition-colors cursor-pointer"
                       title="Remove bookmark"
                     >
                       <X className="w-4 h-4" />
@@ -171,10 +171,10 @@ export const Saved: React.FC = () => {
               ))}
             </div>
           ) : (
-            <div className="text-center py-16 px-4 bg-[#1A1214] rounded-3xl border border-white/5 max-w-sm mx-auto space-y-4 shadow-sm">
+            <div className="text-center py-16 px-4 bg-[#F7F8FA] rounded-3xl border border-gray-200/80 max-w-sm mx-auto space-y-4 shadow-sm">
               <Briefcase className="w-8 h-8 text-[#FE7F42]/50 mx-auto" />
-              <h3 className="font-bold text-base text-white">No saved opportunities</h3>
-              <p className="text-xs text-white/60 leading-relaxed font-sans">Bookmark research roles, tutor positions, and internships to follow up later.</p>
+              <h3 className="font-bold text-base text-[#111111]">No saved opportunities</h3>
+              <p className="text-xs text-gray-600 leading-relaxed font-sans">Bookmark research roles, tutor positions, and internships to follow up later.</p>
               <Button variant="primary" size="sm" onClick={() => setCurrentPage('opportunities')}>Explore Hub</Button>
             </div>
           )

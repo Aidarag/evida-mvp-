@@ -1,7 +1,6 @@
 import React from 'react';
 import { AppContextProvider, useApp } from './context/AppContext';
-import Sidebar from './components/Sidebar';
-import Navbar from './components/Navbar';
+import Header from './components/Header';
 import Footer from './components/Footer';
 import LoadingScreen from './components/LoadingScreen';
 import WelcomeScreen from './components/WelcomeScreen';
@@ -61,26 +60,23 @@ const AppContent: React.FC = () => {
   };
 
   return (
-    <div className="flex h-screen w-screen overflow-hidden font-sans antialiased selection:bg-[#FE7F42]/20 transition-colors duration-300 relative bg-[#0F0D11] text-white">
-      {/* Global Lava Lamp Background */}
+    <div className="flex flex-col h-screen w-screen overflow-hidden font-sans antialiased selection:bg-[#FF7A1A]/10 bg-white text-[#111111] relative">
+      {/* Global Soft Warm Background Glows */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-        <div className="absolute top-[10%] left-[15%] w-[320px] h-[320px] rounded-full bg-[#FE7F42]/8 blur-[110px] animate-lava-1" />
-        <div className="absolute bottom-[15%] right-[15%] w-[380px] h-[380px] rounded-full bg-[#FF8A4C]/6 blur-[120px] animate-lava-2" />
-        <div className="absolute top-[45%] left-[45%] w-[280px] h-[280px] rounded-full bg-[#2A1617]/5 blur-[100px] animate-lava-3" />
+        <div className="absolute top-[10%] left-[15%] w-[320px] h-[320px] rounded-full bg-[#FF7A1A]/3 blur-[110px] animate-lava-1" />
+        <div className="absolute bottom-[15%] right-[15%] w-[380px] h-[380px] rounded-full bg-[#0F766E]/2 blur-[120px] animate-lava-2" />
+        <div className="absolute top-[45%] left-[45%] w-[280px] h-[280px] rounded-full bg-[#FF7A1A]/1.5 blur-[100px] animate-lava-3" />
       </div>
 
-      {/* Desktop Left Sidebar Navigation */}
-      <div className="hidden md:block z-20">
-        <Sidebar />
-      </div>
+      {/* Sticky Top Header Navigation */}
+      <Header />
 
       {/* Main Page Scroll Container */}
-      <div className="flex-grow flex flex-col h-full overflow-y-auto custom-scrollbar relative z-10 bg-transparent">
+      <div className="flex-grow overflow-y-auto custom-scrollbar relative z-10 bg-transparent flex flex-col">
         <main className="flex-grow">
           {renderPage()}
         </main>
         <Footer />
-        <Navbar />
       </div>
     </div>
   );

@@ -15,13 +15,13 @@ export const EventCard: React.FC<EventCardProps> = ({ event }) => {
   const isSaved = profile.savedEventIds.includes(event.id);
 
   const categoryStyles: Record<string, string> = {
-    Social: 'bg-[#FE7F42]/10 text-[#FE7F42] border border-[#FE7F42]/20',
-    Career: 'bg-[#FFFB97]/10 text-[#FFFB97] border border-[#FFFB97]/25',
-    Sports: 'bg-[#FF8A4C]/10 text-[#FF8A4C] border border-[#FF8A4C]/20',
-    Culture: 'bg-[#FE7F42]/10 text-[#FE7F42] border border-[#FE7F42]/20',
-    Academic: 'bg-white/5 text-white/80 border border-white/10',
-    Wellness: 'bg-[#FF8A4C]/10 text-[#FF8A4C] border border-[#FF8A4C]/20',
-    Volunteer: 'bg-[#FF8A4C]/10 text-[#FF8A4C] border border-[#FF8A4C]/20',
+    Social: 'bg-[#FF7A1A]/10 text-[#FF7A1A] border border-[#FF7A1A]/20',
+    Career: 'bg-[#0F766E]/10 text-[#0F766E] border border-[#0F766E]/20',
+    Sports: 'bg-[#FF7A1A]/10 text-[#FF7A1A] border border-[#FF7A1A]/20',
+    Culture: 'bg-[#FF7A1A]/10 text-[#FF7A1A] border border-[#FF7A1A]/20',
+    Academic: 'bg-[#0F766E]/10 text-[#0F766E] border border-[#0F766E]/20',
+    Wellness: 'bg-[#FF7A1A]/10 text-[#FF7A1A] border border-[#FF7A1A]/20',
+    Volunteer: 'bg-[#FF7A1A]/10 text-[#FF7A1A] border border-[#FF7A1A]/20',
   };
 
   const handleCardClick = () => {
@@ -30,11 +30,11 @@ export const EventCard: React.FC<EventCardProps> = ({ event }) => {
   };
 
   return (
-    <div className="group bg-[#1A1214] rounded-3xl overflow-hidden transition-all duration-300 border border-white/5 hover:border-[#FE7F42]/30 hover:shadow-[0_8px_30px_rgba(254,127,66,0.08)] hover:-translate-y-1.5 flex flex-col h-full select-none">
+    <div className="group bg-white rounded-3xl overflow-hidden transition-all duration-300 border border-gray-200/80 hover:border-[#FF7A1A]/30 hover:shadow-[0_8px_30px_rgba(255,122,26,0.06)] hover:-translate-y-1.5 flex flex-col h-full select-none shadow-sm">
       {/* Event Image */}
       <div 
         onClick={handleCardClick}
-        className="relative h-48 w-full overflow-hidden cursor-pointer bg-white/5"
+        className="relative h-48 w-full overflow-hidden cursor-pointer bg-[#F7F8FA]"
       >
         <img
           src={event.image}
@@ -42,10 +42,10 @@ export const EventCard: React.FC<EventCardProps> = ({ event }) => {
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
           loading="lazy"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#1A1214] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         
         {/* Category Tag */}
-        <span className={`absolute top-4 left-4 px-3 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase ${categoryStyles[event.category] || 'bg-white/10 border border-white/10 text-white'}`}>
+        <span className={`absolute top-4 left-4 px-3 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase ${categoryStyles[event.category] || 'bg-gray-100 border border-gray-200 text-gray-700'}`}>
           {event.category}
         </span>
 
@@ -57,8 +57,8 @@ export const EventCard: React.FC<EventCardProps> = ({ event }) => {
           }}
           className={`absolute top-4 right-4 p-2 rounded-full backdrop-blur-md transition-all duration-200 cursor-pointer ${
             isSaved 
-              ? 'bg-[#FE7F42] text-white scale-110 shadow-lg shadow-[#FE7F42]/30' 
-              : 'bg-black/40 hover:bg-black/60 text-white/80 hover:scale-110 shadow-sm border border-white/10'
+              ? 'bg-[#FF7A1A] text-white scale-110 shadow-lg shadow-[#FF7A1A]/30' 
+              : 'bg-white hover:bg-gray-50 text-gray-500 hover:text-gray-800 hover:scale-110 shadow-sm border border-gray-200'
           }`}
           title={isSaved ? 'Remove from Saved' : 'Save Event'}
         >
@@ -69,34 +69,34 @@ export const EventCard: React.FC<EventCardProps> = ({ event }) => {
       {/* Event Details Content */}
       <div className="p-5 flex flex-col flex-grow text-left">
         {/* Organizer */}
-        <p className="text-[10px] text-white/50 font-bold uppercase tracking-wider mb-1.5">
+        <p className="text-[10px] text-[#555555] font-black uppercase tracking-wider mb-1.5 font-sans">
           {event.organizer}
         </p>
 
         {/* Title */}
         <h3 
           onClick={handleCardClick}
-          className="text-base font-bold text-white mb-2 line-clamp-1 group-hover:text-[#FE7F42] cursor-pointer transition-colors"
+          className="text-base font-bold text-[#111111] mb-2 line-clamp-1 group-hover:text-[#FF7A1A] cursor-pointer transition-colors font-sans"
         >
           {event.title}
         </h3>
 
         {/* Date & Time */}
-        <div className="flex items-center text-xs text-white/70 mb-1.5">
-          <Calendar className="w-3.5 h-3.5 text-[#FE7F42] mr-2 flex-shrink-0" />
+        <div className="flex items-center text-xs text-[#555555] mb-1.5 font-sans font-medium">
+          <Calendar className="w-3.5 h-3.5 text-[#FF7A1A] mr-2 flex-shrink-0" />
           <span className="truncate">{event.date} • {event.time}</span>
         </div>
 
         {/* Location */}
-        <div className="flex items-center text-xs text-white/70 mb-4">
-          <MapPin className="w-3.5 h-3.5 text-[#FE7F42] mr-2 flex-shrink-0" />
+        <div className="flex items-center text-xs text-[#555555] mb-4 font-sans font-medium">
+          <MapPin className="w-3.5 h-3.5 text-[#FF7A1A] mr-2 flex-shrink-0" />
           <span className="truncate">{event.location}</span>
         </div>
 
         {/* Attendee Pill & RSVP Button Row */}
-        <div className="mt-auto pt-4 border-t border-white/5 flex justify-between items-center">
-          <div className="flex items-center text-[10px] text-white/60 font-semibold bg-white/5 px-2.5 py-1.5 rounded-full border border-white/5">
-            <Users className="w-3.5 h-3.5 text-white/30 mr-1.5" />
+        <div className="mt-auto pt-4 border-t border-gray-100 flex justify-between items-center">
+          <div className="flex items-center text-[10px] text-[#555555] font-bold bg-[#F7F8FA] px-2.5 py-1.5 rounded-full border border-gray-200/50">
+            <Users className="w-3.5 h-3.5 text-gray-400 mr-1.5" />
             <span>{event.attendeeCount} going</span>
           </div>
 
