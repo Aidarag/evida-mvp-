@@ -89,7 +89,7 @@ export const Profile: React.FC = () => {
             {/* Profile Info */}
             <div className="space-y-3 flex-grow min-w-0">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                <h1 className="text-2xl sm:text-3xl font-bold font-display text-white">
+                <h1 className="text-3xl sm:text-4xl font-display text-white uppercase tracking-tight">
                   {profile.name}
                 </h1>
                 <Button 
@@ -122,12 +122,12 @@ export const Profile: React.FC = () => {
 
               {/* Interests Cloud */}
               <div className="space-y-1.5 pt-2">
-                <h4 className="text-[10px] font-bold uppercase tracking-wider text-[#B8B8B8]/60 font-display">Interests</h4>
+                <h4 className="text-[10px] font-bold uppercase tracking-wider text-[#B8B8B8]/60">Interests</h4>
                 <div className="flex flex-wrap justify-center sm:justify-start gap-1.5">
                   {profile.interests.map((tag, idx) => (
                     <span 
                       key={idx}
-                      className="px-2.5 py-1 bg-white/5 hover:bg-white/10 text-[#FF7A1A] text-[11px] font-bold rounded-full transition-colors font-display border border-[#FF7A1A]/10"
+                      className="px-2.5 py-1 bg-white/5 hover:bg-white/10 text-[#FF7A1A] text-[11px] font-bold rounded-full transition-colors border border-[#FF7A1A]/10"
                     >
                       {tag}
                     </span>
@@ -137,7 +137,7 @@ export const Profile: React.FC = () => {
 
               {/* Achievements Badges Section */}
               <div className="space-y-1.5 pt-3">
-                <h4 className="text-[10px] font-bold uppercase tracking-wider text-[#B8B8B8]/60 font-display flex items-center gap-1.5">
+                <h4 className="text-[10px] font-bold uppercase tracking-wider text-[#B8B8B8]/60 flex items-center gap-1.5">
                   <Award className="w-3.5 h-3.5 text-[#FF7A1A]" />
                   Achievements Badges
                 </h4>
@@ -145,7 +145,7 @@ export const Profile: React.FC = () => {
                   {profile.achievements.map((badge, idx) => (
                     <span 
                       key={idx}
-                      className="px-3 py-1 bg-[#FF7A1A]/10 text-[#FF7A1A] text-[11px] font-bold rounded-full border border-[#FF7A1A]/15 font-display flex items-center select-none"
+                      className="px-3 py-1 bg-[#FF7A1A]/10 text-[#FF7A1A] text-[11px] font-bold rounded-full border border-[#FF7A1A]/15 flex items-center select-none"
                     >
                       {getAchievementIcon(badge)}
                       <span>{badge}</span>
@@ -165,11 +165,11 @@ export const Profile: React.FC = () => {
           </div>
           
           <div className="space-y-4 pt-2">
-            <h3 className="font-display font-extrabold text-xs border-b border-white/5 pb-2 text-center text-white tracking-wider uppercase flex items-center justify-center space-x-1.5">
+            <h3 className="font-extrabold text-xs border-b border-white/5 pb-2 text-center text-white tracking-wider uppercase flex items-center justify-center space-x-1.5">
               <Pin className="w-4 h-4 text-[#FF7A1A] transform -rotate-45 flex-shrink-0" />
               <span>Fall Goals</span>
             </h3>
-            <ul className="space-y-3 font-display font-bold text-xs text-[#B8B8B8] pl-1.5 text-left">
+            <ul className="space-y-3 font-bold text-xs text-[#B8B8B8] pl-1.5 text-left">
               <li className="flex items-center space-x-2">
                 <span className="text-[#FF7A1A] text-sm">✦</span>
                 <span>RSVP to at least 5 campus social events</span>
@@ -180,7 +180,7 @@ export const Profile: React.FC = () => {
               </li>
               <li className="flex items-center space-x-2">
                 <span className="text-[#FF7A1A] text-sm">✦</span>
-                <span>Post moments from football match and expo</span>
+                <span>Apply for the Product Design internship opportunity</span>
               </li>
               <li className="flex items-center space-x-2">
                 <span className="text-[#FF7A1A] text-sm">✦</span>
@@ -198,7 +198,7 @@ export const Profile: React.FC = () => {
         <div className="flex border-b border-white/5 max-w-2xl mx-auto sm:mx-0 select-none">
           <button
             onClick={() => setActiveTab('attending')}
-            className={`flex-1 pb-3 text-center sm:text-left sm:pr-8 text-sm font-bold font-display tracking-tight transition-all relative cursor-pointer ${
+            className={`flex-1 pb-3 text-center sm:text-left sm:pr-8 text-sm font-bold tracking-tight transition-all relative cursor-pointer ${
               activeTab === 'attending' 
                 ? 'text-[#FF7A1A] font-extrabold' 
                 : 'text-[#B8B8B8]/60 hover:text-white'
@@ -215,7 +215,7 @@ export const Profile: React.FC = () => {
 
           <button
             onClick={() => setActiveTab('saved')}
-            className={`flex-1 pb-3 text-center sm:text-left sm:px-8 text-sm font-bold font-display tracking-tight transition-all relative cursor-pointer ${
+            className={`flex-1 pb-3 text-center sm:text-left sm:px-8 text-sm font-bold tracking-tight transition-all relative cursor-pointer ${
               activeTab === 'saved' 
                 ? 'text-[#FF7A1A] font-extrabold' 
                 : 'text-[#B8B8B8]/60 hover:text-white'
@@ -232,7 +232,7 @@ export const Profile: React.FC = () => {
 
           <button
             onClick={() => setActiveTab('communities')}
-            className={`flex-1 pb-3 text-center sm:text-left sm:px-8 text-sm font-bold font-display tracking-tight transition-all relative cursor-pointer ${
+            className={`flex-1 pb-3 text-center sm:text-left sm:px-8 text-sm font-bold tracking-tight transition-all relative cursor-pointer ${
               activeTab === 'communities' 
                 ? 'text-[#FF7A1A] font-extrabold' 
                 : 'text-[#B8B8B8]/60 hover:text-white'
@@ -249,7 +249,7 @@ export const Profile: React.FC = () => {
 
           <button
             onClick={() => setActiveTab('opportunities')}
-            className={`flex-1 pb-3 text-center sm:text-left sm:pl-8 text-sm font-bold font-display tracking-tight transition-all relative cursor-pointer ${
+            className={`flex-1 pb-3 text-center sm:text-left sm:pl-8 text-sm font-bold tracking-tight transition-all relative cursor-pointer ${
               activeTab === 'opportunities' 
                 ? 'text-[#FF7A1A] font-extrabold' 
                 : 'text-[#B8B8B8]/60 hover:text-white'
@@ -281,7 +281,7 @@ export const Profile: React.FC = () => {
                 <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center mx-auto">
                   <Calendar className="w-6 h-6 text-[#FF7A1A]" />
                 </div>
-                <h4 className="font-display font-bold text-base text-white">No RSVPs yet</h4>
+                <h4 className="font-bold text-base text-white">No RSVPs yet</h4>
                 <p className="text-xs text-[#B8B8B8] leading-relaxed">
                   You haven't RSVP'd to any events yet. Check out what is happening on campus and lock in your spots!
                 </p>
@@ -305,7 +305,7 @@ export const Profile: React.FC = () => {
                 <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center mx-auto animate-pulse">
                   <Heart className="w-6 h-6 text-[#FF7A1A]" />
                 </div>
-                <h4 className="font-display font-bold text-base text-white">No bookmarks saved</h4>
+                <h4 className="font-bold text-base text-white">No bookmarks saved</h4>
                 <p className="text-xs text-[#B8B8B8] leading-relaxed">
                   Bookmark events you might want to attend later by tapping the heart icon on any event card.
                 </p>
@@ -329,7 +329,7 @@ export const Profile: React.FC = () => {
                 <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center mx-auto">
                   <Users className="w-6 h-6 text-[#FF7A1A]" />
                 </div>
-                <h4 className="font-display font-bold text-base text-white">No joined communities</h4>
+                <h4 className="font-bold text-base text-white">No joined communities</h4>
                 <p className="text-xs text-[#B8B8B8] leading-relaxed">
                   Join student clubs or societies to keep track of their projects, updates, and upcoming custom events.
                 </p>
@@ -347,12 +347,12 @@ export const Profile: React.FC = () => {
                 {savedOpps.map(opp => (
                   <div key={`profile-opp-${opp.id}`} className="bg-[#111111] p-4.5 rounded-2xl border border-white/5 shadow-sm flex items-center justify-between text-left">
                     <div>
-                      <span className="bg-[#FF7A1A]/10 text-[#FF7A1A] text-[9px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider font-display select-none border border-[#FF7A1A]/15">
+                      <span className="bg-[#FF7A1A]/10 text-[#FF7A1A] text-[9px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider select-none border border-[#FF7A1A]/15">
                         {opp.type}
                       </span>
                       <h4 
                         onClick={() => handleViewOpportunity(opp.id)}
-                        className="text-sm font-bold text-white font-display pt-1.5 cursor-pointer hover:text-[#FF7A1A] transition-colors"
+                        className="text-sm font-bold text-white pt-1.5 cursor-pointer hover:text-[#FF7A1A] transition-colors"
                       >
                         {opp.title}
                       </h4>
@@ -365,7 +365,7 @@ export const Profile: React.FC = () => {
                     <div className="flex gap-3 items-center">
                       <button
                         onClick={() => saveOpportunity(opp.id)}
-                        className="text-xs text-[#B8B8B8]/50 hover:text-[#FF7A1A] font-bold font-display cursor-pointer"
+                        className="text-xs text-[#B8B8B8]/50 hover:text-[#FF7A1A] font-bold cursor-pointer"
                       >
                         Remove
                       </button>
@@ -381,7 +381,7 @@ export const Profile: React.FC = () => {
                 <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center mx-auto">
                   <Briefcase className="w-6 h-6 text-[#FF7A1A]" />
                 </div>
-                <h4 className="font-display font-bold text-base text-white">No saved opportunities</h4>
+                <h4 className="font-bold text-base text-white">No saved opportunities</h4>
                 <p className="text-xs text-[#B8B8B8] leading-relaxed">
                   Bookmarked internships, research assistantships, or competitions will appear here.
                 </p>
@@ -406,14 +406,14 @@ export const Profile: React.FC = () => {
               <X className="w-5 h-5" />
             </button>
 
-            <h3 className="text-xl font-bold font-display text-white">
+            <h3 className="text-2xl font-display text-white uppercase tracking-tight">
               Edit Student Profile
             </h3>
 
             <form onSubmit={handleSaveProfile} className="space-y-4">
               {/* Name */}
               <div className="space-y-1">
-                <label className="text-[10px] font-bold text-[#B8B8B8]/60 uppercase tracking-wider font-display">Student Name</label>
+                <label className="text-[10px] font-bold text-[#B8B8B8]/60 uppercase tracking-wider">Student Name</label>
                 <input
                   type="text"
                   value={editName}
@@ -425,7 +425,7 @@ export const Profile: React.FC = () => {
 
               {/* Major */}
               <div className="space-y-1">
-                <label className="text-[10px] font-bold text-[#B8B8B8]/60 uppercase tracking-wider font-display">Major of Study</label>
+                <label className="text-[10px] font-bold text-[#B8B8B8]/60 uppercase tracking-wider">Major of Study</label>
                 <input
                   type="text"
                   value={editMajor}
@@ -437,7 +437,7 @@ export const Profile: React.FC = () => {
 
               {/* Graduation Year */}
               <div className="space-y-1">
-                <label className="text-[10px] font-bold text-[#B8B8B8]/60 uppercase tracking-wider font-display">Graduation Year</label>
+                <label className="text-[10px] font-bold text-[#B8B8B8]/60 uppercase tracking-wider">Graduation Year</label>
                 <input
                   type="text"
                   value={editGraduationYear}
@@ -449,7 +449,7 @@ export const Profile: React.FC = () => {
 
               {/* University */}
               <div className="space-y-1">
-                <label className="text-[10px] font-bold text-[#B8B8B8]/60 uppercase tracking-wider font-display">University</label>
+                <label className="text-[10px] font-bold text-[#B8B8B8]/60 uppercase tracking-wider">University</label>
                 <input
                   type="text"
                   value={editUniversity}
@@ -461,7 +461,7 @@ export const Profile: React.FC = () => {
 
               {/* Bio */}
               <div className="space-y-1">
-                <label className="text-[10px] font-bold text-[#B8B8B8]/60 uppercase tracking-wider font-display">Short Bio</label>
+                <label className="text-[10px] font-bold text-[#B8B8B8]/60 uppercase tracking-wider">Short Bio</label>
                 <textarea
                   value={editBio}
                   onChange={(e) => setEditBio(e.target.value)}
@@ -473,7 +473,7 @@ export const Profile: React.FC = () => {
 
               {/* Interests tag inputs */}
               <div className="space-y-1">
-                <label className="text-[10px] font-bold text-[#B8B8B8]/60 uppercase tracking-wider font-display">Interests (comma separated)</label>
+                <label className="text-[10px] font-bold text-[#B8B8B8]/60 uppercase tracking-wider">Interests (comma separated)</label>
                 <input
                   type="text"
                   value={editInterests}

@@ -1,4 +1,4 @@
-import type { Event, Community, UserProfile, Opportunity, Moment } from '../types';
+import type { Event, Community, UserProfile, Opportunity } from '../types';
 
 export const mockEvents: Event[] = [
   {
@@ -252,64 +252,4 @@ export const initialProfile: UserProfile = {
   savedOpportunityIds: ['opp-linear-intern']
 };
 
-export const mockMoments: Moment[] = [
-  {
-    id: 'moment-1',
-    image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=800',
-    studentAvatar: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=200',
-    studentName: 'Marcus Vance',
-    organization: 'BSU',
-    likes: 124,
-    hasLiked: false,
-    comments: [
-      { id: 'c-1', author: 'Aida Garba', avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=200', text: 'This homecoming concert energy was unreal! 🔥', timestamp: '2h ago' },
-      { id: 'c-2', author: 'Tariq A.', avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200', text: 'Laser lights were top-tier!', timestamp: '1h ago' }
-    ]
-  },
-  {
-    id: 'moment-2',
-    image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800',
-    studentAvatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200',
-    studentName: 'Sarah Jenkins',
-    organization: 'Women in Tech',
-    likes: 85,
-    hasLiked: false,
-    comments: [
-      { id: 'c-3', author: 'Maya Lin', avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200', text: 'Amazing coding circles this week!', timestamp: '5h ago' }
-    ]
-  },
-  {
-    id: 'moment-3',
-    image: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&q=80&w=800',
-    studentAvatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200',
-    studentName: 'Tyler Vance',
-    organization: 'Tennis Team',
-    likes: 92,
-    hasLiked: false,
-    comments: [
-      { id: 'c-4', author: 'Marcus V.', avatar: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=200', text: 'Rallied like a pro!', timestamp: '3h ago' }
-    ]
-  },
-  {
-    id: 'moment-4',
-    image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=800',
-    studentAvatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=200',
-    studentName: 'Aida Garba',
-    organization: 'Student Government Association',
-    likes: 146,
-    hasLiked: true,
-    comments: [
-      { id: 'c-5', author: 'Sarah J.', avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200', text: 'Livingstone family vibes 💙', timestamp: '1d ago' }
-    ]
-  },
-  {
-    id: 'moment-5',
-    image: 'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&q=80&w=800',
-    studentAvatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200',
-    studentName: 'Tariq Al-Fayed',
-    organization: 'BSU',
-    likes: 210,
-    hasLiked: false,
-    comments: []
-  }
-];
+

@@ -92,13 +92,13 @@ export const EvidaLogo: React.FC<EvidaLogoProps> = ({ className = '', size = 32 
 export const EvidaLogoText: React.FC<{ className?: string; size?: number }> = ({ className = '', size = 24 }) => {
   return (
     <div 
-      className={`flex items-baseline select-none font-display font-extrabold tracking-tight ${className}`}
+      className={`flex items-baseline select-none font-accent font-light tracking-wider ${className}`}
       style={{ fontSize: `${size}px`, lineHeight: 1 }}
     >
       <span>Ev</span>
       {/* The 'i' dot is replaced by a small vector leaf */}
       <span className="relative inline-block">
-        <span>i</span>
+        <span>ı</span>
         <svg
           className="absolute -top-[4px] -right-[1px]"
           width={size * 0.45}

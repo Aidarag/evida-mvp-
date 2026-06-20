@@ -45,7 +45,7 @@ export const EventCard: React.FC<EventCardProps> = ({ event }) => {
         <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/90 via-[#080808]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         
         {/* Category Tag */}
-        <span className={`absolute top-4 left-4 px-3 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase font-display ${categoryStyles[event.category] || 'bg-[#111111] text-white'}`}>
+        <span className={`absolute top-4 left-4 px-3 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase ${categoryStyles[event.category] || 'bg-[#111111] text-white'}`}>
           {event.category}
         </span>
 
@@ -69,14 +69,14 @@ export const EventCard: React.FC<EventCardProps> = ({ event }) => {
       {/* Event Details Content */}
       <div className="p-5 flex flex-col flex-grow text-left">
         {/* Organizer */}
-        <p className="text-[10px] text-[#B8B8B8]/60 font-bold uppercase tracking-wider mb-1.5 font-display">
+        <p className="text-[10px] text-[#B8B8B8]/60 font-bold uppercase tracking-wider mb-1.5">
           {event.organizer}
         </p>
 
         {/* Title */}
         <h3 
           onClick={handleCardClick}
-          className="text-base font-bold text-white mb-2 line-clamp-1 group-hover:text-[#FF7A1A] cursor-pointer transition-colors font-display tracking-wide"
+          className="text-base font-bold text-white mb-2 line-clamp-1 group-hover:text-[#FF7A1A] cursor-pointer transition-colors"
         >
           {event.title}
         </h3>

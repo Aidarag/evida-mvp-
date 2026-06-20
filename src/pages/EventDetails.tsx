@@ -105,7 +105,7 @@ export const EventDetails: React.FC = () => {
       {/* Back Button Link */}
       <button 
         onClick={handleBackClick}
-        className="flex items-center space-x-2 text-sm text-[#B8B8B8] hover:text-[#FF7A1A] font-bold font-display group transition-colors select-none cursor-pointer"
+        className="flex items-center space-x-2 text-sm text-[#B8B8B8] hover:text-[#FF7A1A] font-bold group transition-colors select-none cursor-pointer"
       >
         <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
         <span>Back to explore</span>
@@ -133,10 +133,10 @@ export const EventDetails: React.FC = () => {
             </div>
 
             <div className="absolute bottom-6 left-6 right-6 text-white space-y-2.5 text-left">
-              <span className={`inline-block px-3 py-1 rounded-full text-[10px] uppercase tracking-wider font-bold font-display ${categoryStyles[event.category]} shadow-md shadow-black/10`}>
+              <span className={`inline-block px-3 py-1 rounded-full text-[10px] uppercase tracking-wider font-bold ${categoryStyles[event.category]} shadow-md shadow-black/10`}>
                 {event.category}
               </span>
-              <h1 className="text-2xl sm:text-4xl font-bold font-display leading-tight tracking-tight">
+              <h1 className="text-3xl sm:text-5xl font-display leading-tight tracking-tight uppercase">
                 {event.title}
               </h1>
               <p className="text-xs sm:text-sm text-[#B8B8B8] font-semibold">
@@ -147,7 +147,7 @@ export const EventDetails: React.FC = () => {
 
           {/* Description Details Card */}
           <div className="bg-[#111111] p-6 sm:p-10 rounded-[2rem] border border-white/5 shadow-sm space-y-4">
-            <h2 className="text-lg sm:text-xl font-bold font-display text-white border-b border-white/5 pb-3">
+            <h2 className="text-2xl font-display text-white uppercase tracking-tight border-b border-white/5 pb-3">
               About the Event
             </h2>
             <p className="text-[#B8B8B8] leading-relaxed text-sm sm:text-base whitespace-pre-line">
@@ -159,7 +159,7 @@ export const EventDetails: React.FC = () => {
           <div className="bg-[#111111] p-6 sm:p-10 rounded-[2rem] border border-white/5 space-y-6">
             <div className="flex items-center space-x-2.5">
               <Sparkles className="w-5 h-5 text-[#FF7A1A]" />
-              <h2 className="text-lg sm:text-xl font-bold font-display text-white">
+              <h2 className="text-2xl font-display text-white uppercase tracking-tight">
                 What to Expect
               </h2>
             </div>
@@ -190,7 +190,7 @@ export const EventDetails: React.FC = () => {
                   <Calendar className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="text-[10px] font-bold uppercase tracking-wider text-[#B8B8B8]/40 font-display">Date & Time</h4>
+                  <h4 className="text-[10px] font-bold uppercase tracking-wider text-[#B8B8B8]/40">Date & Time</h4>
                   <p className="text-sm font-semibold text-white mt-0.5">{event.date}</p>
                   <p className="text-xs text-[#B8B8B8] font-medium">{event.time}</p>
                 </div>
@@ -202,7 +202,7 @@ export const EventDetails: React.FC = () => {
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="text-[10px] font-bold uppercase tracking-wider text-[#B8B8B8]/40 font-display">Location</h4>
+                  <h4 className="text-[10px] font-bold uppercase tracking-wider text-[#B8B8B8]/40">Location</h4>
                   <p className="text-sm font-semibold text-white mt-0.5 leading-snug">{event.location}</p>
                 </div>
               </div>
@@ -213,7 +213,7 @@ export const EventDetails: React.FC = () => {
                   <Users className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="text-[10px] font-bold uppercase tracking-wider text-[#B8B8B8]/40 font-display">Attendees</h4>
+                  <h4 className="text-[10px] font-bold uppercase tracking-wider text-[#B8B8B8]/40">Attendees</h4>
                   
                   {/* Overlapping Attendee Avatars */}
                   <div className="flex items-center space-x-2 mt-1">
@@ -281,7 +281,7 @@ export const EventDetails: React.FC = () => {
             {/* Attendance indicator confirmation card */}
             {isRsvped && (
               <div className="bg-[#FF7A1A]/10 border border-[#FF7A1A]/15 rounded-2xl p-4 text-center">
-                <p className="text-xs font-bold text-[#FF7A1A] font-display flex items-center justify-center">
+                <p className="text-xs font-bold text-[#FF7A1A] flex items-center justify-center">
                   <Check className="w-4 h-4 text-[#FF7A1A] mr-1.5 flex-shrink-0 stroke-[3px]" />
                   Your spot is locked in! Enjoy!
                 </p>
@@ -293,7 +293,7 @@ export const EventDetails: React.FC = () => {
 
       {/* Similar Events Section */}
       <section className="space-y-6 pt-8 border-t border-white/5">
-        <h2 className="text-xl font-bold text-white font-display">
+        <h2 className="text-2xl font-display text-white uppercase tracking-tight">
           Similar Gatherings
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
@@ -328,7 +328,7 @@ export const EventDetails: React.FC = () => {
 
             {/* Text details */}
             <div className="space-y-2 text-center">
-              <h3 className="text-2xl font-bold font-display text-white">You’re Going!</h3>
+              <h3 className="text-2xl font-bold text-white">You’re Going!</h3>
               <p className="text-sm text-[#B8B8B8] leading-relaxed">
                 Awesome! You are officially confirmed for this campus event. You can access all your upcoming RSVPs on your <span className="font-bold text-[#FF7A1A] underline cursor-pointer" onClick={() => { setShowRsvpModal(false); setCurrentPage('profile'); }}>Student Profile</span>.
               </p>

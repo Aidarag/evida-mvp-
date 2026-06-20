@@ -13,7 +13,7 @@ export const Button: React.FC<ButtonProps> = ({
   className = '',
   ...props
 }) => {
-  const baseStyle = 'inline-flex items-center justify-center font-display rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#FF7A1A]/50 active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none cursor-pointer';
+  const baseStyle = 'inline-flex items-center justify-center rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#FF7A1A]/50 active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none cursor-pointer';
   
   const variants = {
     primary: 'bg-gradient-to-r from-[#FF7A1A] to-[#E56717] text-white shadow-md shadow-[#FF7A1A]/15 hover:shadow-[#FF7A1A]/30 hover:opacity-95 hover:-translate-y-0.5',

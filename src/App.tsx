@@ -3,7 +3,6 @@ import { AppContextProvider, useApp } from './context/AppContext';
 import Sidebar from './components/Sidebar';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import CreateEventModal from './components/CreateEventModal';
 import Home from './pages/Home';
 import Explore from './pages/Explore';
 import EventDetails from './pages/EventDetails';
@@ -62,9 +61,6 @@ const AppContent: React.FC = () => {
 
       {/* Floating Bottom Navigation Bar (Mobile Experience) */}
       <Navbar />
-
-      {/* Premium Create Event Form Modal */}
-      <CreateEventModal />
     </div>
   );
 };

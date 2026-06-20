@@ -5,22 +5,18 @@ import { Home, Compass, Plus, Heart, User } from 'lucide-react';
 import { EvidaLogo, EvidaLogoText } from './EvidaLogo';
 
 export const Sidebar: React.FC = () => {
-  const { currentPage, setCurrentPage, setCreateModalOpen, profile } = useApp();
+  const { currentPage, setCurrentPage, profile } = useApp();
 
-  const navItems: { label: string; page: PageName; icon: React.ReactNode; isModalTrigger?: boolean }[] = [
+  const navItems: { label: string; page: PageName; icon: React.ReactNode }[] = [
     { label: 'Home', page: 'home', icon: <Home className="w-5 h-5" /> },
     { label: 'Explore', page: 'explore', icon: <Compass className="w-5 h-5" /> },
-    { label: 'Create', page: 'create-event', icon: <Plus className="w-5 h-5" />, isModalTrigger: true },
+    { label: 'Create', page: 'create-event', icon: <Plus className="w-5 h-5" /> },
     { label: 'Saved', page: 'saved', icon: <Heart className="w-5 h-5" /> },
     { label: 'Profile', page: 'profile', icon: <User className="w-5 h-5" /> },
   ];
 
   const handleNavClick = (item: typeof navItems[0]) => {
-    if (item.isModalTrigger) {
-      setCreateModalOpen(true);
-    } else {
-      setCurrentPage(item.page);
-    }
+    setCurrentPage(item.page);
   };
 
   return (
@@ -51,7 +47,7 @@ export const Sidebar: React.FC = () => {
                 className="w-full mt-2 flex items-center justify-center space-x-2.5 py-3 px-5 rounded-full text-white font-bold bg-gradient-to-r from-[#FF7A1A] to-[#E56717] hover:opacity-95 active:scale-[0.98] transition-all cursor-pointer shadow-lg shadow-[#FF7A1A]/20 hover:shadow-[#FF7A1A]/35"
               >
                 <Plus className="w-5 h-5 stroke-[2.5]" />
-                <span className="font-display text-sm tracking-wide">Create Event</span>
+                <span className="text-sm tracking-wide">Create Event</span>
               </button>
             );
           }
@@ -60,7 +56,7 @@ export const Sidebar: React.FC = () => {
             <button
               key={item.label}
               onClick={() => handleNavClick(item)}
-              className={`w-full flex items-center space-x-4 py-3 px-5 rounded-full text-sm font-semibold transition-all duration-200 font-display cursor-pointer ${
+              className={`w-full flex items-center space-x-4 py-3 px-5 rounded-full text-sm font-semibold transition-all duration-200 cursor-pointer ${
                 isActive
                   ? 'bg-white/10 text-white shadow-inner border border-white/5 font-bold'
                   : 'text-[#B8B8B8] hover:text-white hover:bg-white/5 border border-transparent'
@@ -86,7 +82,7 @@ export const Sidebar: React.FC = () => {
           className="w-10 h-10 rounded-full border border-white/10 object-cover bg-white/5"
         />
         <div className="min-w-0 text-left">
-          <h4 className="text-sm font-bold text-white truncate font-display tracking-wide">{profile.name}</h4>
+          <h4 className="text-sm font-bold text-white truncate tracking-wide">{profile.name}</h4>
           <p className="text-[11px] text-[#B8B8B8] font-medium leading-tight mt-0.5">{profile.major} {profile.graduationYear}</p>
           <p className="text-[10px] text-[#B8B8B8]/60 truncate mt-0.5">{profile.university}</p>
         </div>

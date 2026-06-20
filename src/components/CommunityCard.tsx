@@ -43,14 +43,14 @@ export const CommunityCard: React.FC<CommunityCardProps> = ({ community }) => {
         <div className="absolute inset-0 bg-gradient-to-t from-[#111111] to-transparent opacity-85" />
         
         {/* Category Tag */}
-        <span className={`absolute top-4 left-4 px-2.5 py-0.5 rounded-full text-[9px] font-bold tracking-wider uppercase font-display ${categoryStyles[community.category] || 'bg-[#111111] text-white'}`}>
+        <span className={`absolute top-4 left-4 px-2.5 py-0.5 rounded-full text-[9px] font-bold tracking-wider uppercase ${categoryStyles[community.category] || 'bg-[#111111] text-white'}`}>
           {community.category}
         </span>
       </div>
 
       {/* Community Info */}
       <div className="p-5 flex flex-col flex-grow text-left">
-        <h3 className="text-lg font-bold text-white mb-1.5 font-display group-hover:text-[#FF7A1A] transition-colors tracking-wide">
+        <h3 className="text-lg font-bold text-white mb-1.5 group-hover:text-[#FF7A1A] transition-colors">
           {community.name}
         </h3>
         

@@ -1,17 +1,16 @@
 import React from 'react';
 import { useApp } from '../context/AppContext';
-import type { PageName } from '../context/AppContext';
 import { Heart } from 'lucide-react';
 import { EvidaLogo, EvidaLogoText } from './EvidaLogo';
 
 export const Footer: React.FC = () => {
-  const { setCurrentPage } = useApp();
+  const { setCurrentPage, setExploreActiveTab } = useApp();
 
-  const quickLinks: { label: string; page: PageName }[] = [
-    { label: 'Explore Events', page: 'explore' },
-    { label: 'Communities / Clubs', page: 'communities' },
-    { label: 'Opportunities Hub', page: 'opportunities' },
-    { label: 'My Student Profile', page: 'profile' },
+  const quickLinks = [
+    { label: 'Explore Events', action: () => { setExploreActiveTab('events'); setCurrentPage('explore'); } },
+    { label: 'Communities / Clubs', action: () => { setExploreActiveTab('communities'); setCurrentPage('explore'); } },
+    { label: 'Opportunities Hub', action: () => { setExploreActiveTab('opportunities'); setCurrentPage('explore'); } },
+    { label: 'My Student Profile', action: () => { setCurrentPage('profile'); } },
   ];
 
   return (
@@ -31,13 +30,13 @@ export const Footer: React.FC = () => {
  
           {/* Quick Links */}
           <div className="flex flex-col space-y-2 md:items-center">
-            <span className="font-display font-bold text-xs text-[#FF7A1A] tracking-widest uppercase mb-0.5">Explore</span>
+            <span className="font-bold text-xs text-[#FF7A1A] tracking-widest uppercase mb-0.5">Explore</span>
             <div className="flex flex-wrap justify-center gap-x-6 gap-y-1.5 md:flex-col md:items-center md:gap-y-1.5">
               {quickLinks.map((link) => (
                 <button
-                  key={link.page}
-                  onClick={() => setCurrentPage(link.page)}
-                  className="text-[#B8B8B8] hover:text-[#FF7A1A] text-xs transition-colors duration-150 font-display font-semibold cursor-pointer"
+                  key={link.label}
+                  onClick={link.action}
+                  className="text-[#B8B8B8] hover:text-[#FF7A1A] text-xs transition-colors duration-150 font-semibold cursor-pointer"
                 >
                   {link.label}
                 </button>
@@ -47,7 +46,7 @@ export const Footer: React.FC = () => {
  
           {/* Quote & Hearts */}
           <div className="text-center md:text-right flex flex-col justify-center md:items-end">
-            <p className="text-[#FF7A1A] font-display font-bold italic text-sm mb-1">
+            <p className="text-[#FF7A1A] font-accent font-medium italic text-base mb-1">
               “Find your people. Build your story.”
             </p>
             <div className="flex items-center justify-center md:justify-end space-x-1.5 text-[11px] text-[#B8B8B8]/40 font-medium">

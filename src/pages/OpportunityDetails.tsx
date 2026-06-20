@@ -95,7 +95,7 @@ export const OpportunityDetails: React.FC = () => {
       {/* Back Link */}
       <button 
         onClick={() => setCurrentPage('opportunities')}
-        className="flex items-center space-x-2 text-sm text-[#B8B8B8] hover:text-[#FF7A1A] font-bold font-display group transition-colors select-none cursor-pointer"
+        className="flex items-center space-x-2 text-sm text-[#B8B8B8] hover:text-[#FF7A1A] font-bold group transition-colors select-none cursor-pointer"
       >
         <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
         <span>Back to opportunities hub</span>
@@ -110,7 +110,7 @@ export const OpportunityDetails: React.FC = () => {
           {/* Header Card */}
           <div className={`p-8 sm:p-10 rounded-[2rem] border border-white/5 bg-gradient-to-br ${details.gradient} relative overflow-hidden text-left space-y-4 shadow-xl`}>
             <div className="flex justify-between items-center">
-              <span className={`inline-block px-3.5 py-1 rounded-full text-xs font-bold font-display uppercase tracking-wider ${details.colorClass}`}>
+              <span className={`inline-block px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${details.colorClass}`}>
                 {opportunity.type}
               </span>
               <div className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center border border-white/10 shadow-inner select-none">
@@ -119,7 +119,7 @@ export const OpportunityDetails: React.FC = () => {
             </div>
 
             <div className="space-y-2">
-              <h1 className="text-2xl sm:text-4xl font-bold font-display text-white leading-tight tracking-tight">
+              <h1 className="text-3xl sm:text-5xl font-display text-white leading-tight tracking-tight uppercase">
                 {opportunity.title}
               </h1>
               <p className="text-sm sm:text-base font-semibold text-[#B8B8B8]">
@@ -130,7 +130,7 @@ export const OpportunityDetails: React.FC = () => {
 
           {/* About Position */}
           <div className="bg-[#111111] p-8 sm:p-10 rounded-[2rem] border border-white/5 shadow-sm space-y-6 text-left">
-            <h2 className="text-lg sm:text-xl font-bold font-display text-white border-b border-white/5 pb-3">
+            <h2 className="text-2xl font-display text-white uppercase tracking-tight border-b border-white/5 pb-3">
               Opportunity Description
             </h2>
             <p className="text-[#B8B8B8] leading-relaxed text-sm sm:text-base select-text whitespace-pre-line">
@@ -142,7 +142,7 @@ export const OpportunityDetails: React.FC = () => {
           <div className="bg-[#111111] p-8 sm:p-10 rounded-[2rem] border border-white/5 space-y-6 text-left">
             <div className="flex items-center space-x-2.5">
               <Sparkles className="w-5 h-5 text-[#FF7A1A]" />
-              <h2 className="text-lg sm:text-xl font-bold font-display text-white">
+              <h2 className="text-2xl font-display text-white uppercase tracking-tight">
                 Candidate Requirements
               </h2>
             </div>
@@ -178,7 +178,7 @@ export const OpportunityDetails: React.FC = () => {
                   <DollarSign className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="text-[10px] font-bold uppercase tracking-wider text-[#B8B8B8]/40 font-display">Stipend & Reward</h4>
+                  <h4 className="text-[10px] font-bold uppercase tracking-wider text-[#B8B8B8]/40">Stipend & Reward</h4>
                   <p className="text-sm font-semibold text-white mt-0.5">{opportunity.reward}</p>
                 </div>
               </div>
@@ -189,7 +189,7 @@ export const OpportunityDetails: React.FC = () => {
                   <Clock className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="text-[10px] font-bold uppercase tracking-wider text-[#B8B8B8]/40 font-display">Application Deadline</h4>
+                  <h4 className="text-[10px] font-bold uppercase tracking-wider text-[#B8B8B8]/40">Application Deadline</h4>
                   <p className="text-sm font-semibold text-white mt-0.5">{opportunity.deadline}</p>
                   <p className="text-[9px] text-[#FF7A1A] font-bold mt-0.5">Closes soon</p>
                 </div>
@@ -201,7 +201,7 @@ export const OpportunityDetails: React.FC = () => {
                   <Briefcase className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="text-[10px] font-bold uppercase tracking-wider text-[#B8B8B8]/40 font-display">Employer</h4>
+                  <h4 className="text-[10px] font-bold uppercase tracking-wider text-[#B8B8B8]/40">Employer</h4>
                   <p className="text-sm font-semibold text-white mt-0.5">{opportunity.organizer}</p>
                 </div>
               </div>
@@ -251,7 +251,7 @@ export const OpportunityDetails: React.FC = () => {
 
       {/* Recommended Opportunities */}
       <section className="space-y-6 pt-8 border-t border-white/5 text-left">
-        <h2 className="text-xl font-bold text-white font-display">
+        <h2 className="text-2xl font-display text-white uppercase tracking-tight">
           Recommended Opportunities
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -266,12 +266,12 @@ export const OpportunityDetails: React.FC = () => {
             >
               <div className="space-y-2">
                 <div className="flex justify-between items-start">
-                  <span className="bg-[#FF7A1A]/10 text-[#FF7A1A] text-[8px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider font-display select-none border border-[#FF7A1A]/15">
+                  <span className="bg-[#FF7A1A]/10 text-[#FF7A1A] text-[8px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider select-none border border-[#FF7A1A]/15">
                     {opp.type}
                   </span>
                   <span className="text-[10px] text-[#B8B8B8]/60 font-semibold">{opp.deadline}</span>
                 </div>
-                <h3 className="text-sm font-bold text-white font-display group-hover:text-[#FF7A1A] line-clamp-1 transition-colors">
+                <h3 className="text-sm font-bold text-white group-hover:text-[#FF7A1A] line-clamp-1 transition-colors">
                   {opp.title}
                 </h3>
                 <p className="text-xs font-semibold text-[#B8B8B8]">{opp.organizer}</p>
@@ -301,7 +301,7 @@ export const OpportunityDetails: React.FC = () => {
                 <div className="w-16 h-16 bg-emerald-500/10 text-emerald-500 rounded-full mx-auto flex items-center justify-center border border-emerald-500/20 shadow-inner">
                   <Check className="w-8 h-8 stroke-[3.5px]" />
                 </div>
-                <h3 className="text-2xl font-bold font-display text-white">Application Sent!</h3>
+                <h3 className="text-2xl font-bold text-white">Application Sent!</h3>
                 <p className="text-sm text-[#B8B8B8] leading-relaxed max-w-xs mx-auto">
                   Your application materials have been routed to <strong>{opportunity.organizer}</strong>. You'll receive updates at <strong>{profile.name.toLowerCase().replace(/\s+/g, '')}@livingstone.edu</strong>!
                 </p>
@@ -309,10 +309,10 @@ export const OpportunityDetails: React.FC = () => {
             ) : (
               <form onSubmit={handleApplySubmit} className="space-y-4 text-left">
                 <div className="space-y-1">
-                  <span className="bg-[#FF7A1A]/10 text-[#FF7A1A] text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider font-display select-none border border-[#FF7A1A]/15">
+                  <span className="bg-[#FF7A1A]/10 text-[#FF7A1A] text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider select-none border border-[#FF7A1A]/15">
                     Apply for {opportunity.type}
                   </span>
-                  <h3 className="text-lg font-bold text-white font-display pt-1.5 leading-snug">
+                  <h3 className="text-lg font-bold text-white pt-1.5 leading-snug">
                     {opportunity.title}
                   </h3>
                   <p className="text-xs text-[#B8B8B8]/70 font-semibold">
@@ -325,16 +325,16 @@ export const OpportunityDetails: React.FC = () => {
                 <div className="grid grid-cols-2 gap-4 bg-white/5 p-3.5 rounded-2xl border border-white/5 text-xs font-semibold text-[#B8B8B8] leading-none select-none">
                   <div>
                     <p className="text-[9px] uppercase tracking-wider text-[#B8B8B8]/40 mb-1">Student</p>
-                    <p className="text-white font-display text-sm mt-0.5">{profile.name}</p>
+                    <p className="text-white text-sm mt-0.5">{profile.name}</p>
                   </div>
                   <div>
                     <p className="text-[9px] uppercase tracking-wider text-[#B8B8B8]/40 mb-1">Major</p>
-                    <p className="text-white font-display text-sm mt-0.5 truncate">{profile.major}</p>
+                    <p className="text-white text-sm mt-0.5 truncate">{profile.major}</p>
                   </div>
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="text-[10px] font-bold text-[#B8B8B8]/60 uppercase tracking-wider font-display">Introduce Yourself (Cover Note)</label>
+                  <label className="text-[10px] font-bold text-[#B8B8B8]/60 uppercase tracking-wider">Introduce Yourself (Cover Note)</label>
                   <textarea
                     value={applicantNote}
                     onChange={(e) => setApplicantNote(e.target.value)}

@@ -16,8 +16,8 @@
   --color-brand-coral: #FF7A1A;
   --color-brand-yellow: rgba(255, 122, 26, 0.05);
   
-  --font-display: "Clash Display", "Satoshi", sans-serif;
-  --font-sans: "Inter", "Satoshi", sans-serif;
+  --font-display: "Bebas Neue", sans-serif;
+  --font-sans: "Geist", "Inter", sans-serif;
   --font-accent: "Cormorant Garamond", serif;
 }
 
@@ -29,7 +29,7 @@
   }
   
   h1, h2, h3, h4, h5, h6 {
-    @apply font-display font-bold tracking-tight text-brand-text;
+    @apply font-sans font-bold tracking-tight text-brand-text;
   }
 }
 
