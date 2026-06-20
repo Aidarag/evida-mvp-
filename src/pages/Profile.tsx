@@ -6,9 +6,9 @@ import Button from '../components/Button';
 import { Heart, Calendar, Users, Edit3, X, Check, Award, Briefcase, GraduationCap, MapPin, Pin, DollarSign, Terminal } from 'lucide-react';
 
 const getAchievementIcon = (name: string) => {
-  if (name.includes('Catalyst')) return <Award className="w-3.5 h-3.5 mr-1 text-[#FF7A1A] flex-shrink-0" />;
-  if (name.includes('Finalist')) return <Terminal className="w-3.5 h-3.5 mr-1 text-[#FF7A1A] flex-shrink-0" />;
-  return <GraduationCap className="w-3.5 h-3.5 mr-1 text-[#FF7A1A] flex-shrink-0" />;
+  if (name.includes('Catalyst')) return <Award className="w-3.5 h-3.5 mr-1 text-[#FF7A30] flex-shrink-0" />;
+  if (name.includes('Finalist')) return <Terminal className="w-3.5 h-3.5 mr-1 text-[#FF7A30] flex-shrink-0" />;
+  return <GraduationCap className="w-3.5 h-3.5 mr-1 text-[#FF7A30] flex-shrink-0" />;
 };
 
 export const Profile: React.FC = () => {
@@ -57,20 +57,20 @@ export const Profile: React.FC = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12 fade-in pb-24 text-left select-none">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12 fade-in pb-24 text-left select-none bg-brand-bg">
       
       {/* Profile Header & Sticky Note Memory Board */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
         
         {/* Profile Card Info */}
-        <div className="lg:col-span-2 bg-[#111111] rounded-3xl p-6 sm:p-8 border border-white/5 shadow-2xl space-y-6 relative overflow-hidden text-left">
+        <div className="lg:col-span-2 bg-white rounded-3xl p-6 sm:p-8 border border-brand-text/5 shadow-sm space-y-6 relative overflow-hidden text-left">
           {/* Subtle decoration */}
-          <div className="absolute top-0 right-0 w-32 h-32 bg-[#FF7A1A]/5 rounded-bl-full pointer-events-none" />
+          <div className="absolute top-0 right-0 w-32 h-32 bg-[#FF7A30]/5 rounded-bl-full pointer-events-none" />
           
           <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-6">
             {/* Avatar */}
             <div className="relative flex-shrink-0">
-              <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden border-4 border-white/5 shadow-md bg-white/5">
+              <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden border-4 border-brand-text/5 shadow-md bg-brand-bg">
                 <img
                   src={profile.avatar}
                   alt={profile.name}
@@ -79,7 +79,7 @@ export const Profile: React.FC = () => {
               </div>
               <button 
                 onClick={handleOpenEdit}
-                className="absolute bottom-0 right-0 p-2 bg-[#FF7A1A] hover:bg-[#E56717] text-white rounded-full shadow-md transition-transform active:scale-95 cursor-pointer"
+                className="absolute bottom-0 right-0 p-2 bg-[#FF7A30] hover:bg-[#E0601B] text-white rounded-full shadow-md transition-transform active:scale-95 cursor-pointer"
                 title="Edit Profile"
               >
                 <Edit3 className="w-4 h-4" />
@@ -89,45 +89,45 @@ export const Profile: React.FC = () => {
             {/* Profile Info */}
             <div className="space-y-3 flex-grow min-w-0">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                <h1 className="text-3xl sm:text-4xl font-display text-white uppercase tracking-tight">
+                <h1 className="text-3xl sm:text-4xl font-display text-brand-text uppercase tracking-tight">
                   {profile.name}
                 </h1>
                 <Button 
                   variant="outline" 
                   size="sm" 
                   onClick={handleOpenEdit}
-                  className="border-[#FF7A1A]/10 hover:border-[#FF7A1A] hidden sm:inline-flex text-xs py-1.5 font-bold"
+                  className="border-brand-text/10 hover:border-[#FF7A30] hover:text-[#FF7A30] text-brand-text hidden sm:inline-flex text-xs py-1.5 font-bold"
                 >
-                  <Edit3 className="w-3.5 h-3.5 mr-1.5 text-[#FF7A1A]" />
+                  <Edit3 className="w-3.5 h-3.5 mr-1.5 text-[#FF7A30]" />
                   <span>Edit Profile</span>
                 </Button>
               </div>
 
               {/* Major & University info */}
-              <div className="flex flex-wrap justify-center sm:justify-start items-center gap-x-4 gap-y-1 text-xs sm:text-sm font-semibold text-[#B8B8B8]">
-                <span className="flex items-center text-[#FF7A1A]">
-                  <GraduationCap className="w-4 h-4 mr-1 flex-shrink-0 text-[#FF7A1A]/80" />
+              <div className="flex flex-wrap justify-center sm:justify-start items-center gap-x-4 gap-y-1 text-xs sm:text-sm font-semibold text-brand-text-sec">
+                <span className="flex items-center text-[#FF7A30]">
+                  <GraduationCap className="w-4 h-4 mr-1 flex-shrink-0 text-[#FF7A30]/80" />
                   {profile.major}
                 </span>
-                <span className="flex items-center text-[#B8B8B8]/60">
-                  <MapPin className="w-4 h-4 mr-1 flex-shrink-0 text-[#B8B8B8]/40" />
+                <span className="flex items-center text-brand-text-sec/60">
+                  <MapPin className="w-4 h-4 mr-1 flex-shrink-0 text-brand-text-sec/40" />
                   {profile.university} • {profile.graduationYear}
                 </span>
               </div>
 
               {/* Bio */}
-              <p className="text-sm sm:text-base text-[#B8B8B8] leading-relaxed max-w-xl">
+              <p className="text-sm sm:text-base text-brand-text-sec leading-relaxed max-w-xl font-sans">
                 {profile.bio}
               </p>
 
               {/* Interests Cloud */}
               <div className="space-y-1.5 pt-2">
-                <h4 className="text-[10px] font-bold uppercase tracking-wider text-[#B8B8B8]/60">Interests</h4>
+                <h4 className="text-[10px] font-bold uppercase tracking-wider text-brand-text-sec/60">Interests</h4>
                 <div className="flex flex-wrap justify-center sm:justify-start gap-1.5">
                   {profile.interests.map((tag, idx) => (
                     <span 
                       key={idx}
-                      className="px-2.5 py-1 bg-white/5 hover:bg-white/10 text-[#FF7A1A] text-[11px] font-bold rounded-full transition-colors border border-[#FF7A1A]/10"
+                      className="px-2.5 py-1 bg-brand-bg hover:bg-brand-bg/85 text-[#FF7A30] text-[11px] font-bold rounded-full transition-colors border border-[#FF7A30]/10"
                     >
                       {tag}
                     </span>
@@ -137,15 +137,15 @@ export const Profile: React.FC = () => {
 
               {/* Achievements Badges Section */}
               <div className="space-y-1.5 pt-3">
-                <h4 className="text-[10px] font-bold uppercase tracking-wider text-[#B8B8B8]/60 flex items-center gap-1.5">
-                  <Award className="w-3.5 h-3.5 text-[#FF7A1A]" />
+                <h4 className="text-[10px] font-bold uppercase tracking-wider text-brand-text-sec/60 flex items-center gap-1.5">
+                  <Award className="w-3.5 h-3.5 text-[#FF7A30]" />
                   Achievements Badges
                 </h4>
                 <div className="flex flex-wrap justify-center sm:justify-start gap-2">
                   {profile.achievements.map((badge, idx) => (
                     <span 
                       key={idx}
-                      className="px-3 py-1 bg-[#FF7A1A]/10 text-[#FF7A1A] text-[11px] font-bold rounded-full border border-[#FF7A1A]/15 flex items-center select-none"
+                      className="px-3 py-1 bg-[#FF7A30]/10 text-[#FF7A30] text-[11px] font-bold rounded-full border border-[#FF7A30]/15 flex items-center select-none"
                     >
                       {getAchievementIcon(badge)}
                       <span>{badge}</span>
@@ -159,49 +159,49 @@ export const Profile: React.FC = () => {
         </div>
 
         {/* Polaroid/Sticky Note (Digital Student Life Memory Board piece) */}
-        <div className="bg-[#151515] text-[#B8B8B8] rounded-3xl p-6 border border-white/5 shadow-2xl transform rotate-1 hover:rotate-0 transition-transform duration-300 relative select-none">
-          <div className="absolute -top-3.5 left-1/2 transform -translate-x-1/2 w-7 h-7 bg-[#FF7A1A]/20 rounded-full border border-[#FF7A1A]/40 shadow-md flex items-center justify-center">
-            <div className="w-1.5 h-1.5 bg-[#FF7A1A] rounded-full" />
+        <div className="bg-[#FFF0DE] text-brand-text-sec rounded-3xl p-6 border border-brand-text/5 shadow-sm transform rotate-1 hover:rotate-0 transition-transform duration-300 relative select-none">
+          <div className="absolute -top-3.5 left-1/2 transform -translate-x-1/2 w-7 h-7 bg-[#FF7A30]/20 rounded-full border border-[#FF7A30]/40 shadow-md flex items-center justify-center">
+            <div className="w-1.5 h-1.5 bg-[#FF7A30] rounded-full" />
           </div>
           
           <div className="space-y-4 pt-2">
-            <h3 className="font-extrabold text-xs border-b border-white/5 pb-2 text-center text-white tracking-wider uppercase flex items-center justify-center space-x-1.5">
-              <Pin className="w-4 h-4 text-[#FF7A1A] transform -rotate-45 flex-shrink-0" />
+            <h3 className="font-extrabold text-xs border-b border-brand-text/5 pb-2 text-center text-brand-text tracking-wider uppercase flex items-center justify-center space-x-1.5">
+              <Pin className="w-4 h-4 text-[#FF7A30] transform -rotate-45 flex-shrink-0" />
               <span>Fall Goals</span>
             </h3>
-            <ul className="space-y-3 font-bold text-xs text-[#B8B8B8] pl-1.5 text-left">
+            <ul className="space-y-3 font-bold text-xs text-brand-text-sec pl-1.5 text-left">
               <li className="flex items-center space-x-2">
-                <span className="text-[#FF7A1A] text-sm">✦</span>
+                <span className="text-[#FF7A30] text-sm">✦</span>
                 <span>RSVP to at least 5 campus social events</span>
               </li>
               <li className="flex items-center space-x-2">
-                <span className="text-[#FF7A1A] text-sm">✦</span>
+                <span className="text-[#FF7A30] text-sm">✦</span>
                 <span>Join BSU and Women in STEM sessions</span>
               </li>
               <li className="flex items-center space-x-2">
-                <span className="text-[#FF7A1A] text-sm">✦</span>
+                <span className="text-[#FF7A30] text-sm">✦</span>
                 <span>Apply for the Product Design internship opportunity</span>
               </li>
               <li className="flex items-center space-x-2">
-                <span className="text-[#FF7A1A] text-sm">✦</span>
+                <span className="text-[#FF7A30] text-sm">✦</span>
                 <span>Connect campus developers on Evida!</span>
               </li>
             </ul>
           </div>
         </div>
       </div>
-
+      
       {/* Tabs segment */}
       <div className="space-y-6">
         
         {/* Tab Buttons bar */}
-        <div className="flex border-b border-white/5 max-w-2xl mx-auto sm:mx-0 select-none">
+        <div className="flex border-b border-brand-text/5 max-w-2xl mx-auto sm:mx-0 select-none">
           <button
             onClick={() => setActiveTab('attending')}
             className={`flex-1 pb-3 text-center sm:text-left sm:pr-8 text-sm font-bold tracking-tight transition-all relative cursor-pointer ${
               activeTab === 'attending' 
-                ? 'text-[#FF7A1A] font-extrabold' 
-                : 'text-[#B8B8B8]/60 hover:text-white'
+                ? 'text-[#FF7A30] font-extrabold' 
+                : 'text-brand-text-sec/60 hover:text-brand-text'
             }`}
           >
             <span className="flex items-center justify-center sm:justify-start space-x-1.5">
@@ -209,7 +209,7 @@ export const Profile: React.FC = () => {
               <span>Attending ({rsvpEvents.length})</span>
             </span>
             {activeTab === 'attending' && (
-              <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#FF7A1A] rounded-t-full" />
+              <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#FF7A30] rounded-t-full" />
             )}
           </button>
 
@@ -217,8 +217,8 @@ export const Profile: React.FC = () => {
             onClick={() => setActiveTab('saved')}
             className={`flex-1 pb-3 text-center sm:text-left sm:px-8 text-sm font-bold tracking-tight transition-all relative cursor-pointer ${
               activeTab === 'saved' 
-                ? 'text-[#FF7A1A] font-extrabold' 
-                : 'text-[#B8B8B8]/60 hover:text-white'
+                ? 'text-[#FF7A30] font-extrabold' 
+                : 'text-brand-text-sec/60 hover:text-brand-text'
             }`}
           >
             <span className="flex items-center justify-center sm:justify-start space-x-1.5">
@@ -226,7 +226,7 @@ export const Profile: React.FC = () => {
               <span>Saved Events ({savedEvents.length})</span>
             </span>
             {activeTab === 'saved' && (
-              <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#FF7A1A] rounded-t-full" />
+              <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#FF7A30] rounded-t-full" />
             )}
           </button>
 
@@ -234,8 +234,8 @@ export const Profile: React.FC = () => {
             onClick={() => setActiveTab('communities')}
             className={`flex-1 pb-3 text-center sm:text-left sm:px-8 text-sm font-bold tracking-tight transition-all relative cursor-pointer ${
               activeTab === 'communities' 
-                ? 'text-[#FF7A1A] font-extrabold' 
-                : 'text-[#B8B8B8]/60 hover:text-white'
+                ? 'text-[#FF7A30] font-extrabold' 
+                : 'text-brand-text-sec/60 hover:text-brand-text'
             }`}
           >
             <span className="flex items-center justify-center sm:justify-start space-x-1.5">
@@ -243,7 +243,7 @@ export const Profile: React.FC = () => {
               <span>Joined Clubs ({followedComms.length})</span>
             </span>
             {activeTab === 'communities' && (
-              <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#FF7A1A] rounded-t-full" />
+              <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#FF7A30] rounded-t-full" />
             )}
           </button>
 
@@ -251,8 +251,8 @@ export const Profile: React.FC = () => {
             onClick={() => setActiveTab('opportunities')}
             className={`flex-1 pb-3 text-center sm:text-left sm:pl-8 text-sm font-bold tracking-tight transition-all relative cursor-pointer ${
               activeTab === 'opportunities' 
-                ? 'text-[#FF7A1A] font-extrabold' 
-                : 'text-[#B8B8B8]/60 hover:text-white'
+                ? 'text-[#FF7A30] font-extrabold' 
+                : 'text-brand-text-sec/60 hover:text-brand-text'
             }`}
           >
             <span className="flex items-center justify-center sm:justify-start space-x-1.5">
@@ -260,7 +260,7 @@ export const Profile: React.FC = () => {
               <span>Saved Careers ({savedOpps.length})</span>
             </span>
             {activeTab === 'opportunities' && (
-              <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#FF7A1A] rounded-t-full" />
+              <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#FF7A30] rounded-t-full" />
             )}
           </button>
         </div>
@@ -278,14 +278,14 @@ export const Profile: React.FC = () => {
               </div>
             ) : (
               <div className="text-center py-12 max-w-sm mx-auto space-y-4">
-                <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center mx-auto">
-                  <Calendar className="w-6 h-6 text-[#FF7A1A]" />
+                <div className="w-12 h-12 rounded-full bg-brand-bg flex items-center justify-center mx-auto">
+                  <Calendar className="w-6 h-6 text-[#FF7A30]" />
                 </div>
-                <h4 className="font-bold text-base text-white">No RSVPs yet</h4>
-                <p className="text-xs text-[#B8B8B8] leading-relaxed">
+                <h4 className="font-bold text-base text-brand-text">No RSVPs yet</h4>
+                <p className="text-xs text-brand-text-sec leading-relaxed font-sans">
                   You haven't RSVP'd to any events yet. Check out what is happening on campus and lock in your spots!
                 </p>
-                <Button variant="outline" size="sm" onClick={() => setCurrentPage('explore')} className="border-white/5 hover:border-[#FF7A1A]">
+                <Button variant="outline" size="sm" onClick={() => setCurrentPage('explore')} className="border-brand-text/10 hover:border-[#FF7A30] text-brand-text">
                   Browse Campus Events
                 </Button>
               </div>
@@ -302,14 +302,14 @@ export const Profile: React.FC = () => {
               </div>
             ) : (
               <div className="text-center py-12 max-w-sm mx-auto space-y-4">
-                <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center mx-auto animate-pulse">
-                  <Heart className="w-6 h-6 text-[#FF7A1A]" />
+                <div className="w-12 h-12 rounded-full bg-brand-bg flex items-center justify-center mx-auto animate-pulse">
+                  <Heart className="w-6 h-6 text-[#FF7A30]" />
                 </div>
-                <h4 className="font-bold text-base text-white">No bookmarks saved</h4>
-                <p className="text-xs text-[#B8B8B8] leading-relaxed">
+                <h4 className="font-bold text-base text-brand-text">No bookmarks saved</h4>
+                <p className="text-xs text-brand-text-sec leading-relaxed font-sans">
                   Bookmark events you might want to attend later by tapping the heart icon on any event card.
                 </p>
-                <Button variant="outline" size="sm" onClick={() => setCurrentPage('explore')} className="border-white/5 hover:border-[#FF7A1A]">
+                <Button variant="outline" size="sm" onClick={() => setCurrentPage('explore')} className="border-brand-text/10 hover:border-[#FF7A30] text-brand-text">
                   Browse Campus Events
                 </Button>
               </div>
@@ -326,14 +326,14 @@ export const Profile: React.FC = () => {
               </div>
             ) : (
               <div className="text-center py-12 max-w-sm mx-auto space-y-4">
-                <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center mx-auto">
-                  <Users className="w-6 h-6 text-[#FF7A1A]" />
+                <div className="w-12 h-12 rounded-full bg-brand-bg flex items-center justify-center mx-auto">
+                  <Users className="w-6 h-6 text-[#FF7A30]" />
                 </div>
-                <h4 className="font-bold text-base text-white">No joined communities</h4>
-                <p className="text-xs text-[#B8B8B8] leading-relaxed">
+                <h4 className="font-bold text-base text-brand-text">No joined communities</h4>
+                <p className="text-xs text-brand-text-sec leading-relaxed font-sans">
                   Join student clubs or societies to keep track of their projects, updates, and upcoming custom events.
                 </p>
-                <Button variant="outline" size="sm" onClick={() => setCurrentPage('communities')} className="border-white/5 hover:border-[#FF7A1A]">
+                <Button variant="outline" size="sm" onClick={() => setCurrentPage('communities')} className="border-brand-text/10 hover:border-[#FF7A30] text-brand-text">
                   Explore Student Clubs
                 </Button>
               </div>
@@ -345,27 +345,27 @@ export const Profile: React.FC = () => {
             savedOpps.length > 0 ? (
               <div className="space-y-3 max-w-3xl mx-auto">
                 {savedOpps.map(opp => (
-                  <div key={`profile-opp-${opp.id}`} className="bg-[#111111] p-4.5 rounded-2xl border border-white/5 shadow-sm flex items-center justify-between text-left">
+                  <div key={`profile-opp-${opp.id}`} className="bg-white p-4.5 rounded-2xl border border-brand-text/5 shadow-sm hover:shadow-md transition-all flex items-center justify-between text-left">
                     <div>
-                      <span className="bg-[#FF7A1A]/10 text-[#FF7A1A] text-[9px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider select-none border border-[#FF7A1A]/15">
+                      <span className="bg-[#FF7A30]/10 text-[#FF7A30] text-[9px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider select-none border border-[#FF7A30]/15">
                         {opp.type}
                       </span>
                       <h4 
                         onClick={() => handleViewOpportunity(opp.id)}
-                        className="text-sm font-bold text-white pt-1.5 cursor-pointer hover:text-[#FF7A1A] transition-colors"
+                        className="text-sm font-bold text-brand-text pt-1.5 cursor-pointer hover:text-[#FF7A30] transition-colors font-sans"
                       >
                         {opp.title}
                       </h4>
-                      <p className="text-xs text-[#B8B8B8] font-semibold">{opp.organizer}</p>
-                      <p className="text-xs text-[#FF7A1A] font-bold flex items-center pt-0.5">
-                        <DollarSign className="w-3.5 h-3.5 mr-0.5 text-[#FF7A1A] flex-shrink-0" />
+                      <p className="text-xs text-brand-text-sec font-semibold">{opp.organizer}</p>
+                      <p className="text-xs text-[#FF7A30] font-bold flex items-center pt-0.5">
+                        <DollarSign className="w-3.5 h-3.5 mr-0.5 text-[#FF7A30] flex-shrink-0" />
                         <span>{opp.reward}</span>
                       </p>
                     </div>
                     <div className="flex gap-3 items-center">
                       <button
                         onClick={() => saveOpportunity(opp.id)}
-                        className="text-xs text-[#B8B8B8]/50 hover:text-[#FF7A1A] font-bold cursor-pointer"
+                        className="text-xs text-brand-text-sec/60 hover:text-[#FF7A30] font-bold cursor-pointer transition-colors"
                       >
                         Remove
                       </button>
@@ -378,14 +378,14 @@ export const Profile: React.FC = () => {
               </div>
             ) : (
               <div className="text-center py-12 max-w-sm mx-auto space-y-4">
-                <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center mx-auto">
-                  <Briefcase className="w-6 h-6 text-[#FF7A1A]" />
+                <div className="w-12 h-12 rounded-full bg-brand-bg flex items-center justify-center mx-auto">
+                  <Briefcase className="w-6 h-6 text-[#FF7A30]" />
                 </div>
-                <h4 className="font-bold text-base text-white">No saved opportunities</h4>
-                <p className="text-xs text-[#B8B8B8] leading-relaxed">
+                <h4 className="font-bold text-base text-brand-text">No saved opportunities</h4>
+                <p className="text-xs text-brand-text-sec leading-relaxed font-sans">
                   Bookmarked internships, research assistantships, or competitions will appear here.
                 </p>
-                <Button variant="outline" size="sm" onClick={() => setCurrentPage('opportunities')} className="border-white/5 hover:border-[#FF7A1A]">
+                <Button variant="outline" size="sm" onClick={() => setCurrentPage('opportunities')} className="border-brand-text/10 hover:border-[#FF7A30] text-brand-text">
                   Browse Opportunities
                 </Button>
               </div>
@@ -396,101 +396,101 @@ export const Profile: React.FC = () => {
 
       {/* Edit Profile Modal Panel */}
       {isEditing && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center px-4 bg-black/80 backdrop-blur-md">
-          <div className="bg-[#111111] rounded-[2rem] p-6 sm:p-8 max-w-md w-full border border-white/10 shadow-2xl relative space-y-5 animate-fadeIn text-left">
+        <div className="fixed inset-0 z-50 flex items-center justify-center px-4 bg-[#0E1726]/40 backdrop-blur-md">
+          <div className="bg-white rounded-[2rem] p-6 sm:p-8 max-w-md w-full border border-brand-text/5 shadow-2xl relative space-y-5 animate-fadeIn text-left">
             {/* Close */}
             <button 
               onClick={() => setIsEditing(false)}
-              className="absolute top-4 right-4 p-1.5 rounded-full text-white/40 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
+              className="absolute top-4 right-4 p-1.5 rounded-full text-brand-text-sec/40 hover:text-brand-text hover:bg-brand-bg transition-colors cursor-pointer"
             >
               <X className="w-5 h-5" />
             </button>
 
-            <h3 className="text-2xl font-display text-white uppercase tracking-tight">
+            <h3 className="text-2xl font-display text-brand-text uppercase tracking-tight">
               Edit Student Profile
             </h3>
 
             <form onSubmit={handleSaveProfile} className="space-y-4">
               {/* Name */}
               <div className="space-y-1">
-                <label className="text-[10px] font-bold text-[#B8B8B8]/60 uppercase tracking-wider">Student Name</label>
+                <label className="text-[10px] font-bold text-brand-text-sec/60 uppercase tracking-wider">Student Name</label>
                 <input
                   type="text"
                   value={editName}
                   onChange={(e) => setEditName(e.target.value)}
-                  className="w-full px-4 py-2.5 bg-[#090909] border border-white/5 rounded-xl text-xs text-white focus:outline-none focus:ring-2 focus:ring-[#FF7A1A]/20 focus:border-[#FF7A1A] transition-all font-sans"
+                  className="w-full px-4 py-2.5 bg-white border border-brand-text/10 rounded-xl text-xs text-brand-text focus:outline-none focus:ring-2 focus:ring-[#FF7A30]/20 focus:border-[#FF7A30] transition-all font-sans"
                   required
                 />
               </div>
 
               {/* Major */}
               <div className="space-y-1">
-                <label className="text-[10px] font-bold text-[#B8B8B8]/60 uppercase tracking-wider">Major of Study</label>
+                <label className="text-[10px] font-bold text-brand-text-sec/60 uppercase tracking-wider">Major of Study</label>
                 <input
                   type="text"
                   value={editMajor}
                   onChange={(e) => setEditMajor(e.target.value)}
-                  className="w-full px-4 py-2.5 bg-[#090909] border border-white/5 rounded-xl text-xs text-white focus:outline-none focus:ring-2 focus:ring-[#FF7A1A]/20 focus:border-[#FF7A1A] transition-all font-sans"
+                  className="w-full px-4 py-2.5 bg-white border border-brand-text/10 rounded-xl text-xs text-brand-text focus:outline-none focus:ring-2 focus:ring-[#FF7A30]/20 focus:border-[#FF7A30] transition-all font-sans"
                   required
                 />
               </div>
 
               {/* Graduation Year */}
               <div className="space-y-1">
-                <label className="text-[10px] font-bold text-[#B8B8B8]/60 uppercase tracking-wider">Graduation Year</label>
+                <label className="text-[10px] font-bold text-brand-text-sec/60 uppercase tracking-wider">Graduation Year</label>
                 <input
                   type="text"
                   value={editGraduationYear}
                   onChange={(e) => setEditGraduationYear(e.target.value)}
-                  className="w-full px-4 py-2.5 bg-[#090909] border border-white/5 rounded-xl text-xs text-white focus:outline-none focus:ring-2 focus:ring-[#FF7A1A]/20 focus:border-[#FF7A1A] transition-all font-sans"
+                  className="w-full px-4 py-2.5 bg-white border border-brand-text/10 rounded-xl text-xs text-brand-text focus:outline-none focus:ring-2 focus:ring-[#FF7A30]/20 focus:border-[#FF7A30] transition-all font-sans"
                   required
                 />
               </div>
 
               {/* University */}
               <div className="space-y-1">
-                <label className="text-[10px] font-bold text-[#B8B8B8]/60 uppercase tracking-wider">University</label>
+                <label className="text-[10px] font-bold text-brand-text-sec/60 uppercase tracking-wider">University</label>
                 <input
                   type="text"
                   value={editUniversity}
                   onChange={(e) => setEditUniversity(e.target.value)}
-                  className="w-full px-4 py-2.5 bg-[#090909] border border-white/5 rounded-xl text-xs text-white focus:outline-none focus:ring-2 focus:ring-[#FF7A1A]/20 focus:border-[#FF7A1A] transition-all font-sans"
+                  className="w-full px-4 py-2.5 bg-white border border-brand-text/10 rounded-xl text-xs text-brand-text focus:outline-none focus:ring-2 focus:ring-[#FF7A30]/20 focus:border-[#FF7A30] transition-all font-sans"
                   required
                 />
               </div>
 
               {/* Bio */}
               <div className="space-y-1">
-                <label className="text-[10px] font-bold text-[#B8B8B8]/60 uppercase tracking-wider">Short Bio</label>
+                <label className="text-[10px] font-bold text-brand-text-sec/60 uppercase tracking-wider">Short Bio</label>
                 <textarea
                   value={editBio}
                   onChange={(e) => setEditBio(e.target.value)}
                   rows={3}
-                  className="w-full px-4 py-2.5 bg-[#090909] border border-white/5 rounded-xl text-xs text-white focus:outline-none focus:ring-2 focus:ring-[#FF7A1A]/20 focus:border-[#FF7A1A] transition-all font-sans resize-none"
+                  className="w-full px-4 py-2.5 bg-white border border-brand-text/10 rounded-xl text-xs text-brand-text focus:outline-none focus:ring-2 focus:ring-[#FF7A30]/20 focus:border-[#FF7A30] transition-all font-sans resize-none"
                   required
                 />
               </div>
 
               {/* Interests tag inputs */}
               <div className="space-y-1">
-                <label className="text-[10px] font-bold text-[#B8B8B8]/60 uppercase tracking-wider">Interests (comma separated)</label>
+                <label className="text-[10px] font-bold text-brand-text-sec/60 uppercase tracking-wider">Interests (comma separated)</label>
                 <input
                   type="text"
                   value={editInterests}
                   onChange={(e) => setEditInterests(e.target.value)}
                   placeholder="e.g. Design, Coding, Outdoors"
-                  className="w-full px-4 py-2.5 bg-[#090909] border border-white/5 rounded-xl text-xs text-white focus:outline-none focus:ring-2 focus:ring-[#FF7A1A]/20 focus:border-[#FF7A1A] transition-all font-sans"
+                  className="w-full px-4 py-2.5 bg-white border border-brand-text/10 rounded-xl text-xs text-brand-text focus:outline-none focus:ring-2 focus:ring-[#FF7A30]/20 focus:border-[#FF7A30] transition-all font-sans"
                 />
               </div>
 
               {/* Action Rows */}
-              <div className="pt-4 flex gap-3 border-t border-white/5">
+              <div className="pt-4 flex gap-3 border-t border-brand-text/5">
                 <Button
                   type="button"
                   variant="outline"
                   size="md"
                   onClick={() => setIsEditing(false)}
-                  className="w-full border-white/10 text-white hover:bg-white/5"
+                  className="w-full border-brand-text/10 text-brand-text hover:bg-brand-bg"
                 >
                   Cancel
                 </Button>

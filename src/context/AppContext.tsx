@@ -3,7 +3,7 @@ import type { ReactNode } from 'react';
 import type { Event, Community, UserProfile, Opportunity, Discussion } from '../types';
 import { mockEvents, mockCommunities, mockOpportunities, initialProfile } from '../data/mockData';
 
-export type PageName = 'home' | 'explore' | 'event-details' | 'communities' | 'create-event' | 'profile' | 'opportunities' | 'saved' | 'community-profile' | 'opportunity-details';
+export type PageName = 'home' | 'explore' | 'event-details' | 'communities' | 'create-event' | 'profile' | 'opportunities' | 'saved' | 'community-profile' | 'opportunity-details' | 'messages';
 
 interface AppContextType {
   events: Event[];

@@ -20,12 +20,12 @@ export const Sidebar: React.FC = () => {
   };
 
   return (
-    <aside className="w-64 xl:w-72 bg-[#0b0b0b] border-r border-white/5 flex flex-col h-screen flex-shrink-0 select-none z-30 relative">
+    <aside className="w-64 xl:w-72 bg-white border-r border-brand-text/5 flex flex-col h-screen flex-shrink-0 select-none z-30 relative">
       {/* Top logo block */}
-      <div className="p-6 flex items-center space-x-3 border-b border-white/5">
+      <div className="p-6 flex items-center space-x-3 border-b border-brand-text/5">
         <div className="flex items-center space-x-2.5 cursor-pointer group" onClick={() => setCurrentPage('home')}>
           <EvidaLogo size={32} className="transform transition-transform duration-300 group-hover:rotate-6 group-hover:scale-105" />
-          <EvidaLogoText size={22} className="text-white group-hover:text-[#FF7A1A] transition-colors" />
+          <EvidaLogoText size={22} className="text-brand-text group-hover:text-[#FF7A30] transition-colors" />
         </div>
       </div>
 
@@ -44,7 +44,7 @@ export const Sidebar: React.FC = () => {
               <button
                 key={item.label}
                 onClick={() => handleNavClick(item)}
-                className="w-full mt-2 flex items-center justify-center space-x-2.5 py-3 px-5 rounded-full text-white font-bold bg-gradient-to-r from-[#FF7A1A] to-[#E56717] hover:opacity-95 active:scale-[0.98] transition-all cursor-pointer shadow-lg shadow-[#FF7A1A]/20 hover:shadow-[#FF7A1A]/35"
+                className="w-full mt-2 flex items-center justify-center space-x-2.5 py-3 px-5 rounded-full text-white font-bold bg-[#FF7A30] hover:bg-[#E0601B] active:scale-[0.98] transition-all cursor-pointer shadow-lg shadow-[#FF7A30]/20 hover:shadow-[#FF7A30]/35"
               >
                 <Plus className="w-5 h-5 stroke-[2.5]" />
                 <span className="text-sm tracking-wide">Create Event</span>
@@ -58,8 +58,8 @@ export const Sidebar: React.FC = () => {
               onClick={() => handleNavClick(item)}
               className={`w-full flex items-center space-x-4 py-3 px-5 rounded-full text-sm font-semibold transition-all duration-200 cursor-pointer ${
                 isActive
-                  ? 'bg-white/10 text-white shadow-inner border border-white/5 font-bold'
-                  : 'text-[#B8B8B8] hover:text-white hover:bg-white/5 border border-transparent'
+                  ? 'bg-[#0E1726] text-white shadow-inner border border-brand-text/5 font-bold'
+                  : 'text-brand-text-sec hover:text-brand-text hover:bg-brand-bg border border-transparent'
               }`}
             >
               <div className={`transition-transform duration-200 ${isActive ? 'scale-110 text-white' : ''}`}>
@@ -74,17 +74,17 @@ export const Sidebar: React.FC = () => {
       {/* Bottom user profile card */}
       <div 
         onClick={() => setCurrentPage('profile')}
-        className="p-5 border-t border-white/5 bg-[#0e0e0e] hover:bg-white/5 cursor-pointer transition-colors duration-200 flex items-center space-x-3.5"
+        className="p-5 border-t border-brand-text/5 bg-brand-bg/40 hover:bg-brand-bg cursor-pointer transition-colors duration-200 flex items-center space-x-3.5"
       >
         <img
           src={profile.avatar}
           alt={profile.name}
-          className="w-10 h-10 rounded-full border border-white/10 object-cover bg-white/5"
+          className="w-10 h-10 rounded-full border border-brand-text/10 object-cover bg-white"
         />
         <div className="min-w-0 text-left">
-          <h4 className="text-sm font-bold text-white truncate tracking-wide">{profile.name}</h4>
-          <p className="text-[11px] text-[#B8B8B8] font-medium leading-tight mt-0.5">{profile.major} {profile.graduationYear}</p>
-          <p className="text-[10px] text-[#B8B8B8]/60 truncate mt-0.5">{profile.university}</p>
+          <h4 className="text-sm font-bold text-brand-text truncate tracking-wide">{profile.name}</h4>
+          <p className="text-[11px] text-brand-text-sec font-medium leading-tight mt-0.5">{profile.major} {profile.graduationYear}</p>
+          <p className="text-[10px] text-brand-text-sec/60 truncate mt-0.5">{profile.university}</p>
         </div>
       </div>
     </aside>

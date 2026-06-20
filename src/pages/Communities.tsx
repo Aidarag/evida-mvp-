@@ -6,7 +6,7 @@ import SearchBar from '../components/SearchBar';
 import { Users, Sparkles, Heart, Code, Globe, Briefcase, Activity, Palette, Sprout } from 'lucide-react';
 import Button from '../components/Button';
 
-const renderCommunityIcon = (logoKey: string, className = "w-6 h-6 text-[#FF7A1A]") => {
+const renderCommunityIcon = (logoKey: string, className = "w-6 h-6 text-[#FF7A30]") => {
   switch (logoKey) {
     case 'Code':
       return <Code className={className} />;
@@ -61,10 +61,10 @@ export const Communities: React.FC = () => {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12 fade-in pb-24 text-left select-none">
       {/* Page Header */}
       <div className="text-center max-w-2xl mx-auto space-y-3">
-        <h1 className="text-3xl sm:text-5xl font-bold text-white font-display">
+        <h1 className="text-3xl sm:text-5xl font-bold text-brand-text font-display">
           Campus Communities
         </h1>
-        <p className="text-sm sm:text-base text-[#B8B8B8] leading-relaxed font-sans">
+        <p className="text-sm sm:text-base text-brand-text-sec leading-relaxed font-sans">
           Find your crew! Join student-run clubs, design chapters, sports clubs, and creative groups.
         </p>
       </div>
@@ -72,10 +72,10 @@ export const Communities: React.FC = () => {
       {/* Featured Communities Panel (Only show when not filtering/searching) */}
       {!searchQuery && selectedCategory === 'All' && featuredComms.length > 0 && (
         <section className="space-y-6">
-          <div className="flex items-center space-x-2 border-b border-white/5 pb-3">
-            <Heart className="w-5 h-5 text-[#FF7A1A] fill-[#FF7A1A]/10" />
-            <h2 className="text-xl sm:text-2xl font-bold font-display text-white">Featured Clubs</h2>
-            <span className="bg-[#FF7A1A]/15 text-[#FF7A1A] text-[9px] font-bold px-2.5 py-0.5 rounded-full uppercase font-display tracking-wider border border-[#FF7A1A]/20">Spotlight</span>
+          <div className="flex items-center space-x-2 border-b border-brand-text/5 pb-3">
+            <Heart className="w-5 h-5 text-[#FF7A30] fill-[#FF7A30]/10" />
+            <h2 className="text-xl sm:text-2xl font-bold font-display text-brand-text">Featured Clubs</h2>
+            <span className="bg-[#FF7A30]/10 text-[#FF7A30] text-[9px] font-bold px-2.5 py-0.5 rounded-full uppercase font-display tracking-wider border border-[#FF7A30]/20">Spotlight</span>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -83,25 +83,25 @@ export const Communities: React.FC = () => {
               <div 
                 key={`featured-${comm.id}`}
                 onClick={() => handleCommunityClick(comm.id)}
-                className="bg-gradient-to-r from-[#FF7A1A]/5 to-[#E56717]/10 rounded-[2rem] p-6 border border-white/5 flex flex-col sm:flex-row gap-6 items-center cursor-pointer hover:shadow-md hover:border-[#FF7A1A]/20 transition-all duration-300 group"
+                className="bg-white bg-gradient-to-r from-[#FF7A30]/5 to-transparent rounded-[2rem] p-6 border border-brand-text/5 flex flex-col sm:flex-row gap-6 items-center cursor-pointer hover:shadow-md hover:border-[#FF7A30]/20 transition-all duration-300 group"
               >
-                <div className="w-24 h-24 rounded-2xl overflow-hidden flex-shrink-0 border border-white/10 shadow-inner bg-white/5">
+                <div className="w-24 h-24 rounded-2xl overflow-hidden flex-shrink-0 border border-brand-text/5 shadow-inner bg-brand-bg">
                   <img src={comm.image} alt={comm.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                 </div>
                 <div className="space-y-2 text-center sm:text-left flex-grow">
                   <div className="flex items-center justify-center sm:justify-start space-x-2">
-                    <div className="w-8 h-8 rounded-xl bg-[#FF7A1A]/10 flex items-center justify-center">
-                      {renderCommunityIcon(comm.logo, "w-4.5 h-4.5 text-[#FF7A1A]")}
+                    <div className="w-8 h-8 rounded-xl bg-[#FF7A30]/10 flex items-center justify-center">
+                      {renderCommunityIcon(comm.logo, "w-4.5 h-4.5 text-[#FF7A30]")}
                     </div>
-                    <h3 className="text-lg font-bold text-white font-display group-hover:text-[#FF7A1A] transition-colors">{comm.name}</h3>
+                    <h3 className="text-lg font-bold text-brand-text font-display group-hover:text-[#FF7A30] transition-colors">{comm.name}</h3>
                   </div>
-                  <p className="text-xs text-[#B8B8B8] line-clamp-2 leading-relaxed">
+                  <p className="text-xs text-brand-text-sec line-clamp-2 leading-relaxed">
                     {comm.description}
                   </p>
-                  <div className="flex items-center justify-center sm:justify-start space-x-3 pt-1 text-[11px] text-[#FF7A1A] font-bold">
+                  <div className="flex items-center justify-center sm:justify-start space-x-3 pt-1 text-[11px] text-[#FF7A30] font-bold">
                     <span>{comm.memberCount} active members</span>
                     <span>•</span>
-                    <span className="underline group-hover:text-[#E56717]">View Hub →</span>
+                    <span className="underline group-hover:text-[#E0601B]">View Hub →</span>
                   </div>
                 </div>
               </div>
@@ -129,9 +129,9 @@ export const Communities: React.FC = () => {
 
       {/* Grid of Results */}
       <section className="space-y-6">
-        <div className="flex justify-between items-center border-b border-white/5 pb-3">
-          <h2 className="text-xl sm:text-2xl font-bold font-display text-white">All Communities</h2>
-          <span className="text-xs font-semibold uppercase tracking-wider text-[#B8B8B8]/60 font-display">
+        <div className="flex justify-between items-center border-b border-brand-text/5 pb-3">
+          <h2 className="text-xl sm:text-2xl font-bold font-display text-brand-text">All Communities</h2>
+          <span className="text-xs font-semibold uppercase tracking-wider text-brand-text-sec/60 font-display">
             {filteredCommunities.length} {filteredCommunities.length === 1 ? 'club' : 'clubs'}
           </span>
         </div>
@@ -144,13 +144,13 @@ export const Communities: React.FC = () => {
           </div>
         ) : (
           /* Empty State */
-          <div className="text-center py-16 px-4 max-w-md mx-auto bg-[#111111] rounded-3xl border border-white/5 shadow-sm space-y-6">
-            <div className="w-16 h-16 rounded-full bg-white/5 mx-auto flex items-center justify-center">
-              <Users className="w-8 h-8 text-[#FF7A1A]" />
+          <div className="text-center py-16 px-4 max-w-md mx-auto bg-white rounded-3xl border border-brand-text/5 shadow-sm space-y-6">
+            <div className="w-16 h-16 rounded-full bg-brand-bg mx-auto flex items-center justify-center">
+              <Users className="w-8 h-8 text-[#FF7A30]" />
             </div>
             <div className="space-y-2">
-              <h3 className="text-xl font-bold text-white font-display">No clubs found</h3>
-              <p className="text-sm text-[#B8B8B8] leading-relaxed">
+              <h3 className="text-xl font-bold text-brand-text font-display">No clubs found</h3>
+              <p className="text-sm text-brand-text-sec leading-relaxed">
                 We couldn't find any communities matching "{searchQuery}" under the "{selectedCategory}" category.
               </p>
             </div>
@@ -162,11 +162,11 @@ export const Communities: React.FC = () => {
       </section>
 
       {/* Joining disclaimer */}
-      <div className="bg-[#111111] max-w-4xl mx-auto rounded-[2rem] p-6 border border-white/5 flex items-start space-x-4 mt-12 select-none">
-        <Sparkles className="w-6 h-6 text-[#FF7A1A] flex-shrink-0 mt-0.5" />
+      <div className="bg-[#FFF0DE] max-w-4xl mx-auto rounded-[2rem] p-6 border border-brand-text/5 flex items-start space-x-4 mt-12 select-none shadow-sm">
+        <Sparkles className="w-6 h-6 text-[#FF7A30] flex-shrink-0 mt-0.5" />
         <div className="text-left space-y-1">
-          <h4 className="font-display font-bold text-sm text-white uppercase tracking-wider">Start a Student Club</h4>
-          <p className="text-xs text-[#B8B8B8] leading-relaxed">
+          <h4 className="font-display font-bold text-sm text-brand-text uppercase tracking-wider">Start a Student Club</h4>
+          <p className="text-xs text-brand-text-sec leading-relaxed">
             Don't see your organization listed on Evida? College students can register a new official student organization in minutes. Contact student activities or request a club portal to get started!
           </p>
         </div>

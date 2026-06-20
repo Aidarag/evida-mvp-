@@ -16,11 +16,11 @@ export const Button: React.FC<ButtonProps> = ({
   const baseStyle = 'inline-flex items-center justify-center rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#FF7A1A]/50 active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none cursor-pointer';
   
   const variants = {
-    primary: 'bg-gradient-to-r from-[#FF7A1A] to-[#E56717] text-white shadow-md shadow-[#FF7A1A]/15 hover:shadow-[#FF7A1A]/30 hover:opacity-95 hover:-translate-y-0.5',
-    secondary: 'bg-[#FF7A1A]/10 text-[#FF7A1A] hover:bg-[#FF7A1A]/15 hover:-translate-y-0.5 font-bold',
-    outline: 'border-2 border-[#FF7A1A]/20 text-[#FF7A1A] hover:bg-[#FF7A1A]/5 hover:border-[#FF7A1A]/40',
-    ghost: 'text-white/80 hover:text-[#FF7A1A] hover:bg-white/5',
-    'coral-ghost': 'text-[#FF7A1A] hover:bg-[#FF7A1A]/10',
+    primary: 'bg-[#FF7A30] hover:bg-[#E0601B] text-white shadow-md shadow-[#FF7A30]/15 hover:shadow-[#FF7A30]/30 hover:-translate-y-0.5',
+    secondary: 'bg-[#FF7A30]/10 text-[#FF7A30] hover:bg-[#FF7A30]/15 hover:-translate-y-0.5 font-bold',
+    outline: 'border-2 border-[#FF7A30]/20 text-[#FF7A30] hover:bg-[#FF7A30]/5 hover:border-[#FF7A30]/40',
+    ghost: 'text-brand-text/80 hover:text-[#FF7A30] hover:bg-brand-text/5',
+    'coral-ghost': 'text-[#FF7A30] hover:bg-[#FF7A30]/10',
   };
 
   const sizes = {
